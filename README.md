@@ -1,15 +1,15 @@
-# pb-node
+# pandora-node
 node.js module for Coolux Pandora's Box SDK
 
 ## Installation
-npm install pb-node
+npm install pandora-node
 
 You will need a copy of Pandora's Box running in Manager mode with web server enabled.
 
 ## Setup
 
 ```
-var PB = require('pb-node');
+var PB = require('pandora-node');
 var options = {
     ip: '192.168.1.2', // IP address of the Pandora's Box server
     port: // Pandora's Box Server port. Default 6214

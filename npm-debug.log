@@ -58,33 +58,33 @@
 29 silly publish      email: 'justin@justinireland.com',
 29 silly publish      url: 'http://justinireland.com/' },
 29 silly publish   license: 'ISC',
-29 silly publish   readme: '# pb-node\r\nnode.js module for Coolux Pandora\'s Box SDK\r\n\r\n## Installation\r\nnpm install pb-node\r\n\r\nYou will need a copy of Pandora\'s Box running in Manager mode with web server enabled.\r\n\r\n## Usage\r\n\r\n,,,\r\nvar PB = require(\'pb-node\');\r\nvar options = {\r\n    ip: \'192.168.1.2\' // IP address of the Pandora\'s Box server\r\n    port: // Pandora\'s Box Server port. Default 6214\r\n}\r\nvar pb = new PB(options);\r\n,,,\r\n\r\n',
+29 silly publish   readme: '# pb-node\r\nnode.js module for Coolux Pandora\'s Box SDK\r\n\r\n## Installation\r\nnpm install pb-node\r\n\r\nYou will need a copy of Pandora\'s Box running in Manager mode with web server enabled.\r\n\r\n## Setup\r\n\r\n```\r\nvar PB = require(\'pb-node\');\r\nvar options = {\r\n    ip: \'192.168.1.2\', // IP address of the Pandora\'s Box server\r\n    port: // Pandora\'s Box Server port. Default 6214\r\n}\r\nvar pb = new PB(options);\r\n```\r\n\r\n## Examples\r\n\r\n```\r\n// Get the current Sequence time\r\npb.getSequenceTime(1, function(res){\r\n    console.dir(res.bytes);\r\n});\r\n\r\n// Get the opacity level of device 1.2\r\npb.getParam(1,2,\'Opacity\',function(res){\r\n    console.dir(res.bytes);\r\n});\r\n```\r\n\r\nResults are returned in an object.\r\n```\r\nres {\r\n    deliveredByteCt:    // 0\r\n    bytes:              // byte array with encoded response\r\n}\r\n```\r\n\r\n## SDK Commands\r\nSee the SDK documentation in the SDK/docs folder or the PB help file for a list of commands. Or take a look inside index.js.\r\n\r\nNote that all commands take a callback as the last parameter as opposed to the first parameter in the official SDK.\r\n',
 29 silly publish   readmeFilename: 'README.md',
-29 silly publish   gitHead: '62b9639863c62deb1eded7c5d9258a69242a30b7',
+29 silly publish   gitHead: '442aca38fbff75b8b7ecf533fd6ff4984b720cbf',
 29 silly publish   _id: 'pb-node@1.0.0',
-29 silly publish   _shasum: '7779a654780199c34327d7cfe95f300aa865e509',
+29 silly publish   _shasum: '23236670dcea849de8906c7414fc66ed5b30e36d',
 29 silly publish   _from: './' }
 30 verbose request where is /pb-node
 31 verbose request registry https://registry.npmjs.org/
-32 verbose request id dce87895d0b9a025
+32 verbose request id ab4623e4b0a1eeb2
 33 verbose url raw /pb-node
 34 verbose url resolving [ 'https://registry.npmjs.org/', './pb-node' ]
 35 verbose url resolved https://registry.npmjs.org/pb-node
 36 verbose request where is https://registry.npmjs.org/pb-node
-37 info trying registry request attempt 1 at 17:30:49
+37 info trying registry request attempt 1 at 17:42:55
 38 http PUT https://registry.npmjs.org/pb-node
 39 http 403 https://registry.npmjs.org/pb-node
 40 verbose headers { 'content-type': 'application/json',
 40 verbose headers   'cache-control': 'max-age=60',
 40 verbose headers   'content-length': '99',
 40 verbose headers   'accept-ranges': 'bytes',
-40 verbose headers   date: 'Wed, 12 Aug 2015 21:30:50 GMT',
+40 verbose headers   date: 'Wed, 12 Aug 2015 21:42:57 GMT',
 40 verbose headers   via: '1.1 varnish',
 40 verbose headers   connection: 'keep-alive',
-40 verbose headers   'x-served-by': 'cache-iad2141-IAD',
+40 verbose headers   'x-served-by': 'cache-atl6233-ATL',
 40 verbose headers   'x-cache': 'MISS',
 40 verbose headers   'x-cache-hits': '0',
-40 verbose headers   'x-timer': 'S1439415049.555558,VS0,VE1230' }
+40 verbose headers   'x-timer': 'S1439415775.879297,VS0,VE1396' }
 41 error publish Failed PUT 403
 42 error Error: You do not have permission to publish 'pb-node'. Are you logged in as the correct user? : pb-node
 42 error     at RegClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:308:14)

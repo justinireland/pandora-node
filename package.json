@@ -1,5 +1,5 @@
 {
-  "name": "pb-node",
+  "name": "pandora-node",
   "version": "1.0.0",
   "description": "node.js module for Coolux Pandora's Box",
   "main": "index.js",
@@ -15,8 +15,7 @@
   },
   "keywords": [
     "coolux",
-    "pandoras",
-    "box"
+    "pandoras box"
   ],
   "author": "Justin Ireland <justin@justinireland.com> (http://justinireland.com/)",
   "license": "ISC"
