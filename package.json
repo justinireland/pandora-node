@@ -1,5 +1,5 @@
 {
-  "name": "PB-node",
+  "name": "pb-node",
   "version": "1.0.0",
   "description": "node.js module for Coolux Pandora's Box",
   "main": "index.js",

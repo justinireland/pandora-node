@@ -9,5 +9,5 @@ pb.getSequenceTime(1, function(res){
 
 pb.getParam(1,2,'Opacity',function(res){
     console.log('getParam (Opacity): ');
-    console.dir(res.bytes);
+    console.dir(res);
 });
