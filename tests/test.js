@@ -1,4 +1,4 @@
-var PB = require('pb-node');
+var PB = require('../index.js');
 
 var pb = new PB({ip: '192.168.0.6'});
 
