@@ -1,0 +1,23 @@
+{
+  "name": "PB-node",
+  "version": "1.0.0",
+  "description": "node.js module for Coolux Pandora's Box",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "request": "^2.58.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "coolux",
+    "pandoras",
+    "box"
+  ],
+  "author": "Justin Ireland <justin@justinireland.com> (http://justinireland.com/)",
+  "license": "ISC"
+}
