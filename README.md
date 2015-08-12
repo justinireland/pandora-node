@@ -33,10 +33,12 @@ pb.getParam(1,2,'Opacity',function(res){
 ```
 
 Results are returned in an object.
+```
 res {
     deliveredByteCt:    // 0
     bytes:              // byte array with encoded response
 }
+```
 
 ### SDK Commands
 See the SDK documentation in the SDK/docs folder or the PB help file for a list of commands. Or take a look inside index.js.
