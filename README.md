@@ -7,6 +7,7 @@ npm install pb-node
 You will need a copy of Pandora's Box running in Manager mode with web server enabled.
 
 ## Usage
+
 ,,,
 var PB = require('pb-node');
 var options = {
@@ -15,3 +16,4 @@ var options = {
 }
 var pb = new PB(options);
 ,,,
+
