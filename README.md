@@ -22,7 +22,9 @@ var options = {
 var pb = new PB(options);
 ```
 
-## Examples
+## Usage
+See the API reference for a list of all methods.
+https://github.com/justinireland/pandora-node/wiki/API-Reference
 
 ```
 // Get the current Sequence time
@@ -44,7 +46,3 @@ res {
 }
 ```
 
-## SDK Commands
-See the SDK documentation in the SDK/docs folder or the PB help file for a list of commands. Or take a look inside index.js.
-
-Note that all commands take a callback as the last parameter as opposed to the first parameter in the official SDK.

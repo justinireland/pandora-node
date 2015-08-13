@@ -2,6 +2,155 @@ var net = require('net');
 var http = require('http');
 var request = require('request');
 
+var debug = true;
+
+var eAutoCmdArray = [
+    'eAutoCmdNone',
+    '',
+    'eAutoCmdAssignResource',
+    'eAutoCmdSetSequenceTransportMode',
+    'eAutoCmdMoveSequenceToCue',
+    'eAutoCmdMoveSequenceToTime',
+    'eAutoCmdMoveSequenceToLastNextFrame',
+    'eAutoCmdMoveSequenceToLastNextCue',
+    'eAutoCmdSetSequenceTransparency',
+    'eAutoCmdResetAll',
+    'eAutoCmdResetSite',
+    'eAutoCmdResetDevice',
+    'eAutoCmdResetParam',
+    'eAutoCmdClearAllActive',
+    'eAutoCmdClearActiveSite',
+    'eAutoCmdClearActiveDevice',
+    'eAutoCmdClearActiveParam',
+    'eAutoCmdToggleFullscreen',
+    'eAutoCmdSetParamRelative',
+    'eAutoCmdAddContent',
+    'eAutoCmdRemoveMediaById',
+    'eAutoCmdRemoveMeshById',
+    'eAutoCmdSpreadAll',
+    'eAutoCmdSpreadMediaById',
+    'eAutoCmdSpreadMeshById',
+    'eAutoCmdStoreActive',
+    'eAutoCmdStoreActiveToTime',
+    'eAutoCmdSetMediaFrameBlendingById',
+    'eAutoCmdSetMediaDeinterlacingById',
+    'eAutoCmdSetMediaAnisotropicFilteringById',
+    'eAutoCmdSetMediaUnderscanById',
+    'eAutoCmdSetMediaMpegColourSpaceById',
+    'eAutoCmdSetMediaAlphaChannelById',
+    'eAutoCmdSetText',
+    'eAutoCmdRemoveInconsistent',
+    'eAutoCmdActivateAll',
+    'eAutoCmdActivateSite',
+    'eAutoCmdActivateDevice',
+    'eAutoCmdActivateParam',
+    'eAutoCmdSetParamOfKind',
+    'eAutoCmdApplyPreset',
+    'eAutoCmdSetSequenceTimeCodeMode',
+    'eAutoCmdSetSequenceTimeCodeOffset',
+    'eAutoCmdSetSequenceTimeCodeStopAction',
+    'eAutoCmdReloadMediaById',
+    'eAutoCmdReloadMeshById',
+    'eAutoCmdLoadProject',
+    'eAutoCmdCloseProject',
+    'eAutoCmdClearSelection',
+    'eAutoCmdSetDeviceAcceptDmxById',
+    'eAutoCmdSetSiteAcceptDmxById',
+    'eAutoCmdSetDeviceDmxAddressById',
+    'eAutoCmdAddTextInput',
+    'eAutoCmdSetCuePlayMode',
+    'eAutoCmdSetNextCuePlayMode',
+    'eAutoCmdIgnoreNextCue',
+    'eAutoCmdSetContentAtTime',
+    'eAutoCmdSetChannelEvents',
+    'eAutoCmdSetParamInSelection',
+    'eAutoCmdSetParamOfKindInSelection',
+    'eAutoCmdSetParamRelativeInSelection',
+    'eAutoCmdAssignResourceToSelection',
+    'eAutoCmdSaveProject',
+    'eAutoCmdAddContentFromLocalNode',
+    'eAutoCmdChangeFullscreenStateById',
+    'eAutoCmdChangeFullscreenStateByIp',
+    'eAutoCmdSetTextTextureSize',
+    'eAutoCmdSetTextProperties',
+    'eAutoCmdSetTextCenterOnTexture',
+    'eAutoCmdAddTextInputWide',
+    'eAutoCmdSetTextWide',
+    'eAutoCmdSetSiteIp',
+    'eAutoCmdGetSequenceTransportMode',
+    'eAutoCmdGetSequenceNowTime',
+    'eAutoCmdIsLayerSelected',
+    'eAutoCmdGetAllSelectedLayers',
+    'eAutoCmdGetAllMediaInProject',
+    'eAutoCmdGetClipRemainingTime',
+    'eAutoCmdGetRemainingTimeUntilNextCue',
+    'eAutoCmdGetParamValue',
+    'eAutoCmdGetParamKindValue',
+    'eAutoCmdGetNumSelectedLayers',
+    'eAutoCmdGetNumMediaInProject',
+    'eAutoCmdAddFolderToProject',
+    'eAutoCmdSetParamDouble',
+    'eAutoCmdSetParamOfKindDouble',
+    'eAutoCmdSetDeviceSelection',
+    'eAutoCmdAddContentToFolder',
+    'eAutoCmdSetClxPlaybackFader',
+    'eAutoCmdGetSequenceTransparency',
+    'eAutoCmdSetClxCueMapping',
+    'eAutoCmdAddCue',
+    'eAutoCmdRemoveCueById',
+    'eAutoCmdRemoveAllCues',
+    'eAutoCmdAddGraphicLayer',
+    'eAutoCmdRemoveGraphicLayer',
+    'eAutoCmdSetParamRelativeDouble',
+    'eAutoCmdSetParamInSelectionDouble',
+    'eAutoCmdSetParamOfKindInSelectionDouble',
+    'eAutoCmdSetParamRelativeInSelectionDouble',
+    'eAutoCmdBackupMode',
+    'eAutoCmdApplyView',
+    'eAutoCmdSetSpareFromSpread',
+    'eAutoCmdGetParamMedia',
+    'eAutoCmdGetParamObject',
+    'eAutoCmdAddMediaIncrementID',
+    'eAutoCmdGetMediaTransportMode',
+    'eAutoCmdIsSiteConnected',
+    'eAutoCmdAddVideoLayer',
+    'eAutoCmdMoveLayerUp',
+    'eAutoCmdMoveLayerDown',
+    'eAutoCmdMoveLayerToFirstPosition',
+    'eAutoCmdMoveLayerToLastPosition',
+    'eAutoCmdSetParamArrayBytes',
+    'eAutoCmdGetClxControllerIsEnabled',
+    'eAutoCmdSetClxControllerIsEnabled',
+    'eAutoCmdSetSequenceCueWaitTime',
+    'eAutoCmdSetSequenceCueJumpTargetTime',
+    'eAutoCmdSetSequenceCueJumpCount',
+    'eAutoCmdResetSequenceCueTriggerCount',
+    'eAutoCmdAddFolderToProjectWithPath',
+    'eAutoCmdRemoveFolderFromProject',
+    'eAutoCmdAddContentFolder',
+    'eAutoCmdRemoveContentByName',
+    'eAutoCmdRemoveAllContent',
+    'eAutoCmdGetContentIsConsistent',
+    'eAutoCmdGetContentIsConsistentByName',
+    'eAutoCmdAssignResourceByName',
+    'eAutoCmdCreateSequence',
+    'eAutoCmdRemoveSequence',
+    'eAutoCmdGetParamByteTuples',
+    'eAutoCmdAddContentFolderFromLocalNode',
+    'eAutoCmdAddContentFolderFromLocalNodeToFolder',
+    'eAutoCmdAddContentFromLocalNodeToFolder',
+    'eAutoCmdSendMouseInput',
+    'eAutoCmdSendKeyboardInput',
+    'eAutoCmdSetShowCursorInFullscreen',
+    'eAutoCmdSetBrowserURL',
+    'eAutoCmdSetBrowserURLByName',
+    'eAutoCmdRefreshBrowserView',
+    'eAutoCmdSetBrowserSize',
+    'eAutoCmdSetBrowserSizeByName',
+    'eAutoCmdMoveContentToFolder',
+    'eAutoCmdSetNodeOfSiteIsAudioClockMaster'
+];
+
 var eAutoCmdError =  -1;
 var eAutoCmdNone = 0;
 var eAutoCmdAssignResource = 2;
@@ -605,68 +754,180 @@ function PB(options) {
     pbHost =  options.ip;
     pbPort = typeof options.port !== 'undefined' ? port : 6214;
 }
-PB.prototype.getNumSelectedLayers = function(callback) {
+
+PB.prototype.activateDevice = function(siteNum, deviceNum, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdGetNumSelectedLayers);
-    sendToHost(message, callback);
+    message.addShort(eAutoCmdActivateDevice);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.getContentIsConsistent = function(FolderId, FileId, callback) {
+PB.prototype.activateParam = function(siteNum, deviceNum, pParamName, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdGetContentIsConsistent);
+    message.addShort(eAutoCmdActivateParam);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    message.addStringNarrow(pParamName);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.activateSite = function (siteNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdActivateSite);
+    message.addInt(siteNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.addContent = function(pFullPath, siteNum, FolderId, FileId, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdAddContent);
+    message.addStringNarrow(pFullPath);
+    message.addInt(siteNum);
     message.addInt(FolderId);
     message.addInt(FileId);
-    this.sendToHost(message, callback);
+    message.addBoolean(false);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.getEnableClxController = function(forJogShuttle, callback) {
+PB.prototype.addContentFolderFromLocalNode = function(pFolderPath, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdGetClxControllerIsEnabled);
-    message.addBoolean(forJogShuttle);
-    sendToHost(message, callback);
+    message.addShort(eAutoCmdAddContentFolderFromLocalNode);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.isSiteConnected = function(siteNum, callback) {
+PB.prototype.addContentFolderFromLocalNodeToFolder = function(pFolderPath, pFoldername, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdIsSiteConnected);
+    message.addShort(eAutoCmdAddContentFolderFromLocalNodeToFolder);
+    message.addStringNarrow(pFolderPath);
+    message.addStringNarrow(pFoldername);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.addContentFromLocalNode = function(pFullPath, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdAddContentFromLocalNode);
+    message.addStringNarrow(pFullPath);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.addContentFromLocalNodeToFolder = function(pFullPath, pFoldername, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdAddContentFromLocalNodeToFolder);
+    message.addStringNarrow(pFullPath);
+    message.addStringNarrow(pFoldername);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.addContentToFolder = function(pFullPath, siteNum, FolderId, FileId, pFoldername, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdAddContentToFolder);
+    message.addStringNarrow(pFullPath);
     message.addInt(siteNum);
-    sendToHost(message, callback);
+    message.addInt(FolderId);
+    message.addInt(FileId);
+    message.addStringNarrow(pFoldername);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.getMediaTransportMode = function(siteNum, deviceNum, callback) {
+PB.prototype.addLayer = function(siteId, isGraphicLayer, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdGetMediaTransportMode);
+    message.addShort(inCmd);
+    message.addInt(siteId);
+    message.addBoolean(isGraphicLayer);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.addMediaIncrementID = function(pMediaPath, siteNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdAddContent);
+    message.addStringNarrow(pMediaPath);
     message.addInt(siteNum);
-    message.addInt(deviceNum);
-    sendToHost(message, callback);
+    message.addInt(0);
+    message.addInt(0);
+    message.addBoolean(true);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.getRemainingTimeUntilNextCue = function(seqNum, callback) {
+PB.prototype.applyPreset = function(bankNum, presetNum, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdGetRemainingTimeUntilNextCue);
-    message.addInt(seqNum);
-    sendToHost(message, callback);
+    message.addShort(eAutoCmdApplyPreset);
+    message.addInt(bankNum);
+    message.addInt(presetNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.getClipRemainingTime = function(siteNum, deviceNum, seqNum, callback) {
+PB.prototype.applyView = function(viewNum, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdGetClipRemainingTime);
-    message.addInt(siteNum);
-    message.addInt(deviceNum);
-    message.addInt(seqNum);
-    sendToHost(message, callback);
-};
-PB.prototype.getSequenceTransportMode = function(seqNum, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdGetSequenceTransportMode);
-    message.addInt(seqNum);
-    sendToHost(message, callback);
-};
-PB.prototype.getSequenceTime = function (seqNum, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdGetSequenceNowTime);
-    message.addInt(seqNum);
-    sendToHost(message, callback);
-};
-PB.prototype.getSequenceTransparency = function(seqNum, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdGetSequenceTransparency);
-    message.addInt(seqNum);
-    sendToHost(message,callback);
+    message.addShort(eAutoCmdApplyView);
+    message.addInt(viewNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
 PB.prototype.assignResource = function(siteNum, deviceNum, FolderId, FileId, forMesh, callback) {
     var message = new PBUtilBytesNetwork();
@@ -676,20 +937,207 @@ PB.prototype.assignResource = function(siteNum, deviceNum, FolderId, FileId, for
     message.addInt(FolderId);
     message.addInt(FileId);
     message.addByte(forMesh);
-    sendToHost(message,callback);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.isLayerReallySelected = function(siteNum, deviceNum, callback) {
+PB.prototype.assignResourceToSelection = function(FolderId, FileId, forMesh, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdIsLayerSelected);
+    message.addShort(eAutoCmdAssignResourceToSelection);
+    message.addInt(FolderId);
+    message.addInt(FileId);
+    message.addByte(forMesh);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.backupMode = function(enable, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdBackupMode);
+    message.addBoolean(enable);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.changeFullscreenStateById = function(siteNum, enterFullscreen, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdChangeFullscreenStateById);
+    message.addInt(siteNum);
+    message.addByte(enterFullscreen);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.changeFullscreenStateByIp = function(pIp, enterFullscreen, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdChangeFullscreenStateByIp);
+    message.addStringNarrow(pIp);
+    message.addByte(enterFullscreen);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.clearActiveDevice = function(siteNum, deviceNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdClearActiveDevice);
     message.addInt(siteNum);
     message.addInt(deviceNum);
-    sendToHost(message,callback);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.getSelectedLayer = function(layerIndex, callback) {
+PB.prototype.clearActiveParam = function(siteNum, deviceNum, pParamName, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdGetAllSelectedLayers);
-    message.addInt(layerIndex);
-    sendToHost(message,callback);
+    message.addShort(eAutoCmdClearActiveParam);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    message.addStringNarrow(pParamName);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.clearActiveSite = function (siteNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdClearActiveSite);
+    message.addInt(siteNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.closeProject = function(save, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdCloseProject);
+    message.addByte(save);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.createTextInput = function(FolderId, FileId, pText, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdAddTextInput);
+    message.addInt(FolderId);
+    message.addInt(FileId);
+    message.addStringNarrow(pText);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.createTextInputWide = function(dmxFolderId, dmxId, pText, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdAddTextInputWide);
+    message.addInt(dmxFolderId);
+    message.addInt(dmxId);
+    message.addStringWide(pText);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.getClipRemainingTime = function(siteNum, deviceNum, seqNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdGetClipRemainingTime);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    message.addInt(seqNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.getContentIsConsistent = function(FolderId, FileId, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdGetContentIsConsistent);
+    message.addInt(FolderId);
+    message.addInt(FileId);
+    this.sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.getEnableClxController = function(forJogShuttle, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdGetClxControllerIsEnabled);
+    message.addBoolean(forJogShuttle);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.getMediaTransportMode = function(siteNum, deviceNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdGetMediaTransportMode);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.getNumSelectedLayers = function(callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdGetNumSelectedLayers);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
 PB.prototype.getParam = function(siteNum, deviceNum, paramName, callback) {
     var message = new PBUtilBytesNetwork();
@@ -697,7 +1145,13 @@ PB.prototype.getParam = function(siteNum, deviceNum, paramName, callback) {
     message.addInt(siteNum);
     message.addInt(deviceNum);
     message.addStringNarrow(paramName);
-    sendToHost(message,callback);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
 PB.prototype.getParamOfKind = function(siteNum, deviceNum, paramKindId, callback) {
     var message = new PBUtilBytesNetwork();
@@ -705,79 +1159,552 @@ PB.prototype.getParamOfKind = function(siteNum, deviceNum, paramKindId, callback
     message.addInt(siteNum);
     message.addInt(deviceNum);
     message.addInt(paramKindId);
-    sendToHost(message,callback);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.setParam = function(siteNum, deviceNum, pParamName, value, silent, direct, callback) {
+PB.prototype.getParamResource = function(siteNum, deviceNum, pParamName, pInfo, isMedia, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetParam);
+    message.addShort(eAutoCmdGetParamMedia);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    message.addBoolean(isMedia);
+    message.addStringNarrow(ParamName);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.getRemainingTimeUntilNextCue = function(seqNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdGetRemainingTimeUntilNextCue);
+    message.addInt(seqNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.getSelectedLayer = function(layerIndex, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdGetAllSelectedLayers);
+    message.addInt(layerIndex);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.getSequenceTime = function (seqNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdGetSequenceNowTime);
+    message.addInt(seqNum);
+
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.getSequenceTransparency = function(seqNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdGetSequenceTransparency);
+    message.addInt(seqNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.getSequenceTransportMode = function(seqNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdGetSequenceTransportMode);
+    message.addInt(seqNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.getThumbnailByItemIndex = function(itemIndex, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdMoveLayerDown);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.isLayerReallySelected = function(siteNum, deviceNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdIsLayerSelected);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.isSiteConnected = function(siteNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdIsSiteConnected);
+    message.addInt(siteNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.loadProject = function(pPath, pName, saveExisting, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdLoadProject);
+    message.addStringNarrow(pPath);
+    message.addStringNarrow(pName);
+    message.addByte(saveExisting);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.moveLayer = function(siteNum, deviceNum, moveTypeCmd, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(moveTypeCmd);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.moveLayerDown = function(siteNum, deviceNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdMoveLayerDown);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.moveLayerUp = function(siteNum, deviceNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdMoveLayerUp);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.moveResourceToFolder = function(pResName, pFolderName, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdMoveContentToFolder);
+    message.addStringWide(pResName);
+    message.addStringWide(pFolderName);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.moveSequenceToLastNextCue = function(seqNum, isNext, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdMoveSequenceToLastNextCue);
+    message.addInt(seqNum);
+    message.addByte(isNext);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.moveSequenceToLastNextFrame = function(seqNum, isNext, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdMoveSequenceToLastNextFrame);
+    message.addInt(seqNum);
+    message.addByte(isNext);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.moveSequenceToTime = function(seqNum, hours, minutes, seconds, frames, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdMoveSequenceToTime);
+    message.addInt(seqNum);
+    message.addInt(hours);
+    message.addInt(minutes);
+    message.addInt(seconds);
+    message.addInt(frames);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.refreshBrowserView = function(siteNum, deviceNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdRefreshBrowserView);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.reloadMediaById = function(FolderId, FileId, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdReloadMediaById);
+    message.addInt(FolderId);
+    message.addInt(FileId);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.reloadMeshById = function(FolderId, FileId, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdReloadMeshById);
+    message.addInt(FolderId);
+    message.addInt(FileId);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.removeAllCues = function(seqNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdRemoveAllCues);
+    message.addInt(seqNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.removeAllResources = function(removeFolder, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdRemoveAllContent);
+    message.addBoolean(removeFolder);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.removeCueById = function(seqNum, cueId, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdRemoveCueById);
+    message.addInt(seqNum);
+    message.addInt(cueId);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.removeLayer = function(siteId, layerId, isGraphicLayer, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdRemoveGraphicLayer);
+    message.addInt(siteId);
+    message.addInt(layerId);
+    message.addBoolean(isGraphicLayer);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.removeMediaById = function(FolderId, FileId, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdRemoveMediaById);
+    message.addInt(FolderId);
+    message.addInt(FileId);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.removeMeshById = function(FolderId, FileId, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdRemoveMeshById);
+    message.addInt(FolderId);
+    message.addInt(FileId);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.removeSequence = function(seqNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdRemoveSequence);
+    message.addInt(seqNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.resetDevice = function(siteNum, deviceNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdResetDevice);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.resetParam = function(siteNum, deviceNum, pParamName, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdResetParam);
     message.addInt(siteNum);
     message.addInt(deviceNum);
     message.addStringNarrow(pParamName);
-    message.addInt(value);
-    message.addBoolean(silent);
-    message.addBoolean(direct);
-    sendToHost(message,callback);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.setParamDouble = function(siteNum, deviceNum, pParamName, value, silent, direct, callback) {
+PB.prototype.resetSequenceCueTriggerCount = function(seqNum, cueId, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetParamDouble);
+    message.addShort(eAutoCmdResetSequenceCueTriggerCount);
+    message.addInt(seqNum);
+    message.addInt(cueId);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.resetSite = function(siteNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdResetSite);
     message.addInt(siteNum);
-    message.addInt(deviceNum);
-    message.addStringNarrow(pParamName);
-    message.addDouble(value);
-    message.addBoolean(silent);
-    message.addBoolean(direct);
-    sendToHost(message,callback);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.setParamOfKind = function(siteNum, deviceNum, paramKindId, value, silent, direct, callback) {
+PB.prototype.sendCommandWithoutParam = function(command, waitForAnswer, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetParamOfKind);
+    message.addShort(command);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.sendKeyboardInput = function(siteNum, eventType, keyCode, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSendKeyboardInput);
     message.addInt(siteNum);
-    message.addInt(deviceNum);
-    message.addInt(paramKindId);
-    message.addInt(value);
-    message.addBoolean(silent);
-    message.addBoolean(direct);
-    sendToHost(message,callback);
+    message.addInt(eventType);
+    message.addInt(keyCode);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.setParamOfKindDouble = function(siteNum, deviceNum, paramKindId, value, silent, direct, callback) {
+PB.prototype.sendMediaInfoQuery = function(index, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetParamOfKindDouble);
+    message.addShort(eAutoCmdGetAllMediaInProject);
+    message.addInt(index);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.sendMouseInput = function(siteNum, eventType, screenPosX, screenPosY, screenWidth, screenHeight, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSendMouseInput);
     message.addInt(siteNum);
-    message.addInt(deviceNum);
-    message.addInt(paramKindId);
-    message.addDouble(value);
-    message.addBoolean(silent);
-    message.addBoolean(direct);
-    sendToHost(message,callback);
+    message.addInt(eventType);
+    message.addInt(screenPosX);
+    message.addInt(screenPosY);
+    message.addInt(screenWidth);
+    message.addInt(screenHeight);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.setParamInSelection = function(pParamName, value, callback) {
+PB.prototype.setBrowserSize = function(dmxFolderId, dmxId, width, height, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetParamInSelection);
-    message.addStringNarrow(pParamName);
-    message.addInt(value);
-    sendToHost(message,callback);
+    message.addShort(eAutoCmdSetBrowserSize);
+    message.addInt(dmxFolderId);
+    message.addInt(dmxId);
+    message.addInt(width);
+    message.addInt(height);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.setParamInSelectionDouble = function(pParamName, value, callback) {
+PB.prototype.setBrowserSizeByName = function(pProjectPath, width, height, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetParamInSelectionDouble);
-    message.addStringNarrow(pParamName);
-    message.addDouble(value);
-    sendToHost(message,callback);
+    message.addShort(eAutoCmdSetShowCursorInFullscreen);
+    message.addStringWide(pProjectPath);
+    message.addInt(width);
+    message.addInt(height);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.setParamOfKindInSelection = function(paramKindId, value, callback) {
+PB.prototype.setBrowserURL = function(dmxFolderId, dmxId, pURL, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetParamInSelection);
-    message.addInt(paramKindId);
-    message.addInt(value);
-    sendToHost(message,callback);
+    message.addShort(eAutoCmdSetBrowserURL);
+    message.addInt(dmxFolderId);
+    message.addInt(dmxId);
+    message.addStringWide(pURL);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.setParamOfKindInSelectionDouble = function(paramKindId, value, callback) {
+PB.prototype.setBrowserURLByName = function(pProjectPath, pURL, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetParamOfKindInSelectionDouble);
-    message.addInt(paramKindId);
-    message.addDouble(value);
-    sendToHost(message,callback);
+    message.addShort(eAutoCmdSetBrowserURLByName);
+    message.addStringWide(pProjectPath);
+    message.addStringWide(pURL);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setClxControllerCueMapping = function(cueBtnId, seqNum, cueId, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetClxCueMapping);
+    message.addInt(cueBtnId);
+    message.addInt(seqNum);
+    message.addInt(cueId);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setClxControllerFaderMapping = function(faderId, seqNum, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetClxPlaybackFader);
+    message.addInt(faderId);
+    message.addInt(seqNum);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
 PB.prototype.setContentAtTime = function(siteNum, deviceNum, seqNum, hours, minutes, seconds, frames, FolderId, FileId, callback) {
     var message = new PBUtilBytesNetwork();
@@ -791,22 +1718,486 @@ PB.prototype.setContentAtTime = function(siteNum, deviceNum, seqNum, hours, minu
     message.addInt(frames);
     message.addInt(FolderId);
     message.addInt(FileId);
-    sendToHost(message,callback);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.applyPreset = function(bankNum, presetNum, callback) {
+PB.prototype.setCuePlayMode = function(seqNum, cueId, playMode, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdApplyPreset);
-    message.addInt(bankNum);
-    message.addInt(presetNum);
-    sendToHost(message,callback);
+    message.addShort(eAutoCmdSetCuePlayMode);
+    message.addInt(seqNum);
+    message.addInt(cueId);
+    message.addInt(playMode);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.assignResourceToSelection = function(FolderId, FileId, forMesh, callback) {
+PB.prototype.setDeviceAcceptDmxById = function(siteNum, deviceNum, acceptDmx, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdAssignResourceToSelection);
+    message.addShort(eAutoCmdSetDeviceAcceptDmxById);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    message.addByte(acceptDmx);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setDeviceDmxAddressById = function(siteNum, deviceNum, index, id1, id2, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetDeviceDmxAddressById);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    message.addInt(index);
+    message.addInt(id1);
+    message.addInt(id2);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setDeviceSelection = function(siteNum, deviceNum, selectionMode, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetDeviceSelection);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    message.addInt(selectionMode);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setEnableClxController = function(forJogShuttle, enable, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetClxControllerIsEnabled);
+    message.addBoolean(forJogShuttle);
+    message.addBoolean(enable);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setIgnoreNextCue = function(seqNum, doIgnore, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdIgnoreNextCue);
+    message.addInt(seqNum);
+    message.addByte(doIgnore);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setMediaAlphaChannelById = function(FolderId, FileId, useAlphaChannel, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetMediaAlphaChannelById);
     message.addInt(FolderId);
     message.addInt(FileId);
-    message.addByte(forMesh);
-    sendToHost(message,callback);
+    message.addByte(useAlphaChannel);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setMediaAnisotropicFilteringById = function(FolderId, FileId, useFiltering, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetMediaAnisotropicFilteringById);
+    message.addInt(FolderId);
+    message.addInt(FileId);
+    message.addByte(useFiltering);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setMediaDeinterlacingById = function(FolderId, FileId, deinterlacer, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetMediaDeinterlacingById);
+    message.addInt(FolderId);
+    message.addInt(FileId);
+    message.addInt(deinterlacer);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setMediaFrameBlendingById = function(FolderId, FileId, frameBlended, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetMediaFrameBlendingById);
+    message.addInt(FolderId);
+    message.addInt(FileId);
+    message.addByte(frameBlended);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setMediaMpegColourSpaceById = function(FolderId, FileId, useMpegColourSpace, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetMediaMpegColourSpaceById);
+    message.addInt(FolderId);
+    message.addInt(FileId);
+    message.addByte(useMpegColourSpace);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setMediaUnderscanById = function(FolderId, FileId, useUnderscan, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetMediaUnderscanById);
+    message.addInt(FolderId);
+    message.addInt(FileId);
+    message.addByte(useUnderscan);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setNextCuePlayMode = function(seqNum, playMode, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetNextCuePlayMode);
+    message.addInt(seqNum);
+    message.addInt(playMode);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setNodeOfSiteIsAudioClockMaster = function(siteNum, isMaster, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetNodeOfSiteIsAudioClockMaster);
+    message.addInt(siteNum);
+    message.addBoolean(isMaster);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setParam = function(siteNum, deviceNum, pParamName, value, silent, direct, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetParam);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    message.addStringNarrow(pParamName);
+    message.addInt(value);
+    message.addBoolean(silent);
+    message.addBoolean(direct);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setParamDouble = function(siteNum, deviceNum, pParamName, value, silent, direct, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetParamDouble);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    message.addStringNarrow(pParamName);
+    message.addDouble(value);
+    message.addBoolean(silent);
+    message.addBoolean(direct);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setParamInSelection = function(pParamName, value, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetParamInSelection);
+    message.addStringNarrow(pParamName);
+    message.addInt(value);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setParamInSelectionDouble = function(pParamName, value, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetParamInSelectionDouble);
+    message.addStringNarrow(pParamName);
+    message.addDouble(value);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setParamOfKind = function(siteNum, deviceNum, paramKindId, value, silent, direct, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetParamOfKind);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    message.addInt(paramKindId);
+    message.addInt(value);
+    message.addBoolean(silent);
+    message.addBoolean(direct);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setParamOfKindDouble = function(siteNum, deviceNum, paramKindId, value, silent, direct, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetParamOfKindDouble);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    message.addInt(paramKindId);
+    message.addDouble(value);
+    message.addBoolean(silent);
+    message.addBoolean(direct);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setParamOfKindInSelection = function(paramKindId, value, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetParamInSelection);
+    message.addInt(paramKindId);
+    message.addInt(value);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setParamOfKindInSelectionDouble = function(paramKindId, value, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetParamOfKindInSelectionDouble);
+    message.addInt(paramKindId);
+    message.addDouble(value);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setParamRelative = function(siteNum, deviceNum, pParamName, value, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetParamRelative);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    message.addStringNarrow(pParamName);
+    message.addInt(value);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setParamRelativeDouble = function(siteNum, deviceNum, pParamName, value, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetParamRelativeDouble);
+    message.addInt(siteNum);
+    message.addInt(deviceNum);
+    message.addStringNarrow(pParamName);
+    message.addDouble(value);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setParamRelativeInSelection = function(pParamName, value, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetParamRelativeInSelection);
+    message.addStringNarrow(pParamName);
+    message.addInt(value);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setParamRelativeInSelectionDouble = function(pParamName, value, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetParamRelativeInSelectionDouble);
+    message.addStringNarrow(pParamName);
+    message.addDouble(value);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setSequenceCueJumpCount = function(seqNum, cueId, jumpCount, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetSequenceCueJumpCount);
+    message.addInt(seqNum);
+    message.addInt(cueId);
+    message.addInt(jumpCount);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setSequenceCueJumpTargetTime = function(seqNum, cueId, hours, minutes, seconds, frames, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetSequenceCueJumpTargetTime);
+    message.addInt(seqNum);
+    message.addInt(cueId);
+    message.addInt(hours);
+    message.addInt(minutes);
+    message.addInt(seconds);
+    message.addInt(frames);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setSequenceCueWaitTime = function(seqNum, cueId, hours, minutes, seconds, frames, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetSequenceCueWaitTime);
+    message.addInt(seqNum);
+    message.addInt(cueId);
+    message.addInt(hours);
+    message.addInt(minutes);
+    message.addInt(seconds);
+    message.addInt(frames);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setSequenceTimeCodeMode = function(seqNum, timeCodeMode, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetSequenceTimeCodeMode);
+    message.addInt(seqNum);
+    message.addInt(timeCodeMode);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setSequenceTimeCodeOffset = function(seqNum, hours, minutes, seconds, frames, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetSequenceTimeCodeOffset);
+    message.addInt(seqNum);
+    message.addInt(hours);
+    message.addInt(minutes);
+    message.addInt(seconds);
+    message.addInt(frames);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setSequenceTimeCodeStopAction = function(seqNum, stopAction, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetSequenceTimeCodeStopAction);
+    message.addInt(seqNum);
+    message.addInt(stopAction);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
+};
+PB.prototype.setSequenceTransparency = function(seqNum, transparency, callback) {
+    var message = new PBUtilBytesNetwork();
+    message.addShort(eAutoCmdSetSequenceTransparency);
+    message.addInt(seqNum);
+    message.addInt(transparency);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
 PB.prototype.setSequenceTransportMode = function(seqNum, pModeName, callback) {
     var modeNum;
@@ -827,328 +2218,65 @@ PB.prototype.setSequenceTransportMode = function(seqNum, pModeName, callback) {
     message.addShort(eAutoCmdSetSequenceTransportMode);
     message.addInt(seqNum);
     message.addInt(modeNum);
-    sendToHost(message,callback);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.moveSequenceToTime = function(seqNum, hours, minutes, seconds, frames, callback) {
+PB.prototype.setSiteAcceptDmxById = function(siteNum, acceptDmx, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdMoveSequenceToTime);
-    message.addInt(seqNum);
-    message.addInt(hours);
-    message.addInt(minutes);
-    message.addInt(seconds);
-    message.addInt(frames);
-    sendToHost(message,callback);
-};
-PB.prototype.moveSequenceToLastNextFrame = function(seqNum, isNext, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdMoveSequenceToLastNextFrame);
-    message.addInt(seqNum);
-    message.addByte(isNext);
-    sendToHost(message,callback);
-};
-PB.prototype.moveSequenceToLastNextCue = function(seqNum, isNext, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdMoveSequenceToLastNextCue);
-    message.addInt(seqNum);
-    message.addByte(isNext);
-    sendToHost(message,callback);
-};
-PB.prototype.setSequenceTransparency = function(seqNum, transparency, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetSequenceTransparency);
-    message.addInt(seqNum);
-    message.addInt(transparency);
-    sendToHost(message,callback);
-};
-PB.prototype.setSequenceTimeCodeMode = function(seqNum, timeCodeMode, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetSequenceTimeCodeMode);
-    message.addInt(seqNum);
-    message.addInt(timeCodeMode);
-    sendToHost(message,callback);
-};
-PB.prototype.setSequenceTimeCodeOffset = function(seqNum, hours, minutes, seconds, frames, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetSequenceTimeCodeOffset);
-    message.addInt(seqNum);
-    message.addInt(hours);
-    message.addInt(minutes);
-    message.addInt(seconds);
-    message.addInt(frames);
-    sendToHost(message,callback);
-};
-PB.prototype.setSequenceTimeCodeStopAction = function(seqNum, stopAction, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetSequenceTimeCodeStopAction);
-    message.addInt(seqNum);
-    message.addInt(stopAction);
-    sendToHost(message,callback);
-};
-PB.prototype.resetSite = function(siteNum, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdResetSite);
+    message.addShort(eAutoCmdSetSiteAcceptDmxById);
     message.addInt(siteNum);
-    sendToHost(message,callback);
+    message.addByte(acceptDmx);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.resetDevice = function(siteNum, deviceNum, callback) {
+PB.prototype.setSiteIpById = function(siteNum, pIp, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdResetDevice);
+    message.addShort(eAutoCmdSetSiteIp);
     message.addInt(siteNum);
-    message.addInt(deviceNum);
-    sendToHost(message,callback);
+    message.addStringNarrow(pIp);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.resetParam = function(siteNum, deviceNum, pParamName, callback) {
+PB.prototype.setShowCursorInFullscreen = function(siteNum, showCursor, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdResetParam);
+    message.addShort(eAutoCmdSetShowCursorInFullscreen);
     message.addInt(siteNum);
-    message.addInt(deviceNum);
-    message.addStringNarrow(pParamName);
-    sendToHost(message,callback);
+    message.addBoolean(showCursor);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.activateSite = function (siteNum, callback) {
+PB.prototype.setSpareFromSpread = function(siteId, spareFromSpread, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdActivateSite);
-    message.addInt(siteNum);
-    sendToHost(message,callback);
-};
-PB.prototype.activateDevice = function(siteNum, deviceNum, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdActivateDevice);
-    message.addInt(siteNum);
-    message.addInt(deviceNum);
-    sendToHost(message,callback);
-};
-PB.prototype.activateParam = function(siteNum, deviceNum, pParamName, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdActivateParam);
-    message.addInt(siteNum);
-    message.addInt(deviceNum);
-    message.addStringNarrow(pParamName);
-    sendToHost(message,callback);
-};
-PB.prototype.clearActiveSite = function (siteNum, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdClearActiveSite);
-    message.addInt(siteNum);
-    sendToHost(message,callback);
-};
-PB.prototype.clearActiveDevice = function(siteNum, deviceNum, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdClearActiveDevice);
-    message.addInt(siteNum);
-    message.addInt(deviceNum);
-    sendToHost(message,callback);
-};
-PB.prototype.clearActiveParam = function(siteNum, deviceNum, pParamName, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdClearActiveParam);
-    message.addInt(siteNum);
-    message.addInt(deviceNum);
-    message.addStringNarrow(pParamName);
-    sendToHost(message,callback);
-};
-PB.prototype.toggleFullscreen = function(siteNum, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdToggleFullscreen);
-    message.addInt(siteNum);
-    sendToHost(message,callback);
-};
-PB.prototype.setParamRelative = function(siteNum, deviceNum, pParamName, value, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetParamRelative);
-    message.addInt(siteNum);
-    message.addInt(deviceNum);
-    message.addStringNarrow(pParamName);
-    message.addInt(value);
-    sendToHost(message,callback);
-};
-PB.prototype.setParamRelativeDouble = function(siteNum, deviceNum, pParamName, value, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetParamRelativeDouble);
-    message.addInt(siteNum);
-    message.addInt(deviceNum);
-    message.addStringNarrow(pParamName);
-    message.addDouble(value);
-    sendToHost(message,callback);
-};
-PB.prototype.setParamRelativeInSelection = function(pParamName, value, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetParamRelativeInSelection);
-    message.addStringNarrow(pParamName);
-    message.addInt(value);
-    sendToHost(message,callback);
-};
-PB.prototype.setParamRelativeInSelectionDouble = function(pParamName, value, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetParamRelativeInSelectionDouble);
-    message.addStringNarrow(pParamName);
-    message.addDouble(value);
-    sendToHost(message,callback);
-};
-PB.prototype.addContent = function(pFullPath, siteNum, FolderId, FileId, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdAddContent);
-    message.addStringNarrow(pFullPath);
-    message.addInt(siteNum);
-    message.addInt(FolderId);
-    message.addInt(FileId);
-    message.addBoolean(false);
-    sendToHost(message,callback);
-};
-PB.prototype.addContentToFolder = function(pFullPath, siteNum, FolderId, FileId, pFoldername, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdAddContentToFolder);
-    message.addStringNarrow(pFullPath);
-    message.addInt(siteNum);
-    message.addInt(FolderId);
-    message.addInt(FileId);
-    message.addStringNarrow(pFoldername);
-    sendToHost(message,callback);
-};
-PB.prototype.addContentFromLocalNode = function(pFullPath, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdAddContentFromLocalNode);
-    message.addStringNarrow(pFullPath);
-    sendToHost(message,callback);
-};
-PB.prototype.addContentFromLocalNodeToFolder = function(pFullPath, pFoldername, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdAddContentFromLocalNodeToFolder);
-    message.addStringNarrow(pFullPath);
-    message.addStringNarrow(pFoldername);
-    sendToHost(message,callback);
-};
-PB.prototype.addContentFolderFromLocalNode = function(pFolderPath, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdAddContentFolderFromLocalNode);
-    sendToHost(message,callback);
-};
-PB.prototype.addContentFolderFromLocalNodeToFolder = function(pFolderPath, pFoldername, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdAddContentFolderFromLocalNodeToFolder);
-    message.addStringNarrow(pFolderPath);
-    message.addStringNarrow(pFoldername);
-    sendToHost(message,callback);
-};
-PB.prototype.removeMediaById = function(FolderId, FileId, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdRemoveMediaById);
-    message.addInt(FolderId);
-    message.addInt(FileId);
-    sendToHost(message,callback);
-};
-PB.prototype.removeMeshById = function(FolderId, FileId, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdRemoveMeshById);
-    message.addInt(FolderId);
-    message.addInt(FileId);
-    sendToHost(message,callback);
-};
-PB.prototype.removeAllResources = function(removeFolder, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdRemoveAllContent);
-    message.addBoolean(removeFolder);
-    sendToHost(message,callback);
-};
-PB.prototype.spreadMediaById = function(FolderId, FileId, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSpreadMediaById);
-    message.addInt(FolderId);
-    message.addInt(FileId);
-    sendToHost(message,callback);
-};
-PB.prototype.spreadMeshById = function(FolderId, FileId, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSpreadMeshById);
-    message.addInt(FolderId);
-    message.addInt(FileId);
-    sendToHost(message,callback);
-};
-PB.prototype.reloadMediaById = function(FolderId, FileId, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdReloadMediaById);
-    message.addInt(FolderId);
-    message.addInt(FileId);
-    sendToHost(message,callback);
-};
-PB.prototype.reloadMeshById = function(FolderId, FileId, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdReloadMeshById);
-    message.addInt(FolderId);
-    message.addInt(FileId);
-    sendToHost(message,callback);
-};
-PB.prototype.storeActive = function(seqNum, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdStoreActive);
-    message.addInt(seqNum);
-    sendToHost(message,callback);
-};
-PB.prototype.storeActiveToTime = function(seqNum, hours, minutes, seconds, frames, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdStoreActiveToTime);
-    message.addInt(seqNum);
-    message.addInt(hours);
-    message.addInt(minutes);
-    message.addInt(seconds);
-    message.addInt(frames);
-    sendToHost(message,callback);
-};
-PB.prototype.setMediaFrameBlendingById = function(FolderId, FileId, frameBlended, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetMediaFrameBlendingById);
-    message.addInt(FolderId);
-    message.addInt(FileId);
-    message.addByte(frameBlended);
-    sendToHost(message,callback);
-};
-PB.prototype.setMediaDeinterlacingById = function(FolderId, FileId, deinterlacer, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetMediaDeinterlacingById);
-    message.addInt(FolderId);
-    message.addInt(FileId);
-    message.addInt(deinterlacer);
-    sendToHost(message,callback);
-};
-PB.prototype.setMediaAnisotropicFilteringById = function(FolderId, FileId, useFiltering, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetMediaAnisotropicFilteringById);
-    message.addInt(FolderId);
-    message.addInt(FileId);
-    message.addByte(useFiltering);
-    sendToHost(message,callback);
-};
-PB.prototype.setMediaUnderscanById = function(FolderId, FileId, useUnderscan, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetMediaUnderscanById);
-    message.addInt(FolderId);
-    message.addInt(FileId);
-    message.addByte(useUnderscan);
-    sendToHost(message,callback);
-};
-PB.prototype.setMediaMpegColourSpaceById = function(FolderId, FileId, useMpegColourSpace, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetMediaMpegColourSpaceById);
-    message.addInt(FolderId);
-    message.addInt(FileId);
-    message.addByte(useMpegColourSpace);
-    sendToHost(message,callback);
-};
-PB.prototype.setMediaAlphaChannelById = function(FolderId, FileId, useAlphaChannel, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetMediaAlphaChannelById);
-    message.addInt(FolderId);
-    message.addInt(FileId);
-    message.addByte(useAlphaChannel);
-    sendToHost(message,callback);
-};
-PB.prototype.createTextInput = function(FolderId, FileId, pText, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdAddTextInput);
-    message.addInt(FolderId);
-    message.addInt(FileId);
-    message.addStringNarrow(pText);
-    sendToHost(message,callback);
+    message.addShort(eAutoCmdSetSpareFromSpread);
+    message.addInt(siteId);
+    message.addBoolean(spareFromSpread);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
 PB.prototype.setText = function(FolderId, FileId, pText, callback) {
     var message = new PBUtilBytesNetwork();
@@ -1156,91 +2284,27 @@ PB.prototype.setText = function(FolderId, FileId, pText, callback) {
     message.addInt(FolderId);
     message.addInt(FileId);
     message.addStringNarrow(pText);
-    sendToHost(message,callback);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.loadProject = function(pPath, pName, saveExisting, callback) {
+PB.prototype.setTextCenterOnTexture = function(FolderId, FileId, centerOnTexture, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdLoadProject);
-    message.addStringNarrow(pPath);
-    message.addStringNarrow(pName);
-    message.addByte(saveExisting);
-    sendToHost(message,callback);
-};
-PB.prototype.closeProject = function(save, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdCloseProject);
-    message.addByte(save);
-    sendToHost(message,callback);
-};
-PB.prototype.setDeviceAcceptDmxById = function(siteNum, deviceNum, acceptDmx, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetDeviceAcceptDmxById);
-    message.addInt(siteNum);
-    message.addInt(deviceNum);
-    message.addByte(acceptDmx);
-    sendToHost(message,callback);
-};
-PB.prototype.setSiteAcceptDmxById = function(siteNum, acceptDmx, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetSiteAcceptDmxById);
-    message.addInt(siteNum);
-    message.addByte(acceptDmx);
-    sendToHost(message,callback);
-};
-PB.prototype.setDeviceDmxAddressById = function(siteNum, deviceNum, index, id1, id2, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetDeviceDmxAddressById);
-    message.addInt(siteNum);
-    message.addInt(deviceNum);
-    message.addInt(index);
-    message.addInt(id1);
-    message.addInt(id2);
-    sendToHost(message,callback);
-};
-PB.prototype.setCuePlayMode = function(seqNum, cueId, playMode, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetCuePlayMode);
-    message.addInt(seqNum);
-    message.addInt(cueId);
-    message.addInt(playMode);
-    sendToHost(message,callback);
-};
-PB.prototype.setNextCuePlayMode = function(seqNum, playMode, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetNextCuePlayMode);
-    message.addInt(seqNum);
-    message.addInt(playMode);
-    sendToHost(message,callback);
-};
-PB.prototype.setIgnoreNextCue = function(seqNum, doIgnore, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdIgnoreNextCue);
-    message.addInt(seqNum);
-    message.addByte(doIgnore);
-    sendToHost(message,callback);
-};
-PB.prototype.changeFullscreenStateById = function(siteNum, enterFullscreen, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdChangeFullscreenStateById);
-    message.addInt(siteNum);
-    message.addByte(enterFullscreen);
-    sendToHost(message,callback);
-};
-PB.prototype.changeFullscreenStateByIp = function(pIp, enterFullscreen, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdChangeFullscreenStateByIp);
-    message.addStringNarrow(pIp);
-    message.addByte(enterFullscreen);
-    sendToHost(message,callback);
-};
-PB.prototype.setTextTextureSize = function(FolderId, FileId, width, height, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetTextTextureSize);
+    message.addShort(eAutoCmdSetTextCenterOnTexture);
     message.addInt(FolderId);
     message.addInt(FileId);
-    message.addInt(width);
-    message.addInt(height);
-    sendToHost(message,callback);
+    message.addByte(centerOnTexture);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
 PB.prototype.setTextProperties = function(FolderId, FileId, pFont, size, style, alignment, colorRed, colorGreen, colorBlue, callback) {
     var message = new PBUtilBytesNetwork();
@@ -1254,287 +2318,94 @@ PB.prototype.setTextProperties = function(FolderId, FileId, pFont, size, style, 
     message.addByte(colorRed);
     message.addByte(colorGreen);
     message.addByte(colorBlue);
-    sendToHost(message,callback);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.setTextCenterOnTexture = function(FolderId, FileId, centerOnTexture, callback) {
+PB.prototype.setTextTextureSize = function(FolderId, FileId, width, height, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetTextCenterOnTexture);
+    message.addShort(eAutoCmdSetTextTextureSize);
     message.addInt(FolderId);
     message.addInt(FileId);
-    message.addByte(centerOnTexture);
-    sendToHost(message,callback);
+    message.addInt(width);
+    message.addInt(height);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.setSiteIpById = function(siteNum, pIp, callback) {
+PB.prototype.spreadMediaById = function(FolderId, FileId, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetSiteIp);
-    message.addInt(siteNum);
-    message.addStringNarrow(pIp);
-    sendToHost(message,callback);
+    message.addShort(eAutoCmdSpreadMediaById);
+    message.addInt(FolderId);
+    message.addInt(FileId);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.setDeviceSelection = function(siteNum, deviceNum, selectionMode, callback) {
+PB.prototype.spreadMeshById = function(FolderId, FileId, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetDeviceSelection);
-    message.addInt(siteNum);
-    message.addInt(deviceNum);
-    message.addInt(selectionMode);
-    sendToHost(message,callback);
+    message.addShort(eAutoCmdSpreadMeshById);
+    message.addInt(FolderId);
+    message.addInt(FileId);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.setClxControllerFaderMapping = function(faderId, seqNum, callback) {
+PB.prototype.storeActive = function(seqNum, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetClxPlaybackFader);
-    message.addInt(faderId);
+    message.addShort(eAutoCmdStoreActive);
     message.addInt(seqNum);
-    sendToHost(message,callback);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.setClxControllerCueMapping = function(cueBtnId, seqNum, cueId, callback) {
+PB.prototype.storeActiveToTime = function(seqNum, hours, minutes, seconds, frames, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetClxCueMapping);
-    message.addInt(cueBtnId);
+    message.addShort(eAutoCmdStoreActiveToTime);
     message.addInt(seqNum);
-    message.addInt(cueId);
-    sendToHost(message,callback);
-};
-PB.prototype.removeCueById = function(seqNum, cueId, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdRemoveCueById);
-    message.addInt(seqNum);
-    message.addInt(cueId);
-    sendToHost(message,callback);
-};
-PB.prototype.removeAllCues = function(seqNum, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdRemoveAllCues);
-    message.addInt(seqNum);
-    sendToHost(message,callback);
-};
-PB.prototype.removeLayer = function(siteId, layerId, isGraphicLayer, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdRemoveGraphicLayer);
-    message.addInt(siteId);
-    message.addInt(layerId);
-    message.addBoolean(isGraphicLayer);
-    sendToHost(message,callback);
-};
-PB.prototype.backupMode = function(enable, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdBackupMode);
-    message.addBoolean(enable);
-    sendToHost(message,callback);
-};
-PB.prototype.applyView = function(viewNum, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdApplyView);
-    message.addInt(viewNum);
-    sendToHost(message,callback);
-};
-PB.prototype.setSpareFromSpread = function(siteId, spareFromSpread, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetSpareFromSpread);
-    message.addInt(siteId);
-    message.addBoolean(spareFromSpread);
-    sendToHost(message,callback);
-};
-PB.prototype.addMediaIncrementID = function(pMediaPath, siteNum, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdAddContent);
-    message.addStringNarrow(pMediaPath);
-    message.addInt(siteNum);
-    message.addInt(0);
-    message.addInt(0);
-    message.addBoolean(true);
-    sendToHost(message,callback);
-};
-PB.prototype.setEnableClxController = function(forJogShuttle, enable, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetClxControllerIsEnabled);
-    message.addBoolean(forJogShuttle);
-    message.addBoolean(enable);
-    sendToHost(message,callback);
-};
-PB.prototype.setSequenceCueWaitTime = function(seqNum, cueId, hours, minutes, seconds, frames, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetSequenceCueWaitTime);
-    message.addInt(seqNum);
-    message.addInt(cueId);
     message.addInt(hours);
     message.addInt(minutes);
     message.addInt(seconds);
     message.addInt(frames);
-    sendToHost(message,callback);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
-PB.prototype.setSequenceCueJumpTargetTime = function(seqNum, cueId, hours, minutes, seconds, frames, callback) {
+PB.prototype.toggleFullscreen = function(siteNum, callback) {
     var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetSequenceCueJumpTargetTime);
-    message.addInt(seqNum);
-    message.addInt(cueId);
-    message.addInt(hours);
-    message.addInt(minutes);
-    message.addInt(seconds);
-    message.addInt(frames);
-    sendToHost(message,callback);
-};
-PB.prototype.setSequenceCueJumpCount = function(seqNum, cueId, jumpCount, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetSequenceCueJumpCount);
-    message.addInt(seqNum);
-    message.addInt(cueId);
-    message.addInt(jumpCount);
-    sendToHost(message,callback);
-};
-PB.prototype.resetSequenceCueTriggerCount = function(seqNum, cueId, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdResetSequenceCueTriggerCount);
-    message.addInt(seqNum);
-    message.addInt(cueId);
-    sendToHost(message,callback);
-};
-PB.prototype.removeSequence = function(seqNum, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdRemoveSequence);
-    message.addInt(seqNum);
-    sendToHost(message,callback);
-};
-PB.prototype.sendMouseInput = function(siteNum, eventType, screenPosX, screenPosY, screenWidth, screenHeight, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSendMouseInput);
+    message.addShort(eAutoCmdToggleFullscreen);
     message.addInt(siteNum);
-    message.addInt(eventType);
-    message.addInt(screenPosX);
-    message.addInt(screenPosY);
-    message.addInt(screenWidth);
-    message.addInt(screenHeight);
-    sendToHost(message,callback);
-};
-PB.prototype.sendKeyboardInput = function(siteNum, eventType, keyCode, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSendKeyboardInput);
-    message.addInt(siteNum);
-    message.addInt(eventType);
-    message.addInt(keyCode);
-    sendToHost(message,callback);
-};
-PB.prototype.setShowCursorInFullscreen = function(siteNum, showCursor, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetShowCursorInFullscreen);
-    message.addInt(siteNum);
-    message.addBoolean(showCursor);
-    sendToHost(message,callback);
-};
-PB.prototype.setBrowserURL = function(dmxFolderId, dmxId, pURL, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetBrowserURL);
-    message.addInt(dmxFolderId);
-    message.addInt(dmxId);
-    message.addStringWide(pURL);
-    sendToHost(message,callback);
-};
-PB.prototype.setBrowserURLByName = function(pProjectPath, pURL, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetBrowserURLByName);
-    message.addStringWide(pProjectPath);
-    message.addStringWide(pURL);
-    sendToHost(message,callback);
-};
-PB.prototype.refreshBrowserView = function(siteNum, deviceNum, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdRefreshBrowserView);
-    message.addInt(siteNum);
-    message.addInt(deviceNum);
-    sendToHost(message,callback);
-};
-PB.prototype.setBrowserSize = function(dmxFolderId, dmxId, width, height, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetBrowserSize);
-    message.addInt(dmxFolderId);
-    message.addInt(dmxId);
-    message.addInt(width);
-    message.addInt(height);
-    sendToHost(message,callback);
-};
-PB.prototype.setBrowserSizeByName = function(pProjectPath, width, height, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetShowCursorInFullscreen);
-    message.addStringWide(pProjectPath);
-    message.addInt(width);
-    message.addInt(height);
-    sendToHost(message,callback);
-};
-PB.prototype.moveResourceToFolder = function(pResName, pFolderName, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdMoveContentToFolder);
-    message.addStringWide(pResName);
-    message.addStringWide(pFolderName);
-    sendToHost(message,callback);
-};
-PB.prototype.setNodeOfSiteIsAudioClockMaster = function(siteNum, isMaster, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdSetNodeOfSiteIsAudioClockMaster);
-    message.addInt(siteNum);
-    message.addBoolean(isMaster);
-    sendToHost(message,callback);
-};
-PB.prototype.sendCommandWithoutParam = function(command, waitForAnswer, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(command);
-    sendToHost(message,callback);
-};
-PB.prototype.createTextInputWide = function(dmxFolderId, dmxId, pText, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdAddTextInputWide);
-    message.addInt(dmxFolderId);
-    message.addInt(dmxId);
-    message.addStringWide(pText);
-    sendToHost(message,callback);
-};
-PB.prototype.sendMediaInfoQuery = function(index, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdGetAllMediaInProject);
-    message.addInt(index);
-    sendToHost(message,callback);
-};
-PB.prototype.addLayer = function(siteId, isGraphicLayer, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(inCmd);
-    message.addInt(siteId);
-    message.addBoolean(isGraphicLayer);
-    sendToHost(message,callback);
-};
-PB.prototype.getParamResource = function(siteNum, deviceNum, pParamName, pInfo, isMedia, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdGetParamMedia);
-    message.addInt(siteNum);
-    message.addInt(deviceNum);
-    message.addBoolean(isMedia);
-    message.addStringNarrow(ParamName);
-    sendToHost(message,callback);
-};
-PB.prototype.moveLayer = function(siteNum, deviceNum, moveTypeCmd, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(moveTypeCmd);
-    message.addInt(siteNum);
-    message.addInt(deviceNum);
-    sendToHost(message,callback);
-};
-PB.prototype.moveLayerUp = function(siteNum, deviceNum, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdMoveLayerUp);
-    message.addInt(siteNum);
-    message.addInt(deviceNum);
-    sendToHost(message,callback);
-};
-PB.prototype.moveLayerDown = function(siteNum, deviceNum, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdMoveLayerDown);
-    message.addInt(siteNum);
-    message.addInt(deviceNum);
-    sendToHost(message,callback);
-};
-PB.prototype.getThumbnailByItemIndex = function(itemIndex, callback) {
-    var message = new PBUtilBytesNetwork();
-    message.addShort(eAutoCmdMoveLayerDown);
-    message.addInt(siteNum);
-    message.addInt(deviceNum);
-    sendToHost(message,callback);
+    sendToHost(message, function(res){
+        if(debug && res.bytes[3] ){
+            console.log(eAutoCmdArray[res.bytes[1]]);
+            console.dir(res);
+        }
+        callback(res);
+    });
 };
 
 module.exports = PB;
