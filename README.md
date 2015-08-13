@@ -12,7 +12,7 @@ You will need a copy of Pandora's Box running in Manager mode with web server en
 var PB = require('pandora-node');
 var options = {
     ip: '192.168.1.2', // IP address of the Pandora's Box server
-    port: // Pandora's Box Server port. Default 6214
+    port: '6214'       // Pandora's Box Server port. Defaults to 6214 if none is specified.
 }
 var pb = new PB(options);
 ```

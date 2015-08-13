@@ -1,16 +1,13 @@
 0 info it worked if it ends with ok
 1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
 1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
-1 verbose cli   'publish',
-1 verbose cli   './',
-1 verbose cli   '--tag',
-1 verbose cli   'beta' ]
+1 verbose cli   'publish' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.33
 4 verbose node symlink C:\Program Files\nodejs\\node.exe
-5 verbose publish [ './' ]
-6 verbose cache add [ './', null ]
-7 verbose cache add name=undefined spec="./" args=["./",null]
+5 verbose publish [ '.' ]
+6 verbose cache add [ '.', null ]
+7 verbose cache add name=undefined spec="." args=[".",null]
 8 verbose parsed url { protocol: null,
 8 verbose parsed url   slashes: null,
 8 verbose parsed url   auth: null,
@@ -20,31 +17,31 @@
 8 verbose parsed url   hash: null,
 8 verbose parsed url   search: null,
 8 verbose parsed url   query: null,
-8 verbose parsed url   pathname: './',
-8 verbose parsed url   path: './',
-8 verbose parsed url   href: './' }
-9 silly lockFile 0ee6c175- ./
-10 verbose lock ./ C:\Users\jireland\AppData\Roaming\npm-cache\0ee6c175-.lock
-11 verbose tar pack [ 'C:\\Users\\jireland\\AppData\\Roaming\\npm-cache\\pb-node\\1.0.0\\package.tgz',
-11 verbose tar pack   './' ]
-12 verbose tarball C:\Users\jireland\AppData\Roaming\npm-cache\pb-node\1.0.0\package.tgz
-13 verbose folder ./
-14 info prepublish pb-node@1.0.0
-15 silly lockFile 04cb2bca-tar tar://./
-16 verbose lock tar://./ C:\Users\jireland\AppData\Roaming\npm-cache\04cb2bca-tar.lock
-17 silly lockFile f5bdbd1d--cache-pb-node-1-0-0-package-tgz tar://C:\Users\jireland\AppData\Roaming\npm-cache\pb-node\1.0.0\package.tgz
-18 verbose lock tar://C:\Users\jireland\AppData\Roaming\npm-cache\pb-node\1.0.0\package.tgz C:\Users\jireland\AppData\Roaming\npm-cache\f5bdbd1d--cache-pb-node-1-0-0-package-tgz.lock
-19 silly lockFile 04cb2bca-tar tar://./
-20 silly lockFile 04cb2bca-tar tar://./
-21 silly lockFile f5bdbd1d--cache-pb-node-1-0-0-package-tgz tar://C:\Users\jireland\AppData\Roaming\npm-cache\pb-node\1.0.0\package.tgz
-22 silly lockFile f5bdbd1d--cache-pb-node-1-0-0-package-tgz tar://C:\Users\jireland\AppData\Roaming\npm-cache\pb-node\1.0.0\package.tgz
-23 silly lockFile f66bd8b8--npm-cache-pb-node-1-0-0-package C:\Users\jireland\AppData\Roaming\npm-cache\pb-node\1.0.0\package
-24 verbose lock C:\Users\jireland\AppData\Roaming\npm-cache\pb-node\1.0.0\package C:\Users\jireland\AppData\Roaming\npm-cache\f66bd8b8--npm-cache-pb-node-1-0-0-package.lock
-25 silly lockFile f66bd8b8--npm-cache-pb-node-1-0-0-package C:\Users\jireland\AppData\Roaming\npm-cache\pb-node\1.0.0\package
-26 silly lockFile f66bd8b8--npm-cache-pb-node-1-0-0-package C:\Users\jireland\AppData\Roaming\npm-cache\pb-node\1.0.0\package
-27 silly lockFile 0ee6c175- ./
-28 silly lockFile 0ee6c175- ./
-29 silly publish { name: 'pb-node',
+8 verbose parsed url   pathname: '.',
+8 verbose parsed url   path: '.',
+8 verbose parsed url   href: '.' }
+9 silly lockFile 3a52ce78- .
+10 verbose lock . C:\Users\jireland\AppData\Roaming\npm-cache\3a52ce78-.lock
+11 verbose tar pack [ 'C:\\Users\\jireland\\AppData\\Roaming\\npm-cache\\pandora-node\\1.0.0\\package.tgz',
+11 verbose tar pack   '.' ]
+12 verbose tarball C:\Users\jireland\AppData\Roaming\npm-cache\pandora-node\1.0.0\package.tgz
+13 verbose folder .
+14 info prepublish pandora-node@1.0.0
+15 silly lockFile 1f1177db-tar tar://.
+16 verbose lock tar://. C:\Users\jireland\AppData\Roaming\npm-cache\1f1177db-tar.lock
+17 silly lockFile d019879b-e-pandora-node-1-0-0-package-tgz tar://C:\Users\jireland\AppData\Roaming\npm-cache\pandora-node\1.0.0\package.tgz
+18 verbose lock tar://C:\Users\jireland\AppData\Roaming\npm-cache\pandora-node\1.0.0\package.tgz C:\Users\jireland\AppData\Roaming\npm-cache\d019879b-e-pandora-node-1-0-0-package-tgz.lock
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 1f1177db-tar tar://.
+21 silly lockFile d019879b-e-pandora-node-1-0-0-package-tgz tar://C:\Users\jireland\AppData\Roaming\npm-cache\pandora-node\1.0.0\package.tgz
+22 silly lockFile d019879b-e-pandora-node-1-0-0-package-tgz tar://C:\Users\jireland\AppData\Roaming\npm-cache\pandora-node\1.0.0\package.tgz
+23 silly lockFile cae42505-cache-pandora-node-1-0-0-package C:\Users\jireland\AppData\Roaming\npm-cache\pandora-node\1.0.0\package
+24 verbose lock C:\Users\jireland\AppData\Roaming\npm-cache\pandora-node\1.0.0\package C:\Users\jireland\AppData\Roaming\npm-cache\cae42505-cache-pandora-node-1-0-0-package.lock
+25 silly lockFile cae42505-cache-pandora-node-1-0-0-package C:\Users\jireland\AppData\Roaming\npm-cache\pandora-node\1.0.0\package
+26 silly lockFile cae42505-cache-pandora-node-1-0-0-package C:\Users\jireland\AppData\Roaming\npm-cache\pandora-node\1.0.0\package
+27 silly lockFile 3a52ce78- .
+28 silly lockFile 3a52ce78- .
+29 silly publish { name: 'pandora-node',
 29 silly publish   version: '1.0.0',
 29 silly publish   description: 'node.js module for Coolux Pandora\'s Box',
 29 silly publish   main: 'index.js',
@@ -52,41 +49,41 @@
 29 silly publish   dependencies: { request: '^2.58.0' },
 29 silly publish   devDependencies: {},
 29 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
-29 silly publish   keywords: [ 'coolux', 'pandoras', 'box' ],
+29 silly publish   keywords: [ 'coolux', 'pandoras box' ],
 29 silly publish   author:
 29 silly publish    { name: 'Justin Ireland',
 29 silly publish      email: 'justin@justinireland.com',
 29 silly publish      url: 'http://justinireland.com/' },
 29 silly publish   license: 'ISC',
-29 silly publish   readme: '# pb-node\r\nnode.js module for Coolux Pandora\'s Box SDK\r\n\r\n## Installation\r\nnpm install pb-node\r\n\r\nYou will need a copy of Pandora\'s Box running in Manager mode with web server enabled.\r\n\r\n## Setup\r\n\r\n```\r\nvar PB = require(\'pb-node\');\r\nvar options = {\r\n    ip: \'192.168.1.2\', // IP address of the Pandora\'s Box server\r\n    port: // Pandora\'s Box Server port. Default 6214\r\n}\r\nvar pb = new PB(options);\r\n```\r\n\r\n## Examples\r\n\r\n```\r\n// Get the current Sequence time\r\npb.getSequenceTime(1, function(res){\r\n    console.dir(res.bytes);\r\n});\r\n\r\n// Get the opacity level of device 1.2\r\npb.getParam(1,2,\'Opacity\',function(res){\r\n    console.dir(res.bytes);\r\n});\r\n```\r\n\r\nResults are returned in an object.\r\n```\r\nres {\r\n    deliveredByteCt:    // 0\r\n    bytes:              // byte array with encoded response\r\n}\r\n```\r\n\r\n## SDK Commands\r\nSee the SDK documentation in the SDK/docs folder or the PB help file for a list of commands. Or take a look inside index.js.\r\n\r\nNote that all commands take a callback as the last parameter as opposed to the first parameter in the official SDK.\r\n',
+29 silly publish   readme: '# pandora-node\r\nnode.js module for Coolux Pandora\'s Box SDK\r\n\r\n## Installation\r\nnpm install pandora-node\r\n\r\nYou will need a copy of Pandora\'s Box running in Manager mode with web server enabled.\r\n\r\n## Setup\r\n\r\n```\r\nvar PB = require(\'pandora-node\');\r\nvar options = {\r\n    ip: \'192.168.1.2\', // IP address of the Pandora\'s Box server\r\n    port: // Pandora\'s Box Server port. Default 6214\r\n}\r\nvar pb = new PB(options);\r\n```\r\n\r\n## Examples\r\n\r\n```\r\n// Get the current Sequence time\r\npb.getSequenceTime(1, function(res){\r\n    console.dir(res.bytes);\r\n});\r\n\r\n// Get the opacity level of device 1.2\r\npb.getParam(1,2,\'Opacity\',function(res){\r\n    console.dir(res.bytes);\r\n});\r\n```\r\n\r\nResults are returned in an object.\r\n```\r\nres {\r\n    deliveredByteCt:    // 0\r\n    bytes:              // byte array with encoded response\r\n}\r\n```\r\n\r\n## SDK Commands\r\nSee the SDK documentation in the SDK/docs folder or the PB help file for a list of commands. Or take a look inside index.js.\r\n\r\nNote that all commands take a callback as the last parameter as opposed to the first parameter in the official SDK.\r\n',
 29 silly publish   readmeFilename: 'README.md',
-29 silly publish   gitHead: '442aca38fbff75b8b7ecf533fd6ff4984b720cbf',
-29 silly publish   _id: 'pb-node@1.0.0',
-29 silly publish   _shasum: '23236670dcea849de8906c7414fc66ed5b30e36d',
-29 silly publish   _from: './' }
-30 verbose request where is /pb-node
+29 silly publish   gitHead: 'ba8cf9a5cca6d036bc9c06f990059f464fa1a391',
+29 silly publish   _id: 'pandora-node@1.0.0',
+29 silly publish   _shasum: '1252f8cfbaba7ceabef0d75a812e4b5772111345',
+29 silly publish   _from: '.' }
+30 verbose request where is /pandora-node
 31 verbose request registry https://registry.npmjs.org/
-32 verbose request id ab4623e4b0a1eeb2
-33 verbose url raw /pb-node
-34 verbose url resolving [ 'https://registry.npmjs.org/', './pb-node' ]
-35 verbose url resolved https://registry.npmjs.org/pb-node
-36 verbose request where is https://registry.npmjs.org/pb-node
-37 info trying registry request attempt 1 at 17:42:55
-38 http PUT https://registry.npmjs.org/pb-node
-39 http 403 https://registry.npmjs.org/pb-node
+32 verbose request id ca609d61ec5d3870
+33 verbose url raw /pandora-node
+34 verbose url resolving [ 'https://registry.npmjs.org/', './pandora-node' ]
+35 verbose url resolved https://registry.npmjs.org/pandora-node
+36 verbose request where is https://registry.npmjs.org/pandora-node
+37 info trying registry request attempt 1 at 11:40:53
+38 http PUT https://registry.npmjs.org/pandora-node
+39 http 403 https://registry.npmjs.org/pandora-node
 40 verbose headers { 'content-type': 'application/json',
 40 verbose headers   'cache-control': 'max-age=60',
-40 verbose headers   'content-length': '99',
+40 verbose headers   'content-length': '95',
 40 verbose headers   'accept-ranges': 'bytes',
-40 verbose headers   date: 'Wed, 12 Aug 2015 21:42:57 GMT',
+40 verbose headers   date: 'Thu, 13 Aug 2015 15:40:55 GMT',
 40 verbose headers   via: '1.1 varnish',
 40 verbose headers   connection: 'keep-alive',
-40 verbose headers   'x-served-by': 'cache-atl6233-ATL',
+40 verbose headers   'x-served-by': 'cache-atl6221-ATL',
 40 verbose headers   'x-cache': 'MISS',
 40 verbose headers   'x-cache-hits': '0',
-40 verbose headers   'x-timer': 'S1439415775.879297,VS0,VE1396' }
+40 verbose headers   'x-timer': 'S1439480453.950844,VS0,VE1734' }
 41 error publish Failed PUT 403
-42 error Error: You do not have permission to publish 'pb-node'. Are you logged in as the correct user? : pb-node
+42 error Error: "You cannot publish over the previously published version 1.0.0." : pandora-node
 42 error     at RegClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:308:14)
 42 error     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:246:65)
 42 error     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:236:22)
@@ -101,8 +98,8 @@
 43 error including the npm and node versions, at:
 43 error     <http://github.com/npm/npm/issues>
 44 error System Windows_NT 6.1.7601
-45 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish" "./" "--tag" "beta"
-46 error cwd E:\Dropbox\Projects\PB-node
+45 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+46 error cwd E:\Dropbox\Projects\pandora-node
 47 error node -v v0.10.33
 48 error npm -v 1.4.28
 49 verbose exit [ 1, true ]
