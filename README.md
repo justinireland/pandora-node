@@ -1,10 +1,15 @@
 # pandora-node
 node.js module for Coolux Pandora's Box SDK
 
-## Installation
-npm install pandora-node
+source: https://github.com/justinireland/pandora-node
 
+
+## Installation
 You will need a copy of Pandora's Box running in Manager mode with web server enabled.
+
+```
+npm install pandora-node
+```
 
 ## Setup
 
