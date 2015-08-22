@@ -1240,7 +1240,7 @@ PBAuto.prototype.addEncryptionPolicyGetId = function(encryptionPolicy, callback)
     cb[1] = new Object();cb[1]["name"] = "isKeyAdded";cb[1]["type"] = "Bool";
     sendToPb(cb,message);
 };
-PBAuto.prototype.addImageSequence = function(folderPath, siteId, dmxFolderId, dmxFileId, fps) {
+PBAuto.prototype.addImageSequence = function(folderPath, siteId, dmxFolderId, dmxFileId, fps, callback) {
     /*
      ** addImageSequence(callback, folderPath, siteId, dmxFolderId, dmxFileId, fps)
      **  no description available
@@ -1279,7 +1279,7 @@ PBAuto.prototype.addImageSequence = function(folderPath, siteId, dmxFolderId, dm
     cb[0] = callback;
     sendToPb(cb,message);
 };
-PBAuto.prototype.addImageSequenceFromLocalNode = function(folderPath, fps) {
+PBAuto.prototype.addImageSequenceFromLocalNode = function(folderPath, fps, callback) {
         /*
          ** addImageSequenceFromLocalNode(callback, folderPath, fps)
          **  no description available
@@ -1302,7 +1302,7 @@ PBAuto.prototype.addImageSequenceFromLocalNode = function(folderPath, fps) {
         cb[0] = callback;
         sendToPb(cb,message);
     };
-PBAuto.prototype.addImageSequenceFromLocalNodeId = function(folderPath, fps, dmxFolderId, dmxFileId) {
+PBAuto.prototype.addImageSequenceFromLocalNodeId = function(folderPath, fps, dmxFolderId, dmxFileId, callback) {
         /*
          ** addImageSequenceFromLocalNodeId(callback, folderPath, fps, dmxFolderId, dmxFileId)
          **  no description available
@@ -1468,7 +1468,7 @@ PBAuto.prototype.addImageSequenceFromLocalNodeToTreeItemId = function(folderPath
         cb[0] = callback;
         sendToPb(cb,message);
     };
-PBAuto.prototype.addImageSequenceToFolder = function(folderPath, siteId, dmxFolderId, dmxFileId, fps, projectPath) {
+PBAuto.prototype.addImageSequenceToFolder = function(folderPath, siteId, dmxFolderId, dmxFileId, fps, projectPath, callback) {
     /*
      ** addImageSequenceToFolder(callback, folderPath, siteId, dmxFolderId, dmxFileId, fps, projectPath)
      **  no description available
@@ -1511,7 +1511,7 @@ PBAuto.prototype.addImageSequenceToFolder = function(folderPath, siteId, dmxFold
     cb[0] = callback;
     sendToPb(cb,message);
 };
-PBAuto.prototype.addImageSequenceToTreeItem = function(folderPath, siteId, dmxFolderId, dmxFileId, fps, treeItemIndex) {
+PBAuto.prototype.addImageSequenceToTreeItem = function(folderPath, siteId, dmxFolderId, dmxFileId, fps, treeItemIndex, callback) {
     /*
      ** addImageSequenceToTreeItem(callback, folderPath, siteId, dmxFolderId, dmxFileId, fps, treeItemIndex)
      **  no description available
