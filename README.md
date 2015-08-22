@@ -2,9 +2,8 @@
 node.js module for Coolux Pandora's Box SDK
 
 ## Project Links
-[github](https://github.com/justinireland/pandora-node)
-
-[npm](https://www.npmjs.com/package/pandora-node)
+* [github](https://github.com/justinireland/pandora-node)
+* [npm](https://www.npmjs.com/package/pandora-node)
 
 ## Requirements
 * Pandora's Box Manager with web server enabled
