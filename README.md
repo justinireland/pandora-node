@@ -2,6 +2,7 @@
 node.js module for Coolux Pandora's Box SDK
 
 project source: https://github.com/justinireland/pandora-node
+
 npm: https://www.npmjs.com/package/pandora-node
 
 ## Requirements

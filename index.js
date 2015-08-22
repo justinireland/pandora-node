@@ -864,16 +864,8 @@ function testPbUtilBytes(){
 }
 
 function PBAuto(options) {
-
-    /* Configuration object
-     options = {
-     ip: // IP Address of PB Server
-     port: // PB Web server port. Default 6214
-     }
-     */
-
-    pbHost =  options.ip;
-    pbPort = typeof options.port !== 'undefined' ? port : 6214;
+    pbHost =  options.ip; // IP Address of PB Server
+    pbPort = typeof options.port !== 'undefined' ? port : 6214; // PB Web server port. Default 6214
 }
 
 // Alphabetized
