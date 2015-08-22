@@ -1,9 +1,10 @@
 # pandora-node
 node.js module for Coolux Pandora's Box SDK
 
-project source: https://github.com/justinireland/pandora-node
+## Project Links
+[github](https://github.com/justinireland/pandora-node)
 
-npm: https://www.npmjs.com/package/pandora-node
+[npm](https://www.npmjs.com/package/pandora-node)
 
 ## Requirements
 * Pandora's Box Manager with web server enabled
@@ -28,7 +29,8 @@ var pb = new PBAuto(options);
 ## Usage
 See the [API reference](https://github.com/justinireland/pandora-node/wiki/API-Reference) for a list of all methods.
 
-Example - Get the current sequence time
+### Examples
+Get the current sequence time
 ```
 pb.getSequenceTime(1, function(res){
     console.dir(res);
@@ -45,7 +47,7 @@ Returns
   frames: 5 
 }
 ```
-Example - Get the opacity level of device 1.2
+Get the opacity level of device 1.2
 ```
 pb.getParam(1,2,'Opacity',function(res){
     console.dir(res);
