@@ -871,7 +871,7 @@ function PBAuto(options) {
 // Alphabetized
 PBAuto.prototype.addContentFolderFromLocalNodeToTreeItem = function(folderPath, treeItemIndex, dmxFolderId, dmxFileId, callback){
     /*
-     ** addContentFolderFromLocalNodeToTreeItem(callback, folderPath, treeItemIndex, dmxFolderId, dmxFileId)
+     ** addContentFolderFromLocalNodeToTreeItem(folderPath, treeItemIndex, dmxFolderId, dmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -907,7 +907,7 @@ PBAuto.prototype.addContentFolderFromLocalNodeToTreeItem = function(folderPath, 
 };
 PBAuto.prototype.addContentFromFolder = function(folderPath, siteId, dmxFolderId, dmxFileId, projectPath, callback){
     /*
-     ** addContentFromFolder(callback, folderPath, siteId, dmxFolderId, dmxFileId, projectPath)
+     ** addContentFromFolder(folderPath, siteId, dmxFolderId, dmxFileId, projectPath, callback)
      **  no description available
      **
      ** Arguments:
@@ -947,7 +947,7 @@ PBAuto.prototype.addContentFromFolder = function(folderPath, siteId, dmxFolderId
 };
 PBAuto.prototype.addContentFromLocalNode = function(filePath, dmxFolderId, dmxFileId, callback){
     /*
-     ** addContentFromLocalNode(callback, filePath, dmxFolderId, dmxFileId)
+     ** addContentFromLocalNode(filePath, dmxFolderId, dmxFileId, callback, callback)
      **  no description available
      **
      ** Arguments:
@@ -978,7 +978,7 @@ PBAuto.prototype.addContentFromLocalNode = function(filePath, dmxFolderId, dmxFi
 };
 PBAuto.prototype.addContentFromLocalNodeToPath = function(filePath, projectPath, dmxFolderId, dmxFileId, callback){
     /*
-     ** addContentFromLocalNodeToPath(callback, filePath, projectPath, dmxFolderId, dmxFileId)
+     ** addContentFromLocalNodeToPath(filePath, projectPath, dmxFolderId, dmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -1013,7 +1013,7 @@ PBAuto.prototype.addContentFromLocalNodeToPath = function(filePath, projectPath,
 };
 PBAuto.prototype.addContentFromLocalNodeToTreeItem = function(filePath, treeItemIndex, dmxFolderId, dmxFileId, callback){
     /*
-     ** addContentFromLocalNodeToTreeItem(callback, filePath, treeItemIndex, dmxFolderId, dmxFileId)
+     ** addContentFromLocalNodeToTreeItem(filePath, treeItemIndex, dmxFolderId, dmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -1049,7 +1049,7 @@ PBAuto.prototype.addContentFromLocalNodeToTreeItem = function(filePath, treeItem
 };
 PBAuto.prototype.addContentFromLocalNodeFolder = function(folderPath, dmxFolderId, dmxFileId, callback){
     /*
-     ** addContentFromLocalNodeFolder(callback, folderPath, dmxFolderId, dmxFileId)
+     ** addContentFromLocalNodeFolder(folderPath, dmxFolderId, dmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -1080,7 +1080,7 @@ PBAuto.prototype.addContentFromLocalNodeFolder = function(folderPath, dmxFolderI
 };
 PBAuto.prototype.addContentFromLocalNodeFolderToPath = function(folderPath, projectPath, dmxFolderId, dmxFileId, callback){
     /*
-     ** addContentFromLocalNodeFolderToPath(callback, folderPath, projectPath, dmxFolderId, dmxFileId)
+     ** addContentFromLocalNodeFolderToPath(folderPath, projectPath, dmxFolderId, dmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -1115,7 +1115,7 @@ PBAuto.prototype.addContentFromLocalNodeFolderToPath = function(folderPath, proj
 };
 PBAuto.prototype.addContentToPath = function(filePath, siteId, dmxFolderId, dmxFileId, projectPath, callback){
     /*
-     ** addContentToPath(callback, filePath, siteId, dmxFolderId, dmxFileId, projectPath)
+     ** addContentToPath(filePath, siteId, dmxFolderId, dmxFileId, projectPath, callback)
      **  no description available
      **
      ** Arguments:
@@ -1155,7 +1155,7 @@ PBAuto.prototype.addContentToPath = function(filePath, siteId, dmxFolderId, dmxF
 };
 PBAuto.prototype.addContentToTreeItem = function(filePath, siteId, dmxFolderId, dmxFileId, treeItemIndex, callback){
     /*
-     ** addContentToTreeItem(callback, filePath, siteId, dmxFolderId, dmxFileId, treeItemIndex)
+     ** addContentToTreeItem(filePath, siteId, dmxFolderId, dmxFileId, treeItemIndex, callback)
      **  no description available
      **
      ** Arguments:
@@ -1196,7 +1196,7 @@ PBAuto.prototype.addContentToTreeItem = function(filePath, siteId, dmxFolderId, 
 };
 PBAuto.prototype.addEncryptionKeyGetId = function(encryptionKey, callback){
     /*
-     ** addEncryptionKeyGetId(callback, encryptionKey)
+     ** addEncryptionKeyGetId(encryptionKey, callback)
      **  no description available
      **
      ** Arguments:
@@ -1219,7 +1219,7 @@ PBAuto.prototype.addEncryptionKeyGetId = function(encryptionKey, callback){
 };
 PBAuto.prototype.addEncryptionPolicyGetId = function(encryptionPolicy, callback){
     /*
-     ** addEncryptionPolicyGetId(callback, encryptionPolicy)
+     ** addEncryptionPolicyGetId(encryptionPolicy, callback)
      **  no description available
      **
      ** Arguments:
@@ -1242,7 +1242,7 @@ PBAuto.prototype.addEncryptionPolicyGetId = function(encryptionPolicy, callback)
 };
 PBAuto.prototype.addImageSequence = function(folderPath, siteId, dmxFolderId, dmxFileId, fps, callback) {
     /*
-     ** addImageSequence(callback, folderPath, siteId, dmxFolderId, dmxFileId, fps)
+     ** addImageSequence(folderPath, siteId, dmxFolderId, dmxFileId, fps, callback)
      **  no description available
      **
      ** Arguments:
@@ -1281,7 +1281,7 @@ PBAuto.prototype.addImageSequence = function(folderPath, siteId, dmxFolderId, dm
 };
 PBAuto.prototype.addImageSequenceFromLocalNode = function(folderPath, fps, callback) {
         /*
-         ** addImageSequenceFromLocalNode(callback, folderPath, fps)
+         ** addImageSequenceFromLocalNode(folderPath, fps)
          **  no description available
          **
          ** Arguments:
@@ -1304,7 +1304,7 @@ PBAuto.prototype.addImageSequenceFromLocalNode = function(folderPath, fps, callb
     };
 PBAuto.prototype.addImageSequenceFromLocalNodeId = function(folderPath, fps, dmxFolderId, dmxFileId, callback) {
         /*
-         ** addImageSequenceFromLocalNodeId(callback, folderPath, fps, dmxFolderId, dmxFileId)
+         ** addImageSequenceFromLocalNodeId(folderPath, fps, dmxFolderId, dmxFileId)
          **  no description available
          **
          ** Arguments:
@@ -1338,7 +1338,7 @@ PBAuto.prototype.addImageSequenceFromLocalNodeId = function(folderPath, fps, dmx
     };
 PBAuto.prototype.addImageSequenceFromLocalNodeToFolder = function(folderPath, fps, projectPath, callback){
         /*
-         ** addImageSequenceFromLocalNodeToFolder(callback, folderPath, fps, projectPath)
+         ** addImageSequenceFromLocalNodeToFolder(folderPath, fps, projectPath)
          **  no description available
          **
          ** Arguments:
@@ -1365,7 +1365,7 @@ PBAuto.prototype.addImageSequenceFromLocalNodeToFolder = function(folderPath, fp
     };
 PBAuto.prototype.addImageSequenceFromLocalNodeToFolderId = function(folderPath, fps, dmxFolderId, dmxFileId, projectPath, callback){
         /*
-         ** addImageSequenceFromLocalNodeToFolderId(callback, folderPath, fps, dmxFolderId, dmxFileId, projectPath)
+         ** addImageSequenceFromLocalNodeToFolderId(folderPath, fps, dmxFolderId, dmxFileId, projectPath)
          **  no description available
          **
          ** Arguments:
@@ -1403,7 +1403,7 @@ PBAuto.prototype.addImageSequenceFromLocalNodeToFolderId = function(folderPath, 
     };
 PBAuto.prototype.addImageSequenceFromLocalNodeToTreeItem = function(folderPath, fps, treeItemIndex, callback){
         /*
-         ** addImageSequenceFromLocalNodeToTreeItem(callback, folderPath, fps, treeItemIndex)
+         ** addImageSequenceFromLocalNodeToTreeItem(folderPath, fps, treeItemIndex)
          **  no description available
          **
          ** Arguments:
@@ -1431,7 +1431,7 @@ PBAuto.prototype.addImageSequenceFromLocalNodeToTreeItem = function(folderPath, 
     };
 PBAuto.prototype.addImageSequenceFromLocalNodeToTreeItemId = function(folderPath, fps, dmxFolderId, dmxFileId, treeItemIndex, callback){
         /*
-         ** addImageSequenceFromLocalNodeToTreeItemId(callback, folderPath, fps, dmxFolderId, dmxFileId, treeItemIndex)
+         ** addImageSequenceFromLocalNodeToTreeItemId(folderPath, fps, dmxFolderId, dmxFileId, treeItemIndex)
          **  no description available
          **
          ** Arguments:
@@ -1470,7 +1470,7 @@ PBAuto.prototype.addImageSequenceFromLocalNodeToTreeItemId = function(folderPath
     };
 PBAuto.prototype.addImageSequenceToFolder = function(folderPath, siteId, dmxFolderId, dmxFileId, fps, projectPath, callback) {
     /*
-     ** addImageSequenceToFolder(callback, folderPath, siteId, dmxFolderId, dmxFileId, fps, projectPath)
+     ** addImageSequenceToFolder(folderPath, siteId, dmxFolderId, dmxFileId, fps, projectPath, callback)
      **  no description available
      **
      ** Arguments:
@@ -1513,7 +1513,7 @@ PBAuto.prototype.addImageSequenceToFolder = function(folderPath, siteId, dmxFold
 };
 PBAuto.prototype.addImageSequenceToTreeItem = function(folderPath, siteId, dmxFolderId, dmxFileId, fps, treeItemIndex, callback) {
     /*
-     ** addImageSequenceToTreeItem(callback, folderPath, siteId, dmxFolderId, dmxFileId, fps, treeItemIndex)
+     ** addImageSequenceToTreeItem(folderPath, siteId, dmxFolderId, dmxFileId, fps, treeItemIndex, callback)
      **  no description available
      **
      ** Arguments:
@@ -1557,7 +1557,7 @@ PBAuto.prototype.addImageSequenceToTreeItem = function(folderPath, siteId, dmxFo
 };
 PBAuto.prototype.applyPreset = function(bankId, presetId, callback){
     /*
-     ** applyPreset(callback, bankId, presetId)
+     ** applyPreset(bankId, presetId, callback)
      **  no description available
      **
      ** Arguments:
@@ -1581,7 +1581,7 @@ PBAuto.prototype.applyPreset = function(bankId, presetId, callback){
 };
 PBAuto.prototype.applyView = function(viewId, callback){
     /*
-     ** applyView(callback, viewId)
+     ** applyView(viewId, callback)
      **  no description available
      **
      ** Arguments:
@@ -1601,7 +1601,7 @@ PBAuto.prototype.applyView = function(viewId, callback){
 };
 PBAuto.prototype.assignDevice = function(siteId, deviceId, sourceDeviceId, parameterName, callback){
     /*
-     ** assignDevice(callback, siteId, deviceId, sourceDeviceId, parameterName)
+     ** assignDevice(siteId, deviceId, sourceDeviceId, parameterName, callback)
      **  no description available
      **
      ** Arguments:
@@ -1634,7 +1634,7 @@ PBAuto.prototype.assignDevice = function(siteId, deviceId, sourceDeviceId, param
 };
 PBAuto.prototype.assignResource = function(siteId, deviceId, dmxFolderId, dmxFileId, forMesh, callback){
     /*
-     ** assignResource(callback, siteId, deviceId, dmxFolderId, dmxFileId, forMesh)
+     ** assignResource(siteId, deviceId, dmxFolderId, dmxFileId, forMesh, callback)
      **  no description available
      **
      ** Arguments:
@@ -1675,7 +1675,7 @@ PBAuto.prototype.assignResource = function(siteId, deviceId, dmxFolderId, dmxFil
 };
 PBAuto.prototype.assignResourceByName = function(siteId, deviceId, resourcePath, parameterName, forMesh, callback){
     /*
-     ** assignResourceByName(callback, siteId, deviceId, resourcePath, parameterName, forMesh)
+     ** assignResourceByName(siteId, deviceId, resourcePath, parameterName, forMesh, callback)
      **  no description available
      **
      ** Arguments:
@@ -1713,7 +1713,7 @@ PBAuto.prototype.assignResourceByName = function(siteId, deviceId, resourcePath,
 };
 PBAuto.prototype.assignResourceToParam = function(siteId, deviceId, dmxFolderId, dmxFileId, forMesh, parameterName, callback){
     /*
-     ** assignResourceToParam(callback, siteId, deviceId, dmxFolderId, dmxFileId, forMesh, parameterName)
+     ** assignResourceToParam(siteId, deviceId, dmxFolderId, dmxFileId, forMesh, parameterName, callback)
      **  no description available
      **
      ** Arguments:
@@ -1758,7 +1758,7 @@ PBAuto.prototype.assignResourceToParam = function(siteId, deviceId, dmxFolderId,
 };
 PBAuto.prototype.assignResourceToSelection = function(dmxFolderId, dmxFileId, forMesh, callback){
     /*
-     ** assignResourceToSelection(callback, dmxFolderId, dmxFileId, forMesh)
+     ** assignResourceToSelection(dmxFolderId, dmxFileId, forMesh, callback)
      **  no description available
      **
      ** Arguments:
@@ -1790,7 +1790,7 @@ PBAuto.prototype.assignResourceToSelection = function(dmxFolderId, dmxFileId, fo
 };
 PBAuto.prototype.attachAssetOnSite = function(filePath, resourcePath, siteId, callback){
     /*
-     ** attachAssetOnSite(callback, filePath, resourcePath, siteId)
+     ** attachAssetOnSite(filePath, resourcePath, siteId, callback)
      **  no description available
      **
      ** Arguments:
@@ -1820,7 +1820,7 @@ PBAuto.prototype.attachAssetOnSite = function(filePath, resourcePath, siteId, ca
 };
 PBAuto.prototype.attachAssetOnSiteByDmxId = function(filePath, dmxFolderId, dmxFileId, siteId, callback){
     /*
-     ** attachAssetOnSiteByDmxId(callback, filePath, dmxFolderId, dmxFileId, siteId)
+     ** attachAssetOnSiteByDmxId(filePath, dmxFolderId, dmxFileId, siteId, callback)
      **  no description available
      **
      ** Arguments:
@@ -1856,7 +1856,7 @@ PBAuto.prototype.attachAssetOnSiteByDmxId = function(filePath, dmxFolderId, dmxF
 };
 PBAuto.prototype.attachAssetOnSiteByTreeItem = function(filePath, treeItemIndex, siteId, callback){
     /*
-     ** attachAssetOnSiteByTreeItem(callback, filePath, treeItemIndex, siteId)
+     ** attachAssetOnSiteByTreeItem(filePath, treeItemIndex, siteId, callback)
      **  no description available
      **
      ** Arguments:
@@ -1886,7 +1886,7 @@ PBAuto.prototype.attachAssetOnSiteByTreeItem = function(filePath, treeItemIndex,
 };
 PBAuto.prototype.bundleProject = function(bundlePath, bundleName, callback){
     /*
-     ** bundleProject(callback, bundlePath, bundleName)
+     ** bundleProject(bundlePath, bundleName, callback)
      **  no description available
      **
      ** Arguments:
@@ -1909,7 +1909,7 @@ PBAuto.prototype.bundleProject = function(bundlePath, bundleName, callback){
 };
 PBAuto.prototype.clearActiveDevice = function(siteId, deviceId, callback){
     /*
-     ** clearActiveDevice(callback, siteId, deviceId)
+     ** clearActiveDevice(siteId, deviceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -1935,7 +1935,7 @@ PBAuto.prototype.clearActiveDevice = function(siteId, deviceId, callback){
 };
 PBAuto.prototype.clearActiveParam = function(siteId, deviceId, parameterName, callback){
     /*
-     ** clearActiveParam(callback, siteId, deviceId, parameterName)
+     ** clearActiveParam(siteId, deviceId, parameterName, callback)
      **  no description available
      **
      ** Arguments:
@@ -1965,7 +1965,7 @@ PBAuto.prototype.clearActiveParam = function(siteId, deviceId, parameterName, ca
 };
 PBAuto.prototype.clearActiveSite = function(siteId, callback){
     /*
-     ** clearActiveSite(callback, siteId)
+     ** clearActiveSite(siteId, callback)
      **  no description available
      **
      ** Arguments:
@@ -1987,7 +1987,7 @@ PBAuto.prototype.clearActiveSite = function(siteId, callback){
 };
 PBAuto.prototype.clearAllActive = function(callback){
     /*
-     ** clearAllActive(callback)
+     ** clearAllActive(callback, callback)
      **  no description available
      **
      ** Arguments:
@@ -2004,7 +2004,7 @@ PBAuto.prototype.clearAllActive = function(callback){
 };
 PBAuto.prototype.clearAllPlaylistEntriesByDmxId = function(playlistDmxFolderId, playlistdmxFileId, callback){
     /*
-     ** clearAllPlaylistEntriesByDmxId(callback, playlistDmxFolderId, playlistdmxFileId)
+     ** clearAllPlaylistEntriesByDmxId(playlistDmxFolderId, playlistdmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -2027,7 +2027,7 @@ PBAuto.prototype.clearAllPlaylistEntriesByDmxId = function(playlistDmxFolderId, 
 };
 PBAuto.prototype.clearAllPlaylistEntriesByItemIndex = function(playlistItemId, callback){
     /*
-     ** clearAllPlaylistEntriesByItemIndex(callback, playlistItemId)
+     ** clearAllPlaylistEntriesByItemIndex(playlistItemId, callback)
      **  no description available
      **
      ** Arguments:
@@ -2047,7 +2047,7 @@ PBAuto.prototype.clearAllPlaylistEntriesByItemIndex = function(playlistItemId, c
 };
 PBAuto.prototype.clearAllPlaylistEntriesByPath = function(playlistPath, callback){
     /*
-     ** clearAllPlaylistEntriesByPath(callback, playlistPath)
+     ** clearAllPlaylistEntriesByPath(playlistPath, callback)
      **  no description available
      **
      ** Arguments:
@@ -2067,7 +2067,7 @@ PBAuto.prototype.clearAllPlaylistEntriesByPath = function(playlistPath, callback
 };
 PBAuto.prototype.clearCanvasByDmxId = function(canvasDmxFolderId, canvasDmxFileId, callback){
     /*
-     ** clearCanvasByDmxId(callback, canvasDmxFolderId, canvasDmxFileId)
+     ** clearCanvasByDmxId(canvasDmxFolderId, canvasDmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -2090,7 +2090,7 @@ PBAuto.prototype.clearCanvasByDmxId = function(canvasDmxFolderId, canvasDmxFileI
 };
 PBAuto.prototype.clearCanvasByItemId = function(canvasItemId, callback){
     /*
-     ** clearCanvasByItemId(callback, canvasItemId)
+     ** clearCanvasByItemId(canvasItemId, callback)
      **  no description available
      **
      ** Arguments:
@@ -2110,7 +2110,7 @@ PBAuto.prototype.clearCanvasByItemId = function(canvasItemId, callback){
 };
 PBAuto.prototype.clearCanvasByPath = function(canvasResourcePath, callback){
     /*
-     ** clearCanvasByPath(callback, canvasResourcePath)
+     ** clearCanvasByPath(canvasResourcePath, callback)
      **  no description available
      **
      ** Arguments:
@@ -2130,7 +2130,7 @@ PBAuto.prototype.clearCanvasByPath = function(canvasResourcePath, callback){
 };
 PBAuto.prototype.clearEmptyPlaylistEntriesByDmxId = function(playlistDmxFolderId, playlistdmxFileId, callback){
     /*
-     ** clearEmptyPlaylistEntriesByDmxId(callback, playlistDmxFolderId, playlistdmxFileId)
+     ** clearEmptyPlaylistEntriesByDmxId(playlistDmxFolderId, playlistdmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -2153,7 +2153,7 @@ PBAuto.prototype.clearEmptyPlaylistEntriesByDmxId = function(playlistDmxFolderId
 };
 PBAuto.prototype.clearEmptyPlaylistEntriesByItemId = function(playlistItemId, callback){
     /*
-     ** clearEmptyPlaylistEntriesByItemId(callback, playlistItemId)
+     ** clearEmptyPlaylistEntriesByItemId(playlistItemId, callback)
      **  no description available
      **
      ** Arguments:
@@ -2173,7 +2173,7 @@ PBAuto.prototype.clearEmptyPlaylistEntriesByItemId = function(playlistItemId, ca
 };
 PBAuto.prototype.clearEmptyPlaylistEntriesByPath = function(playlistPath, callback){
     /*
-     ** clearEmptyPlaylistEntriesByPath(callback, playlistPath)
+     ** clearEmptyPlaylistEntriesByPath(playlistPath, callback)
      **  no description available
      **
      ** Arguments:
@@ -2193,7 +2193,7 @@ PBAuto.prototype.clearEmptyPlaylistEntriesByPath = function(playlistPath, callba
 };
 PBAuto.prototype.clearSelection = function(callback){
     /*
-     ** clearSelection(callback)
+     ** clearSelection(callback, callback)
      **  no description available
      **
      ** Arguments:
@@ -2210,7 +2210,7 @@ PBAuto.prototype.clearSelection = function(callback){
 };
 PBAuto.prototype.clearStreamingText = function(dmxFolderId, dmxFileId, pendingOnly, callback){
     /*
-     ** clearStreamingText(callback, dmxFolderId, dmxFileId, pendingOnly)
+     ** clearStreamingText(dmxFolderId, dmxFileId, pendingOnly, callback)
      **  no description available
      **
      ** Arguments:
@@ -2241,7 +2241,7 @@ PBAuto.prototype.clearStreamingText = function(dmxFolderId, dmxFileId, pendingOn
 };
 PBAuto.prototype.closeProject = function(save, callback){
     /*
-     ** closeProject(callback, save)
+     ** closeProject(save, callback)
      **  no description available
      **
      ** Arguments:
@@ -2261,7 +2261,7 @@ PBAuto.prototype.closeProject = function(save, callback){
 };
 PBAuto.prototype.createCue = function(sequenceId, cueId, hours, minutes, seconds, frames, cueName, cueKindId, callback){
     /*
-     ** createCue(callback, sequenceId, cueId, hours, minutes, seconds, frames, cueName, cueKindId)
+     ** createCue(sequenceId, cueId, hours, minutes, seconds, frames, cueName, cueKindId, callback)
      **  no description available
      **
      ** Arguments:
@@ -2302,7 +2302,7 @@ PBAuto.prototype.createCue = function(sequenceId, cueId, hours, minutes, seconds
 };
 PBAuto.prototype.createLayerGetId = function(siteId, isGraphicLayer, callback){
     /*
-     ** createLayerGetId(callback, siteId, isGraphicLayer)
+     ** createLayerGetId(siteId, isGraphicLayer, callback)
      **  no description available
      **
      ** Arguments:
@@ -2330,7 +2330,7 @@ PBAuto.prototype.createLayerGetId = function(siteId, isGraphicLayer, callback){
 };
 PBAuto.prototype.createPlaylist = function(doSetDmxId, dmxFolderId, dmxFileId, callback){
     /*
-     ** createPlaylist(callback, doSetDmxId, dmxFolderId, dmxFileId)
+     ** createPlaylist(doSetDmxId, dmxFolderId, dmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -2361,7 +2361,7 @@ PBAuto.prototype.createPlaylist = function(doSetDmxId, dmxFolderId, dmxFileId, c
 };
 PBAuto.prototype.createPlaylistInItemId = function(treeItemIndex, setdmxFileIds, newDmxFolderId, newdmxFileId, callback){
     /*
-     ** createPlaylistInItemId(callback, treeItemIndex, setdmxFileIds, newDmxFolderId, newdmxFileId)
+     ** createPlaylistInItemId(treeItemIndex, setdmxFileIds, newDmxFolderId, newdmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -2392,7 +2392,7 @@ PBAuto.prototype.createPlaylistInItemId = function(treeItemIndex, setdmxFileIds,
 };
 PBAuto.prototype.createPlaylistInItemIdWithName = function(treeItemIndex, setdmxFileIds, newDmxFolderId, newdmxFileId, newResourceName, callback){
     /*
-     ** createPlaylistInItemIdWithName(callback, treeItemIndex, setdmxFileIds, newDmxFolderId, newdmxFileId, newResourceName)
+     ** createPlaylistInItemIdWithName(treeItemIndex, setdmxFileIds, newDmxFolderId, newdmxFileId, newResourceName, callback)
      **  no description available
      **
      ** Arguments:
@@ -2426,7 +2426,7 @@ PBAuto.prototype.createPlaylistInItemIdWithName = function(treeItemIndex, setdmx
 };
 PBAuto.prototype.createPlaylistInPath = function(projectPath, doSetDmxId, dmxFolderId, dmxFileId, callback){
     /*
-     ** createPlaylistInPath(callback, projectPath, doSetDmxId, dmxFolderId, dmxFileId)
+     ** createPlaylistInPath(projectPath, doSetDmxId, dmxFolderId, dmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -2461,7 +2461,7 @@ PBAuto.prototype.createPlaylistInPath = function(projectPath, doSetDmxId, dmxFol
 };
 PBAuto.prototype.createPlaylistInPathFromFolder = function(projectPath, sourceProjectPath, setdmxFileIds, newDmxFolderId, newdmxFileId, callback){
     /*
-     ** createPlaylistInPathFromFolder(callback, projectPath, sourceProjectPath, setdmxFileIds, newDmxFolderId, newdmxFileId)
+     ** createPlaylistInPathFromFolder(projectPath, sourceProjectPath, setdmxFileIds, newDmxFolderId, newdmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -2494,7 +2494,7 @@ PBAuto.prototype.createPlaylistInPathFromFolder = function(projectPath, sourcePr
 };
 PBAuto.prototype.createPlaylistInPathFromFolderWithName = function(projectPath, sourceProjectPath, setdmxFileIds, newDmxFolderId, newdmxFileId, newResourceName, callback){
     /*
-     ** createPlaylistInPathFromFolderWithName(callback, projectPath, sourceProjectPath, setdmxFileIds, newDmxFolderId, newdmxFileId, newResourceName)
+     ** createPlaylistInPathFromFolderWithName(projectPath, sourceProjectPath, setdmxFileIds, newDmxFolderId, newdmxFileId, newResourceName, callback)
      **  no description available
      **
      ** Arguments:
@@ -2530,7 +2530,7 @@ PBAuto.prototype.createPlaylistInPathFromFolderWithName = function(projectPath, 
 };
 PBAuto.prototype.createPlaylistInPathWithName = function(projectPath, doSetDmxId, dmxFolderId, dmxFileId, newResourceName, callback){
     /*
-     ** createPlaylistInPathWithName(callback, projectPath, doSetDmxId, dmxFolderId, dmxFileId, newResourceName)
+     ** createPlaylistInPathWithName(projectPath, doSetDmxId, dmxFolderId, dmxFileId, newResourceName, callback)
      **  no description available
      **
      ** Arguments:
@@ -2568,7 +2568,7 @@ PBAuto.prototype.createPlaylistInPathWithName = function(projectPath, doSetDmxId
 };
 PBAuto.prototype.createPlaylistInTreeItemFromFolder = function(treeItemIndex, sourceFolderItemId, setdmxFileIds, newDmxFolderId, newdmxFileId, callback){
     /*
-     ** createPlaylistInTreeItemFromFolder(callback, treeItemIndex, sourceFolderItemId, setdmxFileIds, newDmxFolderId, newdmxFileId)
+     ** createPlaylistInTreeItemFromFolder(treeItemIndex, sourceFolderItemId, setdmxFileIds, newDmxFolderId, newdmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -2602,7 +2602,7 @@ PBAuto.prototype.createPlaylistInTreeItemFromFolder = function(treeItemIndex, so
 };
 PBAuto.prototype.createPlaylistInTreeItemFromFolderWithName = function(treeItemIndex, sourceFolderItemId, setdmxFileIds, newDmxFolderId, newdmxFileId, newResourceName, callback){
     /*
-     ** createPlaylistInTreeItemFromFolderWithName(callback, treeItemIndex, sourceFolderItemId, setdmxFileIds, newDmxFolderId, newdmxFileId, newResourceName)
+     ** createPlaylistInTreeItemFromFolderWithName(treeItemIndex, sourceFolderItemId, setdmxFileIds, newDmxFolderId, newdmxFileId, newResourceName, callback)
      **  no description available
      **
      ** Arguments:
@@ -2639,7 +2639,7 @@ PBAuto.prototype.createPlaylistInTreeItemFromFolderWithName = function(treeItemI
 };
 PBAuto.prototype.createPlaylistWithName = function(doSetDmxId, dmxFolderId, dmxFileId, newResourceName, callback){
     /*
-     ** createPlaylistWithName(callback, doSetDmxId, dmxFolderId, dmxFileId, newResourceName)
+     ** createPlaylistWithName(doSetDmxId, dmxFolderId, dmxFileId, newResourceName, callback)
      **  no description available
      **
      ** Arguments:
@@ -2673,7 +2673,7 @@ PBAuto.prototype.createPlaylistWithName = function(doSetDmxId, dmxFolderId, dmxF
 };
 PBAuto.prototype.createProjectFolder = function(folderName, callback){
     /*
-     ** createProjectFolder(callback, folderName)
+     ** createProjectFolder(folderName, callback)
      **  no description available
      **
      ** Arguments:
@@ -2693,7 +2693,7 @@ PBAuto.prototype.createProjectFolder = function(folderName, callback){
 };
 PBAuto.prototype.createProjectFolderInPath = function(folderName, projectPath, callback){
     /*
-     ** createProjectFolderInPath(callback, folderName, projectPath)
+     ** createProjectFolderInPath(folderName, projectPath, callback)
      **  no description available
      **
      ** Arguments:
@@ -2717,7 +2717,7 @@ PBAuto.prototype.createProjectFolderInPath = function(folderName, projectPath, c
 };
 PBAuto.prototype.createProjectFolderInTreeItem = function(folderName, treeItemIndex, callback){
     /*
-     ** createProjectFolderInTreeItem(callback, folderName, treeItemIndex)
+     ** createProjectFolderInTreeItem(folderName, treeItemIndex, callback)
      **  no description available
      **
      ** Arguments:
@@ -2742,7 +2742,7 @@ PBAuto.prototype.createProjectFolderInTreeItem = function(folderName, treeItemIn
 };
 PBAuto.prototype.createSequenceGetId = function(callback){
     /*
-     ** createSequenceGetId(callback)
+     ** createSequenceGetId(callback, callback)
      **  no description available
      **
      ** Arguments:
@@ -2762,7 +2762,7 @@ PBAuto.prototype.createSequenceGetId = function(callback){
 };
 PBAuto.prototype.createTextInput = function(dmxFolderId, dmxFileId, text, callback){
     /*
-     ** createTextInput(callback, dmxFolderId, dmxFileId, text)
+     ** createTextInput(dmxFolderId, dmxFileId, text, callback)
      **  no description available
      **
      ** Arguments:
@@ -2793,7 +2793,7 @@ PBAuto.prototype.createTextInput = function(dmxFolderId, dmxFileId, text, callba
 };
 PBAuto.prototype.createTextInputWide = function(dmxFolderId, dmxFileId, text, callback){
     /*
-     ** createTextInputWide(callback, dmxFolderId, dmxFileId, text)
+     ** createTextInputWide(dmxFolderId, dmxFileId, text, callback)
      **  no description available
      **
      ** Arguments:
@@ -2824,7 +2824,7 @@ PBAuto.prototype.createTextInputWide = function(dmxFolderId, dmxFileId, text, ca
 };
 PBAuto.prototype.encodeFile = function(resourcePath, encodingPreset, callback){
     /*
-     ** encodeFile(callback, resourcePath, encodingPreset)
+     ** encodeFile(resourcePath, encodingPreset, callback)
      **  no description available
      **
      ** Arguments:
@@ -2849,7 +2849,7 @@ PBAuto.prototype.encodeFile = function(resourcePath, encodingPreset, callback){
 };
 PBAuto.prototype.encodeFileByDmxId = function(folderID, fileID, encodingPreset, callback){
     /*
-     ** encodeFileByDmxId(callback, folderID, fileID, encodingPreset)
+     ** encodeFileByDmxId(folderID, fileID, encodingPreset, callback)
      **  no description available
      **
      ** Arguments:
@@ -2875,7 +2875,7 @@ PBAuto.prototype.encodeFileByDmxId = function(folderID, fileID, encodingPreset, 
 };
 PBAuto.prototype.encodeFileToPath = function(resourcePath, projectPath, overwriteExisting, encodingPreset, callback){
     /*
-     ** encodeFileToPath(callback, resourcePath, projectPath, overwriteExisting, encodingPreset)
+     ** encodeFileToPath(resourcePath, projectPath, overwriteExisting, encodingPreset, callback)
      **  no description available
      **
      ** Arguments:
@@ -2907,7 +2907,7 @@ PBAuto.prototype.encodeFileToPath = function(resourcePath, projectPath, overwrit
 };
 PBAuto.prototype.executeCanvasCmdByDmxId = function(canvasDmxFolderId, canvasDmxFileId, pCmd, cmdContainsResourcePath, callback){
     /*
-     ** executeCanvasCmdByDmxId(callback, canvasDmxFolderId, canvasDmxFileId, pCmd, cmdContainsResourcePath)
+     ** executeCanvasCmdByDmxId(canvasDmxFolderId, canvasDmxFileId, pCmd, cmdContainsResourcePath, callback)
      **  no description available
      **
      ** Arguments:
@@ -2936,7 +2936,7 @@ PBAuto.prototype.executeCanvasCmdByDmxId = function(canvasDmxFolderId, canvasDmx
 };
 PBAuto.prototype.executeCanvasCmdByItemId = function(canvasItemId, pCmd, cmdContainsResourcePath, callback){
     /*
-     ** executeCanvasCmdByItemId(callback, canvasItemId, pCmd, cmdContainsResourcePath)
+     ** executeCanvasCmdByItemId(canvasItemId, pCmd, cmdContainsResourcePath, callback)
      **  no description available
      **
      ** Arguments:
@@ -2962,7 +2962,7 @@ PBAuto.prototype.executeCanvasCmdByItemId = function(canvasItemId, pCmd, cmdCont
 };
 PBAuto.prototype.executeCanvasCmdByPath = function(canvasResourcePath, pCmd, cmdContainsResourcePath, callback){
     /*
-     ** executeCanvasCmdByPath(callback, canvasResourcePath, pCmd, cmdContainsResourcePath)
+     ** executeCanvasCmdByPath(canvasResourcePath, pCmd, cmdContainsResourcePath, callback)
      **  no description available
      **
      ** Arguments:
@@ -2988,7 +2988,7 @@ PBAuto.prototype.executeCanvasCmdByPath = function(canvasResourcePath, pCmd, cmd
 };
 PBAuto.prototype.exportVideo = function(pFilename, encodingPresetName, sequenceId, startHour, startMinute, startSecond, startFrame, endHour, endMinute, endSec, endFrame, callback){
     /*
-     ** exportVideo(callback, pFilename, encodingPresetName, sequenceId, startHour, startMinute, startSecond, startFrame, endHour, endMinute, endSec, endFrame)
+     ** exportVideo(pFilename, encodingPresetName, sequenceId, startHour, startMinute, startSecond, startFrame, endHour, endMinute, endSec, endFrame, callback)
      **  no description available
      **
      ** Arguments:
@@ -3039,7 +3039,7 @@ PBAuto.prototype.exportVideo = function(pFilename, encodingPresetName, sequenceI
 };
 PBAuto.prototype.getCanvasDrawCommandsByDmxId = function(canvasDmxFolderId, canvasDmxFileId, callback){
     /*
-     ** getCanvasDrawCommandsByDmxId(callback, canvasDmxFolderId, canvasDmxFileId)
+     ** getCanvasDrawCommandsByDmxId(canvasDmxFolderId, canvasDmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3065,7 +3065,7 @@ PBAuto.prototype.getCanvasDrawCommandsByDmxId = function(canvasDmxFolderId, canv
 };
 PBAuto.prototype.getCanvasDrawCommandsByItemId = function(canvasItemId, callback){
     /*
-     ** getCanvasDrawCommandsByItemId(callback, canvasItemId)
+     ** getCanvasDrawCommandsByItemId(canvasItemId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3088,7 +3088,7 @@ PBAuto.prototype.getCanvasDrawCommandsByItemId = function(canvasItemId, callback
 };
 PBAuto.prototype.getCanvasDrawCommandsByPath = function(canvasResourcePath, callback){
     /*
-     ** getCanvasDrawCommandsByPath(callback, canvasResourcePath)
+     ** getCanvasDrawCommandsByPath(canvasResourcePath, callback)
      **  no description available
      **
      ** Arguments:
@@ -3111,7 +3111,7 @@ PBAuto.prototype.getCanvasDrawCommandsByPath = function(canvasResourcePath, call
 };
 PBAuto.prototype.getClipRemainingTime = function(siteId, deviceId, sequenceId, callback) {
     /*
-     ** getClipRemainingTime(callback, siteId, deviceId, sequenceId)
+     ** getClipRemainingTime(siteId, deviceId, sequenceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3152,7 +3152,7 @@ PBAuto.prototype.getClipRemainingTime = function(siteId, deviceId, sequenceId, c
 };
 PBAuto.prototype.getContentIsConsistentByTreeItem = function(treeItemIndex, callback){
     /*
-     ** getContentIsConsistentByTreeItem(callback, treeItemIndex)
+     ** getContentIsConsistentByTreeItem(treeItemIndex, callback)
      **  no description available
      **
      ** Arguments:
@@ -3174,7 +3174,7 @@ PBAuto.prototype.getContentIsConsistentByTreeItem = function(treeItemIndex, call
 };
 PBAuto.prototype.getCueName = function(sequenceId, cueId, callback){
     /*
-     ** getCueName(callback, sequenceId, cueId)
+     ** getCueName(sequenceId, cueId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3200,7 +3200,7 @@ PBAuto.prototype.getCueName = function(sequenceId, cueId, callback){
 };
 PBAuto.prototype.getCurrentTimeCueInfo = function(sequenceId, callback){
     /*
-     ** getCurrentTimeCueInfo(callback, sequenceId)
+     ** getCurrentTimeCueInfo(sequenceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3274,7 +3274,7 @@ PBAuto.prototype.getCurrentTimeCueInfo = function(sequenceId, callback){
 };
 PBAuto.prototype.getIsLayerSelected = function(siteId, deviceId, callback){
     /*
-     ** getIsLayerSelected(callback, siteId, deviceId)
+     ** getIsLayerSelected(siteId, deviceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3303,7 +3303,7 @@ PBAuto.prototype.getIsLayerSelected = function(siteId, deviceId, callback){
 };
 PBAuto.prototype.getEnableClxController = function(forJogShuttle, callback){
     /*
-     ** getEnableClxController(callback, forJogShuttle)
+     ** getEnableClxController(forJogShuttle, callback)
      **  no description available
      **
      ** Arguments:
@@ -3326,7 +3326,7 @@ PBAuto.prototype.getEnableClxController = function(forJogShuttle, callback){
 };
 PBAuto.prototype.getFolderSpreadToSite = function(projectPath, siteId, callback){
     /*
-     ** getFolderSpreadToSite(callback, projectPath, siteId)
+     ** getFolderSpreadToSite(projectPath, siteId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3355,7 +3355,7 @@ PBAuto.prototype.getFolderSpreadToSite = function(projectPath, siteId, callback)
 };
 PBAuto.prototype.getFolderSpreadToSiteByItemId = function(treeItemIndex, siteId, callback){
     /*
-     ** getFolderSpreadToSiteByItemId(callback, treeItemIndex, siteId)
+     ** getFolderSpreadToSiteByItemId(treeItemIndex, siteId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3385,7 +3385,7 @@ PBAuto.prototype.getFolderSpreadToSiteByItemId = function(treeItemIndex, siteId,
 };
 PBAuto.prototype.getIsContentConsistent = function(dmxFolderId, dmxFileId, callback){
     /*
-     ** getIsContentConsistent(callback, dmxFolderId, dmxFileId)
+     ** getIsContentConsistent(dmxFolderId, dmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3416,7 +3416,7 @@ PBAuto.prototype.getIsContentConsistent = function(dmxFolderId, dmxFileId, callb
 };
 PBAuto.prototype.getIsContentConsistentByName = function(resourcePath, callback){
     /*
-     ** getIsContentConsistentByName(callback, resourcePath)
+     ** getIsContentConsistentByName(resourcePath, callback)
      **  no description available
      **
      ** Arguments:
@@ -3441,7 +3441,7 @@ PBAuto.prototype.getIsContentConsistentByName = function(resourcePath, callback)
 };
 PBAuto.prototype.getIsSiteConnected = function(siteId, callback){
     /*
-     ** getIsSiteConnected(callback, siteId)
+     ** getIsSiteConnected(siteId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3466,7 +3466,7 @@ PBAuto.prototype.getIsSiteConnected = function(siteId, callback){
 };
 PBAuto.prototype.getMediaHeightByDmxId = function(dmxFolderId, dmxFileId, callback){
     /*
-     ** getMediaHeightByDmxId(callback, dmxFolderId, dmxFileId)
+     ** getMediaHeightByDmxId(dmxFolderId, dmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3497,7 +3497,7 @@ PBAuto.prototype.getMediaHeightByDmxId = function(dmxFolderId, dmxFileId, callba
 };
 PBAuto.prototype.getMediaHeightByItemId = function(itemId, callback){
     /*
-     ** getMediaHeightByItemId(callback, itemId)
+     ** getMediaHeightByItemId(itemId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3520,7 +3520,7 @@ PBAuto.prototype.getMediaHeightByItemId = function(itemId, callback){
 };
 PBAuto.prototype.getMediaHeightByPath = function(folderPathToProject, callback){
     /*
-     ** getMediaHeightByPath(callback, folderPathToProject)
+     ** getMediaHeightByPath(folderPathToProject, callback)
      **  no description available
      **
      ** Arguments:
@@ -3543,7 +3543,7 @@ PBAuto.prototype.getMediaHeightByPath = function(folderPathToProject, callback){
 };
 PBAuto.prototype.getMediaTransportMode = function(siteId, deviceId, callback){
     /*
-     ** getMediaTransportMode(callback, siteId, deviceId)
+     ** getMediaTransportMode(siteId, deviceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3573,7 +3573,7 @@ PBAuto.prototype.getMediaTransportMode = function(siteId, deviceId, callback){
 };
 PBAuto.prototype.getMediaWidthByDmxId = function(dmxFolderId, dmxFileId, callback){
     /*
-     ** getMediaWidthByDmxId(callback, dmxFolderId, dmxFileId)
+     ** getMediaWidthByDmxId(dmxFolderId, dmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3604,7 +3604,7 @@ PBAuto.prototype.getMediaWidthByDmxId = function(dmxFolderId, dmxFileId, callbac
 };
 PBAuto.prototype.getMediaWidthByItemId = function(itemId, callback){
     /*
-     ** getMediaWidthByItemId(callback, itemId)
+     ** getMediaWidthByItemId(itemId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3627,7 +3627,7 @@ PBAuto.prototype.getMediaWidthByItemId = function(itemId, callback){
 };
 PBAuto.prototype.getMediaWidthByPath = function(folderPathToProject, callback){
     /*
-     ** getMediaWidthByPath(callback, folderPathToProject)
+     ** getMediaWidthByPath(folderPathToProject, callback)
      **  no description available
      **
      ** Arguments:
@@ -3650,7 +3650,7 @@ PBAuto.prototype.getMediaWidthByPath = function(folderPathToProject, callback){
 };
 PBAuto.prototype.getParamByteTuples = function(siteId, deviceId, parameterName, callback){
     /*
-     ** getParamByteTuples(callback, siteId, deviceId, parameterName)
+     ** getParamByteTuples(siteId, deviceId, parameterName, callback)
      **  no description available
      **
      ** Arguments:
@@ -3685,7 +3685,7 @@ PBAuto.prototype.getParamByteTuples = function(siteId, deviceId, parameterName, 
 };
 PBAuto.prototype.getRemainingTimeUntilNextCue = function(sequenceId, callback){
     /*
-     ** getRemainingTimeUntilNextCue(callback, sequenceId)
+     ** getRemainingTimeUntilNextCue(sequenceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3717,7 +3717,7 @@ PBAuto.prototype.getRemainingTimeUntilNextCue = function(sequenceId, callback){
 };
 PBAuto.prototype.getResourceCount = function(callback){
     /*
-     ** getResourceCount(callback)
+     ** getResourceCount(callback, callback)
      **  no description available
      **
      ** Arguments:
@@ -3737,7 +3737,7 @@ PBAuto.prototype.getResourceCount = function(callback){
 };
 PBAuto.prototype.getParamResource = function(siteId, deviceId, isMedia, parameterName, callback){
     /*
-     ** getParamResource(callback, siteId, deviceId, isMedia, parameterName)
+     ** getParamResource(siteId, deviceId, isMedia, parameterName, callback)
      **  no description available
      **
      ** Arguments:
@@ -3789,7 +3789,7 @@ PBAuto.prototype.getParamResource = function(siteId, deviceId, isMedia, paramete
 };
 PBAuto.prototype.getPlaylistSizeByDmxId = function(playlistDmxFolderId, playlistdmxFileId, callback){
     /*
-     ** getPlaylistSizeByDmxId(callback, playlistDmxFolderId, playlistdmxFileId)
+     ** getPlaylistSizeByDmxId(playlistDmxFolderId, playlistdmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3815,7 +3815,7 @@ PBAuto.prototype.getPlaylistSizeByDmxId = function(playlistDmxFolderId, playlist
 };
 PBAuto.prototype.getPlaylistSizeByItemId = function(playlistItemId, callback){
     /*
-     ** getPlaylistSizeByItemId(callback, playlistItemId)
+     ** getPlaylistSizeByItemId(playlistItemId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3838,7 +3838,7 @@ PBAuto.prototype.getPlaylistSizeByItemId = function(playlistItemId, callback){
 };
 PBAuto.prototype.getPlaylistSizeByPath = function(playlistPath, callback){
     /*
-     ** getPlaylistSizeByPath(callback, playlistPath)
+     ** getPlaylistSizeByPath(playlistPath, callback)
      **  no description available
      **
      ** Arguments:
@@ -3861,7 +3861,7 @@ PBAuto.prototype.getPlaylistSizeByPath = function(playlistPath, callback){
 };
 PBAuto.prototype.getParam = function(siteId, deviceId, parameterName, callback){
     /*
-     ** getParam(callback, siteId, deviceId, parameterName)
+     ** getParam(siteId, deviceId, parameterName, callback)
      **  no description available
      **
      ** Arguments:
@@ -3894,7 +3894,7 @@ PBAuto.prototype.getParam = function(siteId, deviceId, parameterName, callback){
 };
 PBAuto.prototype.getParamOfKind = function(siteId, deviceId, parameterKindId, callback){
     /*
-     ** getParamOfKind(callback, siteId, deviceId, parameterKindId)
+     ** getParamOfKind(siteId, deviceId, parameterKindId, callback)
      **  no description available
      **
      ** Arguments:
@@ -3927,7 +3927,7 @@ PBAuto.prototype.getParamOfKind = function(siteId, deviceId, parameterKindId, ca
 };
 PBAuto.prototype.getProjectPathOnDisc = function(callback){
     /*
-     ** getProjectPathOnDisc(callback)
+     ** getProjectPathOnDisc(callback, callback)
      **  no description available
      **
      ** Arguments:
@@ -3947,7 +3947,7 @@ PBAuto.prototype.getProjectPathOnDisc = function(callback){
 };
 PBAuto.prototype.getSelectedDevice = function(selectionIndex, callback){
     /*
-     ** getSelectedDevice(callback, selectionIndex)
+     ** getSelectedDevice(selectionIndex, callback)
      **  no description available
      **
      ** Arguments:
@@ -3977,7 +3977,7 @@ PBAuto.prototype.getSelectedDevice = function(selectionIndex, callback){
 };
 PBAuto.prototype.getSelectedDeviceCount = function(callback){
     /*
-     ** getSelectedDeviceCount(callback)
+     ** getSelectedDeviceCount(callback, callback)
      **  no description available
      **
      ** Arguments:
@@ -3997,7 +3997,7 @@ PBAuto.prototype.getSelectedDeviceCount = function(callback){
 };
 PBAuto.prototype.getSequenceTime = function(sequenceId, callback){
     /*
-     ** getSequenceTime(callback, sequenceId)
+     ** getSequenceTime(sequenceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -4029,7 +4029,7 @@ PBAuto.prototype.getSequenceTime = function(sequenceId, callback){
 };
 PBAuto.prototype.getSequenceTransparency = function(sequenceId, callback){
     /*
-     ** getSequenceTransparency(callback, sequenceId)
+     ** getSequenceTransparency(sequenceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -4052,7 +4052,7 @@ PBAuto.prototype.getSequenceTransparency = function(sequenceId, callback){
 };
 PBAuto.prototype.getSequenceTransportMode = function(sequenceId, callback){
     /*
-     ** getSequenceTransportMode(callback, sequenceId)
+     ** getSequenceTransportMode(sequenceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -4076,7 +4076,7 @@ PBAuto.prototype.getSequenceTransportMode = function(sequenceId, callback){
 };
 PBAuto.prototype.getThumbnailByItemIndex = function(treeItemIndex, callback){
     /*
-     ** getThumbnailByItemIndex(callback, treeItemIndex)
+     ** getThumbnailByItemIndex(treeItemIndex, callback)
      **  no description available
      **
      ** Arguments:
@@ -4110,7 +4110,7 @@ PBAuto.prototype.getThumbnailByItemIndex = function(treeItemIndex, callback){
 };
 PBAuto.prototype.getThumbnailByPath = function(resourcePath, callback){
     /*
-     ** getThumbnailByPath(callback, resourcePath)
+     ** getThumbnailByPath(resourcePath, callback)
      **  no description available
      **
      ** Arguments:
@@ -4144,7 +4144,7 @@ PBAuto.prototype.getThumbnailByPath = function(resourcePath, callback){
 };
 PBAuto.prototype.getTreeItemCount = function(callback){
     /*
-     ** getTreeItemCount(callback)
+     ** getTreeItemCount(callback, callback)
      **  no description available
      **
      ** Arguments:
@@ -4164,7 +4164,7 @@ PBAuto.prototype.getTreeItemCount = function(callback){
 };
 PBAuto.prototype.getWatchedFolderProperty = function(projectPath, watchFolderProperty, callback){
     /*
-     ** getWatchedFolderProperty(callback, projectPath, watchFolderProperty)
+     ** getWatchedFolderProperty(projectPath, watchFolderProperty, callback)
      **  no description available
      **
      ** Arguments:
@@ -4191,7 +4191,7 @@ PBAuto.prototype.getWatchedFolderProperty = function(projectPath, watchFolderPro
 };
 PBAuto.prototype.getWatchedFolderPropertyByItemId = function(treeItemIndex, watchFolderProperty, callback){
     /*
-     ** getWatchedFolderPropertyByItemId(callback, treeItemIndex, watchFolderProperty)
+     ** getWatchedFolderPropertyByItemId(treeItemIndex, watchFolderProperty, callback)
      **  no description available
      **
      ** Arguments:
@@ -4219,7 +4219,7 @@ PBAuto.prototype.getWatchedFolderPropertyByItemId = function(treeItemIndex, watc
 };
 PBAuto.prototype.handleSublayer = function(siteId, deviceId, action, data, callback){
     /*
-     ** handleSublayer(callback, siteId, deviceId, action, data)
+     ** handleSublayer(siteId, deviceId, action, data, callback)
      **  no description available
      **
      ** Arguments:
@@ -4251,7 +4251,7 @@ PBAuto.prototype.handleSublayer = function(siteId, deviceId, action, data, callb
 };
 PBAuto.prototype.insertPlaylistEntryByDmxId = function(playlistDmxFolderId, playlistdmxFileId, resourceDmxFolderId, resourceDmxFileId, index, callback){
     /*
-     ** insertPlaylistEntryByDmxId(callback, playlistDmxFolderId, playlistdmxFileId, resourceDmxFolderId, resourceDmxFileId, index)
+     ** insertPlaylistEntryByDmxId(playlistDmxFolderId, playlistdmxFileId, resourceDmxFolderId, resourceDmxFileId, index, callback)
      **  no description available
      **
      ** Arguments:
@@ -4283,7 +4283,7 @@ PBAuto.prototype.insertPlaylistEntryByDmxId = function(playlistDmxFolderId, play
 };
 PBAuto.prototype.insertPlaylistEntryByItemId = function(playlistItemId, resourceItemId, index, callback){
     /*
-     ** insertPlaylistEntryByItemId(callback, playlistItemId, resourceItemId, index)
+     ** insertPlaylistEntryByItemId(playlistItemId, resourceItemId, index, callback)
      **  no description available
      **
      ** Arguments:
@@ -4309,7 +4309,7 @@ PBAuto.prototype.insertPlaylistEntryByItemId = function(playlistItemId, resource
 };
 PBAuto.prototype.insertPlaylistEntryByPath = function(playlistPath, resourcePath, index, callback){
     /*
-     ** insertPlaylistEntryByPath(callback, playlistPath, resourcePath, index)
+     ** insertPlaylistEntryByPath(playlistPath, resourcePath, index, callback)
      **  no description available
      **
      ** Arguments:
@@ -4335,7 +4335,7 @@ PBAuto.prototype.insertPlaylistEntryByPath = function(playlistPath, resourcePath
 };
 PBAuto.prototype.loadProject = function(folderPathToProject, projectXmlFileName, saveExisting, callback){
     /*
-     ** loadProject(callback, folderPathToProject, projectXmlFileName, saveExisting)
+     ** loadProject(folderPathToProject, projectXmlFileName, saveExisting, callback)
      **  no description available
      **
      ** Arguments:
@@ -4361,7 +4361,7 @@ PBAuto.prototype.loadProject = function(folderPathToProject, projectXmlFileName,
 };
 PBAuto.prototype.moveLayerDown = function(siteId, deviceId, callback){
     /*
-     ** moveLayerDown(callback, siteId, deviceId)
+     ** moveLayerDown(siteId, deviceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -4387,7 +4387,7 @@ PBAuto.prototype.moveLayerDown = function(siteId, deviceId, callback){
 };
 PBAuto.prototype.moveLayerToFirstPosition = function(siteId, deviceId, callback){
     /*
-     ** moveLayerToFirstPosition(callback, siteId, deviceId)
+     ** moveLayerToFirstPosition(siteId, deviceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -4413,7 +4413,7 @@ PBAuto.prototype.moveLayerToFirstPosition = function(siteId, deviceId, callback)
 };
 PBAuto.prototype.moveLayerToLastPosition = function(siteId, deviceId, callback){
     /*
-     ** moveLayerToLastPosition(callback, siteId, deviceId)
+     ** moveLayerToLastPosition(siteId, deviceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -4439,7 +4439,7 @@ PBAuto.prototype.moveLayerToLastPosition = function(siteId, deviceId, callback){
 };
 PBAuto.prototype.moveLayerUp = function(siteId, deviceId, callback){
     /*
-     ** moveLayerUp(callback, siteId, deviceId)
+     ** moveLayerUp(siteId, deviceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -4465,7 +4465,7 @@ PBAuto.prototype.moveLayerUp = function(siteId, deviceId, callback){
 };
 PBAuto.prototype.moveResourceToPath = function(resourcePath, projectPath, callback){
     /*
-     ** moveResourceToPath(callback, resourcePath, projectPath)
+     ** moveResourceToPath(resourcePath, projectPath, callback)
      **  no description available
      **
      ** Arguments:
@@ -4491,7 +4491,7 @@ PBAuto.prototype.moveResourceToPath = function(resourcePath, projectPath, callba
 };
 PBAuto.prototype.moveSequenceToCue = function(sequenceId, cueId, callback){
     /*
-     ** moveSequenceToCue(callback, sequenceId, cueId)
+     ** moveSequenceToCue(sequenceId, cueId, callback)
      **  no description available
      **
      ** Arguments:
@@ -4514,7 +4514,7 @@ PBAuto.prototype.moveSequenceToCue = function(sequenceId, cueId, callback){
 };
 PBAuto.prototype.moveSequenceToNextCue = function(sequenceId, isNext, callback){
     /*
-     ** moveSequenceToNextCue(callback, sequenceId, isNext)
+     ** moveSequenceToNextCue(sequenceId, isNext, callback)
      **  no description available
      **
      ** Arguments:
@@ -4538,7 +4538,7 @@ PBAuto.prototype.moveSequenceToNextCue = function(sequenceId, isNext, callback){
 };
 PBAuto.prototype.moveSequenceToNextFrame = function(sequenceId, isNext, callback){
     /*
-     ** moveSequenceToNextFrame(callback, sequenceId, isNext)
+     ** moveSequenceToNextFrame(sequenceId, isNext, callback)
      **  no description available
      **
      ** Arguments:
@@ -4562,7 +4562,7 @@ PBAuto.prototype.moveSequenceToNextFrame = function(sequenceId, isNext, callback
 };
 PBAuto.prototype.moveSequenceToTime = function(sequenceId, hours, minutes, seconds, frames, callback){
     /*
-     ** moveSequenceToTime(callback, sequenceId, hours, minutes, seconds, frames)
+     ** moveSequenceToTime(sequenceId, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -4594,7 +4594,7 @@ PBAuto.prototype.moveSequenceToTime = function(sequenceId, hours, minutes, secon
 };
 PBAuto.prototype.moveTreeItem = function(itemIdFrom, itemIdTo, callback){
     /*
-     ** moveTreeItem(callback, itemIdFrom, itemIdTo)
+     ** moveTreeItem(itemIdFrom, itemIdTo, callback)
      **  no description available
      **
      ** Arguments:
@@ -4621,7 +4621,7 @@ PBAuto.prototype.moveTreeItem = function(itemIdFrom, itemIdTo, callback){
 };
 PBAuto.prototype.pushBackPlaylistEntryByDmxId = function(playlistDmxFolderId, playlistdmxFileId, resourceDmxFolderId, resourceDmxFileId, callback){
     /*
-     ** pushBackPlaylistEntryByDmxId(callback, playlistDmxFolderId, playlistdmxFileId, resourceDmxFolderId, resourceDmxFileId)
+     ** pushBackPlaylistEntryByDmxId(playlistDmxFolderId, playlistdmxFileId, resourceDmxFolderId, resourceDmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -4650,7 +4650,7 @@ PBAuto.prototype.pushBackPlaylistEntryByDmxId = function(playlistDmxFolderId, pl
 };
 PBAuto.prototype.pushBackPlaylistEntryByItemId = function(playlistItemId, resourceItemId, callback){
     /*
-     ** pushBackPlaylistEntryByItemId(callback, playlistItemId, resourceItemId)
+     ** pushBackPlaylistEntryByItemId(playlistItemId, resourceItemId, callback)
      **  no description available
      **
      ** Arguments:
@@ -4673,7 +4673,7 @@ PBAuto.prototype.pushBackPlaylistEntryByItemId = function(playlistItemId, resour
 };
 PBAuto.prototype.pushBackPlaylistEntryByPath = function(playlistPath, resourcePath, callback){
     /*
-     ** pushBackPlaylistEntryByPath(callback, playlistPath, resourcePath)
+     ** pushBackPlaylistEntryByPath(playlistPath, resourcePath, callback)
      **  no description available
      **
      ** Arguments:
@@ -4696,7 +4696,7 @@ PBAuto.prototype.pushBackPlaylistEntryByPath = function(playlistPath, resourcePa
 };
 PBAuto.prototype.recordLiveInputByDmxId = function(folderID, fileID, pFilename, encodingPresetName, hours, minutes, seconds, frames, callback){
     /*
-     ** recordLiveInputByDmxId(callback, folderID, fileID, pFilename, encodingPresetName, hours, minutes, seconds, frames)
+     ** recordLiveInputByDmxId(folderID, fileID, pFilename, encodingPresetName, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -4738,7 +4738,7 @@ PBAuto.prototype.recordLiveInputByDmxId = function(folderID, fileID, pFilename, 
 };
 PBAuto.prototype.recordLiveInputByName = function(liveInputResourcePath, pFilename, encodingPresetName, hours, minutes, seconds, frames, callback){
     /*
-     ** recordLiveInputByName(callback, liveInputResourcePath, pFilename, encodingPresetName, hours, minutes, seconds, frames)
+     ** recordLiveInputByName(liveInputResourcePath, pFilename, encodingPresetName, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -4780,7 +4780,7 @@ PBAuto.prototype.recordLiveInputByName = function(liveInputResourcePath, pFilena
 };
 PBAuto.prototype.recordLiveInputStartByDmxId = function(folderID, fileID, pFilename, encodingPresetName, callback){
     /*
-     ** recordLiveInputStartByDmxId(callback, folderID, fileID, pFilename, encodingPresetName)
+     ** recordLiveInputStartByDmxId(folderID, fileID, pFilename, encodingPresetName, callback)
      **  no description available
      **
      ** Arguments:
@@ -4810,7 +4810,7 @@ PBAuto.prototype.recordLiveInputStartByDmxId = function(folderID, fileID, pFilen
 };
 PBAuto.prototype.recordLiveInputStartByName = function(liveInputResourcePath, pFilename, encodingPresetName, callback){
     /*
-     ** recordLiveInputStartByName(callback, liveInputResourcePath, pFilename, encodingPresetName)
+     ** recordLiveInputStartByName(liveInputResourcePath, pFilename, encodingPresetName, callback)
      **  no description available
      **
      ** Arguments:
@@ -4840,7 +4840,7 @@ PBAuto.prototype.recordLiveInputStartByName = function(liveInputResourcePath, pF
 };
 PBAuto.prototype.recordLiveInputStop = function(callback){
     /*
-     ** recordLiveInputStop(callback)
+     ** recordLiveInputStop(callback, callback)
      **  no description available
      **
      ** Arguments:
@@ -4857,7 +4857,7 @@ PBAuto.prototype.recordLiveInputStop = function(callback){
 };
 PBAuto.prototype.refreshBrowserView = function(siteId, deviceId, callback){
     /*
-     ** refreshBrowserView(callback, siteId, deviceId)
+     ** refreshBrowserView(siteId, deviceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -4883,7 +4883,7 @@ PBAuto.prototype.refreshBrowserView = function(siteId, deviceId, callback){
 };
 PBAuto.prototype.reloadAndSpreadResource = function(resourcePath, callback){
     /*
-     ** reloadAndSpreadResource(callback, resourcePath)
+     ** reloadAndSpreadResource(resourcePath, callback)
      **  no description available
      **
      ** Arguments:
@@ -4905,7 +4905,7 @@ PBAuto.prototype.reloadAndSpreadResource = function(resourcePath, callback){
 };
 PBAuto.prototype.reloadMediaById = function(dmxFolderId, dmxFileId, callback){
     /*
-     ** reloadMediaById(callback, dmxFolderId, dmxFileId)
+     ** reloadMediaById(dmxFolderId, dmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -4933,7 +4933,7 @@ PBAuto.prototype.reloadMediaById = function(dmxFolderId, dmxFileId, callback){
 };
 PBAuto.prototype.reloadMeshById = function(dmxFolderId, dmxFileId, callback){
     /*
-     ** reloadMeshById(callback, dmxFolderId, dmxFileId)
+     ** reloadMeshById(dmxFolderId, dmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -4961,7 +4961,7 @@ PBAuto.prototype.reloadMeshById = function(dmxFolderId, dmxFileId, callback){
 };
 PBAuto.prototype.reloadResource = function(resourcePath, callback){
     /*
-     ** reloadResource(callback, resourcePath)
+     ** reloadResource(resourcePath, callback)
      **  no description available
      **
      ** Arguments:
@@ -4983,7 +4983,7 @@ PBAuto.prototype.reloadResource = function(resourcePath, callback){
 };
 PBAuto.prototype.removeAllCues = function(sequenceId, callback){
     /*
-     ** removeAllCues(callback, sequenceId)
+     ** removeAllCues(sequenceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -5003,7 +5003,7 @@ PBAuto.prototype.removeAllCues = function(sequenceId, callback){
 };
 PBAuto.prototype.removeAllResources = function(removeFolder, callback){
     /*
-     ** removeAllResources(callback, removeFolder)
+     ** removeAllResources(removeFolder, callback)
      **  no description available
      **
      ** Arguments:
@@ -5023,7 +5023,7 @@ PBAuto.prototype.removeAllResources = function(removeFolder, callback){
 };
 PBAuto.prototype.removeAssetOnSite = function(resourcePath, siteId, callback){
     /*
-     ** removeAssetOnSite(callback, resourcePath, siteId)
+     ** removeAssetOnSite(resourcePath, siteId, callback)
      **  no description available
      **
      ** Arguments:
@@ -5050,7 +5050,7 @@ PBAuto.prototype.removeAssetOnSite = function(resourcePath, siteId, callback){
 };
 PBAuto.prototype.removeAssetOnSiteById = function(dmxFolderId, dmxFileId, siteId, callback){
     /*
-     ** removeAssetOnSiteById(callback, dmxFolderId, dmxFileId, siteId)
+     ** removeAssetOnSiteById(dmxFolderId, dmxFileId, siteId, callback)
      **  no description available
      **
      ** Arguments:
@@ -5083,7 +5083,7 @@ PBAuto.prototype.removeAssetOnSiteById = function(dmxFolderId, dmxFileId, siteId
 };
 PBAuto.prototype.removeAssetOnSiteByTreeItem = function(treeItemIndex, siteId, callback){
     /*
-     ** removeAssetOnSiteByTreeItem(callback, treeItemIndex, siteId)
+     ** removeAssetOnSiteByTreeItem(treeItemIndex, siteId, callback)
      **  no description available
      **
      ** Arguments:
@@ -5110,7 +5110,7 @@ PBAuto.prototype.removeAssetOnSiteByTreeItem = function(treeItemIndex, siteId, c
 };
 PBAuto.prototype.removeContentByName = function(resourcePath, allEquallyNamed, callback){
     /*
-     ** removeContentByName(callback, resourcePath, allEquallyNamed)
+     ** removeContentByName(resourcePath, allEquallyNamed, callback)
      **  no description available
      **
      ** Arguments:
@@ -5136,7 +5136,7 @@ PBAuto.prototype.removeContentByName = function(resourcePath, allEquallyNamed, c
 };
 PBAuto.prototype.removeCueById = function(sequenceId, cueId, callback){
     /*
-     ** removeCueById(callback, sequenceId, cueId)
+     ** removeCueById(sequenceId, cueId, callback)
      **  no description available
      **
      ** Arguments:
@@ -5159,7 +5159,7 @@ PBAuto.prototype.removeCueById = function(sequenceId, cueId, callback){
 };
 PBAuto.prototype.removeFolderFromProject = function(projectPath, callback){
     /*
-     ** removeFolderFromProject(callback, projectPath)
+     ** removeFolderFromProject(projectPath, callback)
      **  no description available
      **
      ** Arguments:
@@ -5180,7 +5180,7 @@ PBAuto.prototype.removeFolderFromProject = function(projectPath, callback){
 };
 PBAuto.prototype.removeInconsistent = function(callback){
     /*
-     ** removeInconsistent(callback)
+     ** removeInconsistent(callback, callback)
      **  no description available
      **
      ** Arguments:
@@ -5197,7 +5197,7 @@ PBAuto.prototype.removeInconsistent = function(callback){
 };
 PBAuto.prototype.removeLayer = function(siteId, layerId, isGraphicLayer, callback){
     /*
-     ** removeLayer(callback, siteId, layerId, isGraphicLayer)
+     ** removeLayer(siteId, layerId, isGraphicLayer, callback)
      **  no description available
      **
      ** Arguments:
@@ -5225,7 +5225,7 @@ PBAuto.prototype.removeLayer = function(siteId, layerId, isGraphicLayer, callbac
 };
 PBAuto.prototype.removeMediaById = function(dmxFolderId, dmxFileId, callback){
     /*
-     ** removeMediaById(callback, dmxFolderId, dmxFileId)
+     ** removeMediaById(dmxFolderId, dmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -5253,7 +5253,7 @@ PBAuto.prototype.removeMediaById = function(dmxFolderId, dmxFileId, callback){
 };
 PBAuto.prototype.removeMeshById = function(dmxFolderId, dmxFileId, callback){
     /*
-     ** removeMeshById(callback, dmxFolderId, dmxFileId)
+     ** removeMeshById(dmxFolderId, dmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -5281,7 +5281,7 @@ PBAuto.prototype.removeMeshById = function(dmxFolderId, dmxFileId, callback){
 };
 PBAuto.prototype.removePlaylistEntryByDmxId = function(playlistDmxFolderId, playlistdmxFileId, index, callback){
     /*
-     ** removePlaylistEntryByDmxId(callback, playlistDmxFolderId, playlistdmxFileId, index)
+     ** removePlaylistEntryByDmxId(playlistDmxFolderId, playlistdmxFileId, index, callback)
      **  no description available
      **
      ** Arguments:
@@ -5307,7 +5307,7 @@ PBAuto.prototype.removePlaylistEntryByDmxId = function(playlistDmxFolderId, play
 };
 PBAuto.prototype.removePlaylistEntryByItemId = function(playlistItemId, index, callback){
     /*
-     ** removePlaylistEntryByItemId(callback, playlistItemId, index)
+     ** removePlaylistEntryByItemId(playlistItemId, index, callback)
      **  no description available
      **
      ** Arguments:
@@ -5330,7 +5330,7 @@ PBAuto.prototype.removePlaylistEntryByItemId = function(playlistItemId, index, c
 };
 PBAuto.prototype.removePlaylistEntryByPath = function(playlistPath, index, callback){
     /*
-     ** removePlaylistEntryByPath(callback, playlistPath, index)
+     ** removePlaylistEntryByPath(playlistPath, index, callback)
      **  no description available
      **
      ** Arguments:
@@ -5353,7 +5353,7 @@ PBAuto.prototype.removePlaylistEntryByPath = function(playlistPath, index, callb
 };
 PBAuto.prototype.removeSequence = function(sequenceId, callback) {
     /*
-     ** removeSequence(callback, sequenceId)
+     ** removeSequence(sequenceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -5373,7 +5373,7 @@ PBAuto.prototype.removeSequence = function(sequenceId, callback) {
 };
 PBAuto.prototype.removeTreeItem = function(treeItemIndex, callback){
     /*
-     ** removeTreeItem(callback, treeItemIndex)
+     ** removeTreeItem(treeItemIndex, callback)
      **  no description available
      **
      ** Arguments:
@@ -5395,7 +5395,7 @@ PBAuto.prototype.removeTreeItem = function(treeItemIndex, callback){
 };
 PBAuto.prototype.resetAll = function(callback){
     /*
-     ** resetAll(callback)
+     ** resetAll(callback, callback)
      **  no description available
      **
      ** Arguments:
@@ -5412,7 +5412,7 @@ PBAuto.prototype.resetAll = function(callback){
 };
 PBAuto.prototype.resetDevice = function(siteId, deviceId, callback){
     /*
-     ** resetDevice(callback, siteId, deviceId)
+     ** resetDevice(siteId, deviceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -5438,7 +5438,7 @@ PBAuto.prototype.resetDevice = function(siteId, deviceId, callback){
 };
 PBAuto.prototype.resetCueTriggerCount = function(sequenceId, cueId, callback){
     /*
-     ** resetCueTriggerCount(callback, sequenceId, cueId)
+     ** resetCueTriggerCount(sequenceId, cueId, callback)
      **  no description available
      **
      ** Arguments:
@@ -5461,7 +5461,7 @@ PBAuto.prototype.resetCueTriggerCount = function(sequenceId, cueId, callback){
 };
 PBAuto.prototype.resetParam = function(siteId, deviceId, parameterName, callback){
     /*
-     ** resetParam(callback, siteId, deviceId, parameterName)
+     ** resetParam(siteId, deviceId, parameterName, callback)
      **  no description available
      **
      ** Arguments:
@@ -5491,7 +5491,7 @@ PBAuto.prototype.resetParam = function(siteId, deviceId, parameterName, callback
 };
 PBAuto.prototype.resetSite = function(siteId, callback){
     /*
-     ** resetSite(callback, siteId)
+     ** resetSite(siteId, callback)
      **  no description available
      **
      ** Arguments:
@@ -5513,7 +5513,7 @@ PBAuto.prototype.resetSite = function(siteId, callback){
 };
 PBAuto.prototype.saveProject = function(callback){
     /*
-     ** saveProject(callback)
+     ** saveProject(callback, callback)
      **  no description available
      **
      ** Arguments:
@@ -5530,7 +5530,7 @@ PBAuto.prototype.saveProject = function(callback){
 };
 PBAuto.prototype.saveProjectAs = function(folderPathToProject, projectXmlFileName, callback){
     /*
-     ** saveProjectAs(callback, folderPathToProject, projectXmlFileName)
+     ** saveProjectAs(folderPathToProject, projectXmlFileName, callback)
      **  no description available
      **
      ** Arguments:
@@ -5553,7 +5553,7 @@ PBAuto.prototype.saveProjectAs = function(folderPathToProject, projectXmlFileNam
 };
 PBAuto.prototype.saveProjectCopy = function(folderPathToProject, projectXmlFileName, callback){
     /*
-     ** saveProjectCopy(callback, folderPathToProject, projectXmlFileName)
+     ** saveProjectCopy(folderPathToProject, projectXmlFileName, callback)
      **  no description available
      **
      ** Arguments:
@@ -5576,7 +5576,7 @@ PBAuto.prototype.saveProjectCopy = function(folderPathToProject, projectXmlFileN
 };
 PBAuto.prototype.sendCanvasCmdsToStackByDmxId = function(canvasDmxFolderId, canvasDmxFileId, doAddToStack, callback){
     /*
-     ** sendCanvasCmdsToStackByDmxId(callback, canvasDmxFolderId, canvasDmxFileId, doAddToStack)
+     ** sendCanvasCmdsToStackByDmxId(canvasDmxFolderId, canvasDmxFileId, doAddToStack, callback)
      **  no description available
      **
      ** Arguments:
@@ -5602,7 +5602,7 @@ PBAuto.prototype.sendCanvasCmdsToStackByDmxId = function(canvasDmxFolderId, canv
 };
 PBAuto.prototype.sendKeyboardInput = function(siteId, keyboardEventType, keyCode, callback){
     /*
-     ** sendKeyboardInput(callback, siteId, keyboardEventType, keyCode)
+     ** sendKeyboardInput(siteId, keyboardEventType, keyCode, callback)
      **  no description available
      **
      ** Arguments:
@@ -5630,7 +5630,7 @@ PBAuto.prototype.sendKeyboardInput = function(siteId, keyboardEventType, keyCode
 };
 PBAuto.prototype.sendMouseInput = function(siteId, deviceId, mouseEventType, screenPosX, screenPosY, firstPass, callback){
     /*
-     ** sendMouseInput(callback, siteId, deviceId, mouseEventType, screenPosX, screenPosY, firstPass)
+     ** sendMouseInput(siteId, deviceId, mouseEventType, screenPosX, screenPosY, firstPass, callback)
      **  no description available
      **
      ** Arguments:
@@ -5668,7 +5668,7 @@ PBAuto.prototype.sendMouseInput = function(siteId, deviceId, mouseEventType, scr
 };
 PBAuto.prototype.sendMouseScroll = function(siteId, deviceId, scrollValue, callback){
     /*
-     ** sendMouseScroll(callback, siteId, deviceId, scrollValue)
+     ** sendMouseScroll(siteId, deviceId, scrollValue, callback)
      **  no description available
      **
      ** Arguments:
@@ -5697,7 +5697,7 @@ PBAuto.prototype.sendMouseScroll = function(siteId, deviceId, scrollValue, callb
 };
 PBAuto.prototype.sendTouchInput = function(siteId, deviceId, touchId, touchType, screenPosX, screenPosY, firstPass, callback){
     /*
-     ** sendTouchInput(callback, siteId, deviceId, touchId, touchType, screenPosX, screenPosY, firstPass)
+     ** sendTouchInput(siteId, deviceId, touchId, touchType, screenPosX, screenPosY, firstPass, callback)
      **  no description available
      **
      ** Arguments:
@@ -5738,7 +5738,7 @@ PBAuto.prototype.sendTouchInput = function(siteId, deviceId, touchId, touchType,
 };
 PBAuto.prototype.setAddCanvasCmdsToStackByItemId = function(canvasItemId, doAddToStack, callback){
     /*
-     ** setAddCanvasCmdsToStackByItemId(callback, canvasItemId, doAddToStack)
+     ** setAddCanvasCmdsToStackByItemId(canvasItemId, doAddToStack, callback)
      **  no description available
      **
      ** Arguments:
@@ -5761,7 +5761,7 @@ PBAuto.prototype.setAddCanvasCmdsToStackByItemId = function(canvasItemId, doAddT
 };
 PBAuto.prototype.setAddCanvasCmdsToStackByPath = function(canvasResourcePath, doAddToStack, callback){
     /*
-     ** setAddCanvasCmdsToStackByPath(callback, canvasResourcePath, doAddToStack)
+     ** setAddCanvasCmdsToStackByPath(canvasResourcePath, doAddToStack, callback)
      **  no description available
      **
      ** Arguments:
@@ -5784,7 +5784,7 @@ PBAuto.prototype.setAddCanvasCmdsToStackByPath = function(canvasResourcePath, do
 };
 PBAuto.prototype.setAllActive = function(callback){
     /*
-     ** setAllActive(callback)
+     ** setAllActive(callback, callback)
      **  no description available
      **
      ** Arguments:
@@ -5801,7 +5801,7 @@ PBAuto.prototype.setAllActive = function(callback){
 };
 PBAuto.prototype.setASIOMasterVolume = function(siteId, asioVolume, callback){
     /*
-     ** setASIOMasterVolume(callback, siteId, asioVolume)
+     ** setASIOMasterVolume(siteId, asioVolume, callback)
      **  no description available
      **
      ** Arguments:
@@ -5826,7 +5826,7 @@ PBAuto.prototype.setASIOMasterVolume = function(siteId, asioVolume, callback){
 };
 PBAuto.prototype.setBrowserSize = function(dmxFolderId, dmxFileId, width, height, callback){
     /*
-     ** setBrowserSize(callback, dmxFolderId, dmxFileId, width, height)
+     ** setBrowserSize(dmxFolderId, dmxFileId, width, height, callback)
      **  no description available
      **
      ** Arguments:
@@ -5860,7 +5860,7 @@ PBAuto.prototype.setBrowserSize = function(dmxFolderId, dmxFileId, width, height
 };
 PBAuto.prototype.setBrowserSizeByName = function(browserProjectPath, width, height, callback){
     /*
-     ** setBrowserSizeByName(callback, browserProjectPath, width, height)
+     ** setBrowserSizeByName(browserProjectPath, width, height, callback)
      **  no description available
      **
      ** Arguments:
@@ -5886,7 +5886,7 @@ PBAuto.prototype.setBrowserSizeByName = function(browserProjectPath, width, heig
 };
 PBAuto.prototype.setBrowserURL = function(dmxFolderId, dmxFileId, url, callback){
     /*
-     ** setBrowserURL(callback, dmxFolderId, dmxFileId, url)
+     ** setBrowserURL(dmxFolderId, dmxFileId, url, callback)
      **  no description available
      **
      ** Arguments:
@@ -5917,7 +5917,7 @@ PBAuto.prototype.setBrowserURL = function(dmxFolderId, dmxFileId, url, callback)
 };
 PBAuto.prototype.setBrowserURLByName = function(browserProjectPath, url, callback){
     /*
-     ** setBrowserURLByName(callback, browserProjectPath, url)
+     ** setBrowserURLByName(browserProjectPath, url, callback)
      **  no description available
      **
      ** Arguments:
@@ -5940,7 +5940,7 @@ PBAuto.prototype.setBrowserURLByName = function(browserProjectPath, url, callbac
 };
 PBAuto.prototype.setCanvasResolutionByDmxId = function(canvasDmxFolderId, canvasDmxFileId, width, height, callback){
     /*
-     ** setCanvasResolutionByDmxId(callback, canvasDmxFolderId, canvasDmxFileId, width, height)
+     ** setCanvasResolutionByDmxId(canvasDmxFolderId, canvasDmxFileId, width, height, callback)
      **  no description available
      **
      ** Arguments:
@@ -5969,7 +5969,7 @@ PBAuto.prototype.setCanvasResolutionByDmxId = function(canvasDmxFolderId, canvas
 };
 PBAuto.prototype.setCanvasResolutionByItemId = function(canvasItemId, width, height, callback){
     /*
-     ** setCanvasResolutionByItemId(callback, canvasItemId, width, height)
+     ** setCanvasResolutionByItemId(canvasItemId, width, height, callback)
      **  no description available
      **
      ** Arguments:
@@ -5995,7 +5995,7 @@ PBAuto.prototype.setCanvasResolutionByItemId = function(canvasItemId, width, hei
 };
 PBAuto.prototype.setCanvasResolutionByPath = function(canvasResourcePath, width, height, callback){
     /*
-     ** setCanvasResolutionByPath(callback, canvasResourcePath, width, height)
+     ** setCanvasResolutionByPath(canvasResourcePath, width, height, callback)
      **  no description available
      **
      ** Arguments:
@@ -6021,7 +6021,7 @@ PBAuto.prototype.setCanvasResolutionByPath = function(canvasResourcePath, width,
 };
 PBAuto.prototype.setClxControllerCueMapping = function(cueBtnId, sequenceId, cueId, callback){
     /*
-     ** setClxControllerCueMapping(callback, cueBtnId, sequenceId, cueId)
+     ** setClxControllerCueMapping(cueBtnId, sequenceId, cueId, callback)
      **  no description available
      **
      ** Arguments:
@@ -6047,7 +6047,7 @@ PBAuto.prototype.setClxControllerCueMapping = function(cueBtnId, sequenceId, cue
 };
 PBAuto.prototype.setClxControllerFaderMapping = function(faderId, sequenceId, callback){
     /*
-     ** setClxControllerFaderMapping(callback, faderId, sequenceId)
+     ** setClxControllerFaderMapping(faderId, sequenceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -6070,7 +6070,7 @@ PBAuto.prototype.setClxControllerFaderMapping = function(faderId, sequenceId, ca
 };
 PBAuto.prototype.setContentAtTime = function(siteId, deviceId, sequenceId, hours, minutes, seconds, frames, dmxFolderId, dmxFileId, callback){
     /*
-     ** setContentAtTime(callback, siteId, deviceId, sequenceId, hours, minutes, seconds, frames, dmxFolderId, dmxFileId)
+     ** setContentAtTime(siteId, deviceId, sequenceId, hours, minutes, seconds, frames, dmxFolderId, dmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -6122,7 +6122,7 @@ PBAuto.prototype.setContentAtTime = function(siteId, deviceId, sequenceId, hours
 };
 PBAuto.prototype.setContentId = function(resourcePath, dmxFolderId, dmxFileId, callback){
     /*
-     ** setContentId(callback, resourcePath, dmxFolderId, dmxFileId)
+     ** setContentId(resourcePath, dmxFolderId, dmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -6155,7 +6155,7 @@ PBAuto.prototype.setContentId = function(resourcePath, dmxFolderId, dmxFileId, c
 };
 PBAuto.prototype.setCueJumpCount = function(sequenceId, cueId, jumpCount, callback){
     /*
-     ** setCueJumpCount(callback, sequenceId, cueId, jumpCount)
+     ** setCueJumpCount(sequenceId, cueId, jumpCount, callback)
      **  no description available
      **
      ** Arguments:
@@ -6181,7 +6181,7 @@ PBAuto.prototype.setCueJumpCount = function(sequenceId, cueId, jumpCount, callba
 };
 PBAuto.prototype.setCueName = function(sequenceId, cueId, cueName, callback){
     /*
-     ** setCueName(callback, sequenceId, cueId, cueName)
+     ** setCueName(sequenceId, cueId, cueName, callback)
      **  no description available
      **
      ** Arguments:
@@ -6207,7 +6207,7 @@ PBAuto.prototype.setCueName = function(sequenceId, cueId, cueName, callback){
 };
 PBAuto.prototype.setCuePlayMode = function(sequenceId, cueId, playMode, callback){
     /*
-     ** setCuePlayMode(callback, sequenceId, cueId, playMode)
+     ** setCuePlayMode(sequenceId, cueId, playMode, callback)
      **  no description available
      **
      ** Arguments:
@@ -6233,7 +6233,7 @@ PBAuto.prototype.setCuePlayMode = function(sequenceId, cueId, playMode, callback
 };
 PBAuto.prototype.setDeviceAcceptDmxById = function(siteId, deviceId, acceptDmx, callback){
     /*
-     ** setDeviceAcceptDmxById(callback, siteId, deviceId, acceptDmx)
+     ** setDeviceAcceptDmxById(siteId, deviceId, acceptDmx, callback)
      **  no description available
      **
      ** Arguments:
@@ -6262,7 +6262,7 @@ PBAuto.prototype.setDeviceAcceptDmxById = function(siteId, deviceId, acceptDmx, 
 };
 PBAuto.prototype.setDeviceActive = function(siteId, deviceId, callback){
     /*
-     ** setDeviceActive(callback, siteId, deviceId)
+     ** setDeviceActive(siteId, deviceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -6288,7 +6288,7 @@ PBAuto.prototype.setDeviceActive = function(siteId, deviceId, callback){
 };
 PBAuto.prototype.setDeviceDmxAddressById = function(siteId, deviceId, index, id1, id2, callback){
     /*
-     ** setDeviceDmxAddressById(callback, siteId, deviceId, index, id1, id2)
+     ** setDeviceDmxAddressById(siteId, deviceId, index, id1, id2, callback)
      **  no description available
      **
      ** Arguments:
@@ -6323,7 +6323,7 @@ PBAuto.prototype.setDeviceDmxAddressById = function(siteId, deviceId, index, id1
 };
 PBAuto.prototype.setDeviceSelection = function(siteId, deviceId, selectionMode, callback){
     /*
-     ** setDeviceSelection(callback, siteId, deviceId, selectionMode)
+     ** setDeviceSelection(siteId, deviceId, selectionMode, callback)
      **  no description available
      **
      ** Arguments:
@@ -6352,7 +6352,7 @@ PBAuto.prototype.setDeviceSelection = function(siteId, deviceId, selectionMode, 
 };
 PBAuto.prototype.setEnableClxController = function(forJogShuttle, enable, callback){
     /*
-     ** setEnableClxController(callback, forJogShuttle, enable)
+     ** setEnableClxController(forJogShuttle, enable, callback)
      **  no description available
      **
      ** Arguments:
@@ -6375,7 +6375,7 @@ PBAuto.prototype.setEnableClxController = function(forJogShuttle, enable, callba
 };
 PBAuto.prototype.setEnableOutputForPicking = function(siteId, outputId, enableInputPicking, callback){
     /*
-     ** setEnableOutputForPicking(callback, siteId, outputId, enableInputPicking)
+     ** setEnableOutputForPicking(siteId, outputId, enableInputPicking, callback)
      **  no description available
      **
      ** Arguments:
@@ -6403,7 +6403,7 @@ PBAuto.prototype.setEnableOutputForPicking = function(siteId, outputId, enableIn
 };
 PBAuto.prototype.setFolderSpreadToSite = function(projectPath, siteId, enable, callback){
     /*
-     ** setFolderSpreadToSite(callback, projectPath, siteId, enable)
+     ** setFolderSpreadToSite(projectPath, siteId, enable, callback)
      **  no description available
      **
      ** Arguments:
@@ -6432,7 +6432,7 @@ PBAuto.prototype.setFolderSpreadToSite = function(projectPath, siteId, enable, c
 };
 PBAuto.prototype.setFolderSpreadToSiteByItemId = function(treeItemIndex, siteId, enable, callback){
     /*
-     ** setFolderSpreadToSiteByItemId(callback, treeItemIndex, siteId, enable)
+     ** setFolderSpreadToSiteByItemId(treeItemIndex, siteId, enable, callback)
      **  no description available
      **
      ** Arguments:
@@ -6462,7 +6462,7 @@ PBAuto.prototype.setFolderSpreadToSiteByItemId = function(treeItemIndex, siteId,
 };
 PBAuto.prototype.setGroupSelection = function(groupIndex, selectionMode, callback){
     /*
-     ** setGroupSelection(callback, groupIndex, selectionMode)
+     ** setGroupSelection(groupIndex, selectionMode, callback)
      **  no description available
      **
      ** Arguments:
@@ -6485,7 +6485,7 @@ PBAuto.prototype.setGroupSelection = function(groupIndex, selectionMode, callbac
 };
 PBAuto.prototype.setIgnoreNextCue = function(sequenceId, doIgnore, callback){
     /*
-     ** setIgnoreNextCue(callback, sequenceId, doIgnore)
+     ** setIgnoreNextCue(sequenceId, doIgnore, callback)
      **  no description available
      **
      ** Arguments:
@@ -6508,7 +6508,7 @@ PBAuto.prototype.setIgnoreNextCue = function(sequenceId, doIgnore, callback){
 };
 PBAuto.prototype.setIsBackup = function(enable, callback){
     /*
-     ** setIsBackup(callback, enable)
+     ** setIsBackup(enable, callback)
      **  no description available
      **
      ** Arguments:
@@ -6528,7 +6528,7 @@ PBAuto.prototype.setIsBackup = function(enable, callback){
 };
 PBAuto.prototype.setIsSiteFullscreen = function(siteId, isFullscreen, callback){
     /*
-     ** setIsSiteFullscreen(callback, siteId, isFullscreen)
+     ** setIsSiteFullscreen(siteId, isFullscreen, callback)
      **  no description available
      **
      ** Arguments:
@@ -6553,7 +6553,7 @@ PBAuto.prototype.setIsSiteFullscreen = function(siteId, isFullscreen, callback){
 };
 PBAuto.prototype.setIsSiteFullscreenByIp = function(ipAddress, isFullscreen, callback){
     /*
-     ** setIsSiteFullscreenByIp(callback, ipAddress, isFullscreen)
+     ** setIsSiteFullscreenByIp(ipAddress, isFullscreen, callback)
      **  no description available
      **
      ** Arguments:
@@ -6576,7 +6576,7 @@ PBAuto.prototype.setIsSiteFullscreenByIp = function(ipAddress, isFullscreen, cal
 };
 PBAuto.prototype.setMediaAlphaChannelById = function(dmxFolderId, dmxFileId, useAlphaChannel, callback){
     /*
-     ** setMediaAlphaChannelById(callback, dmxFolderId, dmxFileId, useAlphaChannel)
+     ** setMediaAlphaChannelById(dmxFolderId, dmxFileId, useAlphaChannel, callback)
      **  no description available
      **
      ** Arguments:
@@ -6607,7 +6607,7 @@ PBAuto.prototype.setMediaAlphaChannelById = function(dmxFolderId, dmxFileId, use
 };
 PBAuto.prototype.setMediaAnisotropicFilteringById = function(dmxFolderId, dmxFileId, useFiltering, callback){
     /*
-     ** setMediaAnisotropicFilteringById(callback, dmxFolderId, dmxFileId, useFiltering)
+     ** setMediaAnisotropicFilteringById(dmxFolderId, dmxFileId, useFiltering, callback)
      **  no description available
      **
      ** Arguments:
@@ -6638,7 +6638,7 @@ PBAuto.prototype.setMediaAnisotropicFilteringById = function(dmxFolderId, dmxFil
 };
 PBAuto.prototype.setMediaDeinterlacingById = function(dmxFolderId, dmxFileId, deinterlacer, callback){
     /*
-     ** setMediaDeinterlacingById(callback, dmxFolderId, dmxFileId, deinterlacer)
+     ** setMediaDeinterlacingById(dmxFolderId, dmxFileId, deinterlacer, callback)
      **  no description available
      **
      ** Arguments:
@@ -6669,7 +6669,7 @@ PBAuto.prototype.setMediaDeinterlacingById = function(dmxFolderId, dmxFileId, de
 };
 PBAuto.prototype.setMediaFrameBlendingById = function(dmxFolderId, dmxFileId, frameBlended, callback){
     /*
-     ** setMediaFrameBlendingById(callback, dmxFolderId, dmxFileId, frameBlended)
+     ** setMediaFrameBlendingById(dmxFolderId, dmxFileId, frameBlended, callback)
      **  no description available
      **
      ** Arguments:
@@ -6700,7 +6700,7 @@ PBAuto.prototype.setMediaFrameBlendingById = function(dmxFolderId, dmxFileId, fr
 };
 PBAuto.prototype.setMediaMpegColourSpaceById = function(dmxFolderId, dmxFileId, useMpegColorSpace, callback){
     /*
-     ** setMediaMpegColourSpaceById(callback, dmxFolderId, dmxFileId, useMpegColorSpace)
+     ** setMediaMpegColourSpaceById(dmxFolderId, dmxFileId, useMpegColorSpace, callback)
      **  no description available
      **
      ** Arguments:
@@ -6731,7 +6731,7 @@ PBAuto.prototype.setMediaMpegColourSpaceById = function(dmxFolderId, dmxFileId, 
 };
 PBAuto.prototype.setMediaUnderscanById = function(dmxFolderId, dmxFileId, useUnderscan, callback){
     /*
-     ** setMediaUnderscanById(callback, dmxFolderId, dmxFileId, useUnderscan)
+     ** setMediaUnderscanById(dmxFolderId, dmxFileId, useUnderscan, callback)
      **  no description available
      **
      ** Arguments:
@@ -6762,7 +6762,7 @@ PBAuto.prototype.setMediaUnderscanById = function(dmxFolderId, dmxFileId, useUnd
 };
 PBAuto.prototype.setNextCuePlayMode = function(sequenceId, playMode, callback){
     /*
-     ** setNextCuePlayMode(callback, sequenceId, playMode)
+     ** setNextCuePlayMode(sequenceId, playMode, callback)
      **  no description available
      **
      ** Arguments:
@@ -6785,7 +6785,7 @@ PBAuto.prototype.setNextCuePlayMode = function(sequenceId, playMode, callback){
 };
 PBAuto.prototype.setNodeOfSiteIsAudioClockMaster = function(siteId, isMaster, callback){
     /*
-     ** setNodeOfSiteIsAudioClockMaster(callback, siteId, isMaster)
+     ** setNodeOfSiteIsAudioClockMaster(siteId, isMaster, callback)
      **  no description available
      **
      ** Arguments:
@@ -6810,7 +6810,7 @@ PBAuto.prototype.setNodeOfSiteIsAudioClockMaster = function(siteId, isMaster, ca
 };
 PBAuto.prototype.setParam = function(siteId, deviceId, parameterName, parameterValue, doSilent, doDirect, callback){
     /*
-     ** setParam(callback, siteId, deviceId, parameterName, parameterValue, doSilent, doDirect)
+     ** setParam(siteId, deviceId, parameterName, parameterValue, doSilent, doDirect, callback)
      **  no description available
      **
      ** Arguments:
@@ -6850,7 +6850,7 @@ PBAuto.prototype.setParam = function(siteId, deviceId, parameterName, parameterV
 };
 PBAuto.prototype.setParamActive = function(siteId, deviceId, parameterName, callback){
     /*
-     ** setParamActive(callback, siteId, deviceId, parameterName)
+     ** setParamActive(siteId, deviceId, parameterName, callback)
      **  no description available
      **
      ** Arguments:
@@ -6880,7 +6880,7 @@ PBAuto.prototype.setParamActive = function(siteId, deviceId, parameterName, call
 };
 PBAuto.prototype.setParamByteTuples = function(siteId, deviceId, parameterName, tupleDimension, tupleData, doSilent, doDirect, callback){
     /*
-     ** setParamByteTuples(callback, siteId, deviceId, parameterName, tupleDimension, tupleData, doSilent, doDirect)
+     ** setParamByteTuples(siteId, deviceId, parameterName, tupleDimension, tupleData, doSilent, doDirect, callback)
      **  no description available
      **
      ** Arguments:
@@ -6923,7 +6923,7 @@ PBAuto.prototype.setParamByteTuples = function(siteId, deviceId, parameterName, 
 };
 PBAuto.prototype.setParamLerpTime = function(siteId, deviceId, parameterName, smoothingTime, callback){
     /*
-     ** setParamLerpTime(callback, siteId, deviceId, parameterName, smoothingTime)
+     ** setParamLerpTime(siteId, deviceId, parameterName, smoothingTime, callback)
      **  no description available
      **
      ** Arguments:
@@ -6957,7 +6957,7 @@ PBAuto.prototype.setParamLerpTime = function(siteId, deviceId, parameterName, sm
 };
 PBAuto.prototype.setParamInSelection = function(parameterName, parameterValue, callback){
     /*
-     ** setParamInSelection(callback, parameterName, parameterValue)
+     ** setParamInSelection(parameterName, parameterValue, callback)
      **  no description available
      **
      ** Arguments:
@@ -6981,7 +6981,7 @@ PBAuto.prototype.setParamInSelection = function(parameterName, parameterValue, c
 };
 PBAuto.prototype.setParamInSelectionDouble = function(parameterName, parameterValue, callback){
     /*
-     ** setParamInSelectionDouble(callback, parameterName, parameterValue)
+     ** setParamInSelectionDouble(parameterName, parameterValue, callback)
      **  no description available
      **
      ** Arguments:
@@ -7005,7 +7005,7 @@ PBAuto.prototype.setParamInSelectionDouble = function(parameterName, parameterVa
 };
 PBAuto.prototype.setParamOfKind = function(siteId, deviceId, parameterKindId, parameterValue, doSilent, doDirect, callback){
     /*
-     ** setParamOfKind(callback, siteId, deviceId, parameterKindId, parameterValue, doSilent, doDirect)
+     ** setParamOfKind(siteId, deviceId, parameterKindId, parameterValue, doSilent, doDirect, callback)
      **  no description available
      **
      ** Arguments:
@@ -7045,7 +7045,7 @@ PBAuto.prototype.setParamOfKind = function(siteId, deviceId, parameterKindId, pa
 };
 PBAuto.prototype.setParamOfKindDouble = function(siteId, deviceId, parameterKindId, parameterValue, doSilent, doDirect, callback){
     /*
-     ** setParamOfKindDouble(callback, siteId, deviceId, parameterKindId, parameterValue, doSilent, doDirect)
+     ** setParamOfKindDouble(siteId, deviceId, parameterKindId, parameterValue, doSilent, doDirect, callback)
      **  no description available
      **
      ** Arguments:
@@ -7085,7 +7085,7 @@ PBAuto.prototype.setParamOfKindDouble = function(siteId, deviceId, parameterKind
 };
 PBAuto.prototype.setParamOfKindInSelection = function(parameterKindId, parameterValue, callback){
     /*
-     ** setParamOfKindInSelection(callback, parameterKindId, parameterValue)
+     ** setParamOfKindInSelection(parameterKindId, parameterValue, callback)
      **  no description available
      **
      ** Arguments:
@@ -7109,7 +7109,7 @@ PBAuto.prototype.setParamOfKindInSelection = function(parameterKindId, parameter
 };
 PBAuto.prototype.setParamOfKindInSelectionDouble = function(parameterKindId, parameterValue, callback){
     /*
-     ** setParamOfKindInSelectionDouble(callback, parameterKindId, parameterValue)
+     ** setParamOfKindInSelectionDouble(parameterKindId, parameterValue, callback)
      **  no description available
      **
      ** Arguments:
@@ -7133,7 +7133,7 @@ PBAuto.prototype.setParamOfKindInSelectionDouble = function(parameterKindId, par
 };
 PBAuto.prototype.setParamRaw = function(siteId, deviceId, parameterName, parameterValue, doSilent, doDirect, callback){
     /*
-     ** setParamRaw(callback, siteId, deviceId, parameterName, parameterValue, doSilent, doDirect)
+     ** setParamRaw(siteId, deviceId, parameterName, parameterValue, doSilent, doDirect, callback)
      **  no description available
      **
      ** Arguments:
@@ -7173,7 +7173,7 @@ PBAuto.prototype.setParamRaw = function(siteId, deviceId, parameterName, paramet
 };
 PBAuto.prototype.setParamRelative = function(siteId, deviceId, parameterName, parameterValue, callback){
     /*
-     ** setParamRelative(callback, siteId, deviceId, parameterName, parameterValue)
+     ** setParamRelative(siteId, deviceId, parameterName, parameterValue, callback)
      **  no description available
      **
      ** Arguments:
@@ -7206,7 +7206,7 @@ PBAuto.prototype.setParamRelative = function(siteId, deviceId, parameterName, pa
 };
 PBAuto.prototype.setParamRelativeExtended = function(siteId, deviceId, parameterName, parameterValue, doSilent, doDirect, callback){
     /*
-     ** setParamRelativeExtended(callback, siteId, deviceId, parameterName, parameterValue, doSilent, doDirect)
+     ** setParamRelativeExtended(siteId, deviceId, parameterName, parameterValue, doSilent, doDirect, callback)
      **  no description available
      **
      ** Arguments:
@@ -7246,7 +7246,7 @@ PBAuto.prototype.setParamRelativeExtended = function(siteId, deviceId, parameter
 };
 PBAuto.prototype.setParamRelativeInSelection = function(parameterName, parameterValue, callback){
     /*
-     ** setParamRelativeInSelection(callback, parameterName, parameterValue)
+     ** setParamRelativeInSelection(parameterName, parameterValue, callback)
      **  no description available
      **
      ** Arguments:
@@ -7270,7 +7270,7 @@ PBAuto.prototype.setParamRelativeInSelection = function(parameterName, parameter
 };
 PBAuto.prototype.setParamRelativeInSelectionDouble = function(parameterName, parameterValue, callback){
     /*
-     ** setParamRelativeInSelectionDouble(callback, parameterName, parameterValue)
+     ** setParamRelativeInSelectionDouble(parameterName, parameterValue, callback)
      **  no description available
      **
      ** Arguments:
@@ -7294,7 +7294,7 @@ PBAuto.prototype.setParamRelativeInSelectionDouble = function(parameterName, par
 };
 PBAuto.prototype.setPlaylistEntryDurationByDmxId = function(playlistDmxFolderId, playlistdmxFileId, index, hours, minutes, seconds, frames, callback){
     /*
-     ** setPlaylistEntryDurationByDmxId(callback, playlistDmxFolderId, playlistdmxFileId, index, hours, minutes, seconds, frames)
+     ** setPlaylistEntryDurationByDmxId(playlistDmxFolderId, playlistdmxFileId, index, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -7332,7 +7332,7 @@ PBAuto.prototype.setPlaylistEntryDurationByDmxId = function(playlistDmxFolderId,
 };
 PBAuto.prototype.setPlaylistEntryDurationByItemId = function(playlistItemId, index, hours, minutes, seconds, frames, callback){
     /*
-     ** setPlaylistEntryDurationByItemId(callback, playlistItemId, index, hours, minutes, seconds, frames)
+     ** setPlaylistEntryDurationByItemId(playlistItemId, index, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -7367,7 +7367,7 @@ PBAuto.prototype.setPlaylistEntryDurationByItemId = function(playlistItemId, ind
 };
 PBAuto.prototype.setPlaylistEntryDurationByPath = function(playlistPath, index, hours, minutes, seconds, frames, callback){
     /*
-     ** setPlaylistEntryDurationByPath(callback, playlistPath, index, hours, minutes, seconds, frames)
+     ** setPlaylistEntryDurationByPath(playlistPath, index, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -7402,7 +7402,7 @@ PBAuto.prototype.setPlaylistEntryDurationByPath = function(playlistPath, index, 
 };
 PBAuto.prototype.setPlaylistEntryFadeOutTimeByDmxId = function(playlistDmxFolderId, playlistdmxFileId, index, hours, minutes, seconds, frames, callback){
     /*
-     ** setPlaylistEntryFadeOutTimeByDmxId(callback, playlistDmxFolderId, playlistdmxFileId, index, hours, minutes, seconds, frames)
+     ** setPlaylistEntryFadeOutTimeByDmxId(playlistDmxFolderId, playlistdmxFileId, index, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -7440,7 +7440,7 @@ PBAuto.prototype.setPlaylistEntryFadeOutTimeByDmxId = function(playlistDmxFolder
 };
 PBAuto.prototype.setPlaylistEntryFadeOutTimeByItemId = function(playlistItemId, index, hours, minutes, seconds, frames, callback){
     /*
-     ** setPlaylistEntryFadeOutTimeByItemId(callback, playlistItemId, index, hours, minutes, seconds, frames)
+     ** setPlaylistEntryFadeOutTimeByItemId(playlistItemId, index, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -7475,7 +7475,7 @@ PBAuto.prototype.setPlaylistEntryFadeOutTimeByItemId = function(playlistItemId, 
 };
 PBAuto.prototype.setPlaylistEntryFadeOutTimeByPath = function(playlistPath, index, hours, minutes, seconds, frames, callback){
     /*
-     ** setPlaylistEntryFadeOutTimeByPath(callback, playlistPath, index, hours, minutes, seconds, frames)
+     ** setPlaylistEntryFadeOutTimeByPath(playlistPath, index, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -7510,7 +7510,7 @@ PBAuto.prototype.setPlaylistEntryFadeOutTimeByPath = function(playlistPath, inde
 };
 PBAuto.prototype.setPlaylistEntryIndexByDmxId = function(playlistDmxFolderId, playlistdmxFileId, index, newIndex, callback){
     /*
-     ** setPlaylistEntryIndexByDmxId(callback, playlistDmxFolderId, playlistdmxFileId, index, newIndex)
+     ** setPlaylistEntryIndexByDmxId(playlistDmxFolderId, playlistdmxFileId, index, newIndex, callback)
      **  no description available
      **
      ** Arguments:
@@ -7539,7 +7539,7 @@ PBAuto.prototype.setPlaylistEntryIndexByDmxId = function(playlistDmxFolderId, pl
 };
 PBAuto.prototype.setPlaylistEntryIndexByItemId = function(playlistItemId, index, newIndex, callback){
     /*
-     ** setPlaylistEntryIndexByItemId(callback, playlistItemId, index, newIndex)
+     ** setPlaylistEntryIndexByItemId(playlistItemId, index, newIndex, callback)
      **  no description available
      **
      ** Arguments:
@@ -7565,7 +7565,7 @@ PBAuto.prototype.setPlaylistEntryIndexByItemId = function(playlistItemId, index,
 };
 PBAuto.prototype.setPlaylistEntryIndexByPath = function(playlistPath, index, newIndex, callback){
     /*
-     ** setPlaylistEntryIndexByPath(callback, playlistPath, index, newIndex)
+     ** setPlaylistEntryIndexByPath(playlistPath, index, newIndex, callback)
      **  no description available
      **
      ** Arguments:
@@ -7591,7 +7591,7 @@ PBAuto.prototype.setPlaylistEntryIndexByPath = function(playlistPath, index, new
 };
 PBAuto.prototype.setPlaylistEntryInPointByDmxId = function(playlistDmxFolderId, playlistdmxFileId, index, hours, minutes, seconds, frames, callback){
     /*
-     ** setPlaylistEntryInPointByDmxId(callback, playlistDmxFolderId, playlistdmxFileId, index, hours, minutes, seconds, frames)
+     ** setPlaylistEntryInPointByDmxId(playlistDmxFolderId, playlistdmxFileId, index, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -7629,7 +7629,7 @@ PBAuto.prototype.setPlaylistEntryInPointByDmxId = function(playlistDmxFolderId, 
 };
 PBAuto.prototype.setPlaylistEntryInPointByItemId = function(playlistItemId, index, hours, minutes, seconds, frames, callback){
     /*
-     ** setPlaylistEntryInPointByItemId(callback, playlistItemId, index, hours, minutes, seconds, frames)
+     ** setPlaylistEntryInPointByItemId(playlistItemId, index, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -7664,7 +7664,7 @@ PBAuto.prototype.setPlaylistEntryInPointByItemId = function(playlistItemId, inde
 };
 PBAuto.prototype.setPlaylistEntryInPointByPath = function(playlistPath, index, hours, minutes, seconds, frames, callback){
     /*
-     ** setPlaylistEntryInPointByPath(callback, playlistPath, index, hours, minutes, seconds, frames)
+     ** setPlaylistEntryInPointByPath(playlistPath, index, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -7699,7 +7699,7 @@ PBAuto.prototype.setPlaylistEntryInPointByPath = function(playlistPath, index, h
 };
 PBAuto.prototype.setPlaylistEntryOutPointByDmxId = function(playlistDmxFolderId, playlistdmxFileId, index, hours, minutes, seconds, frames, callback){
     /*
-     ** setPlaylistEntryOutPointByDmxId(callback, playlistDmxFolderId, playlistdmxFileId, index, hours, minutes, seconds, frames)
+     ** setPlaylistEntryOutPointByDmxId(playlistDmxFolderId, playlistdmxFileId, index, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -7737,7 +7737,7 @@ PBAuto.prototype.setPlaylistEntryOutPointByDmxId = function(playlistDmxFolderId,
 };
 PBAuto.prototype.setPlaylistEntryOutPointByItemId = function(playlistItemId, index, hours, minutes, seconds, frames, callback){
     /*
-     ** setPlaylistEntryOutPointByItemId(callback, playlistItemId, index, hours, minutes, seconds, frames)
+     ** setPlaylistEntryOutPointByItemId(playlistItemId, index, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -7772,7 +7772,7 @@ PBAuto.prototype.setPlaylistEntryOutPointByItemId = function(playlistItemId, ind
 };
 PBAuto.prototype.setPlaylistEntryOutPointByPath = function(playlistPath, index, hours, minutes, seconds, frames, callback){
     /*
-     ** setPlaylistEntryOutPointByPath(callback, playlistPath, index, hours, minutes, seconds, frames)
+     ** setPlaylistEntryOutPointByPath(playlistPath, index, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -7807,7 +7807,7 @@ PBAuto.prototype.setPlaylistEntryOutPointByPath = function(playlistPath, index, 
 };
 PBAuto.prototype.setPlaylistEntryNoteByDmxId = function(playlistDmxFolderId, playlistdmxFileId, index, pNote, callback){
     /*
-     ** setPlaylistEntryNoteByDmxId(callback, playlistDmxFolderId, playlistdmxFileId, index, pNote)
+     ** setPlaylistEntryNoteByDmxId(playlistDmxFolderId, playlistdmxFileId, index, pNote, callback)
      **  no description available
      **
      ** Arguments:
@@ -7836,7 +7836,7 @@ PBAuto.prototype.setPlaylistEntryNoteByDmxId = function(playlistDmxFolderId, pla
 };
 PBAuto.prototype.setPlaylistEntryNoteByItemId = function(playlistItemId, index, pNote, callback){
     /*
-     ** setPlaylistEntryNoteByItemId(callback, playlistItemId, index, pNote)
+     ** setPlaylistEntryNoteByItemId(playlistItemId, index, pNote, callback)
      **  no description available
      **
      ** Arguments:
@@ -7862,7 +7862,7 @@ PBAuto.prototype.setPlaylistEntryNoteByItemId = function(playlistItemId, index, 
 };
 PBAuto.prototype.setPlaylistEntryNoteByPath = function(playlistPath, index, pNote, callback){
     /*
-     ** setPlaylistEntryNoteByPath(callback, playlistPath, index, pNote)
+     ** setPlaylistEntryNoteByPath(playlistPath, index, pNote, callback)
      **  no description available
      **
      ** Arguments:
@@ -7888,7 +7888,7 @@ PBAuto.prototype.setPlaylistEntryNoteByPath = function(playlistPath, index, pNot
 };
 PBAuto.prototype.setPlaylistEntryTransitionByDmxId = function(playlistDmxFolderId, playlistdmxFileId, index, fadeFxId, callback){
     /*
-     ** setPlaylistEntryTransitionByDmxId(callback, playlistDmxFolderId, playlistdmxFileId, index, fadeFxId)
+     ** setPlaylistEntryTransitionByDmxId(playlistDmxFolderId, playlistdmxFileId, index, fadeFxId, callback)
      **  no description available
      **
      ** Arguments:
@@ -7917,7 +7917,7 @@ PBAuto.prototype.setPlaylistEntryTransitionByDmxId = function(playlistDmxFolderI
 };
 PBAuto.prototype.setPlaylistEntryTransitionByItemId = function(playlistItemId, index, fadeFxId, callback){
     /*
-     ** setPlaylistEntryTransitionByItemId(callback, playlistItemId, index, fadeFxId)
+     ** setPlaylistEntryTransitionByItemId(playlistItemId, index, fadeFxId, callback)
      **  no description available
      **
      ** Arguments:
@@ -7943,7 +7943,7 @@ PBAuto.prototype.setPlaylistEntryTransitionByItemId = function(playlistItemId, i
 };
 PBAuto.prototype.setPlaylistEntryTransitionByPath = function(playlistPath, index, fadeFxId, callback){
     /*
-     ** setPlaylistEntryTransitionByPath(callback, playlistPath, index, fadeFxId)
+     ** setPlaylistEntryTransitionByPath(playlistPath, index, fadeFxId, callback)
      **  no description available
      **
      ** Arguments:
@@ -7969,7 +7969,7 @@ PBAuto.prototype.setPlaylistEntryTransitionByPath = function(playlistPath, index
 };
 PBAuto.prototype.setResourceNameByDmxId = function(dmxFolderId, dmxFileId, newResourceName, callback){
     /*
-     ** setResourceNameByDmxId(callback, dmxFolderId, dmxFileId, newResourceName)
+     ** setResourceNameByDmxId(dmxFolderId, dmxFileId, newResourceName, callback)
      **  no description available
      **
      ** Arguments:
@@ -8000,7 +8000,7 @@ PBAuto.prototype.setResourceNameByDmxId = function(dmxFolderId, dmxFileId, newRe
 };
 PBAuto.prototype.setResourceNameByItemIndex = function(treeItemIndex, newResourceName, callback){
     /*
-     ** setResourceNameByItemIndex(callback, treeItemIndex, newResourceName)
+     ** setResourceNameByItemIndex(treeItemIndex, newResourceName, callback)
      **  no description available
      **
      ** Arguments:
@@ -8025,7 +8025,7 @@ PBAuto.prototype.setResourceNameByItemIndex = function(treeItemIndex, newResourc
 };
 PBAuto.prototype.setResourceNameByPath = function(resourcePath, newResourceName, callback){
     /*
-     ** setResourceNameByPath(callback, resourcePath, newResourceName)
+     ** setResourceNameByPath(resourcePath, newResourceName, callback)
      **  no description available
      **
      ** Arguments:
@@ -8050,7 +8050,7 @@ PBAuto.prototype.setResourceNameByPath = function(resourcePath, newResourceName,
 };
 PBAuto.prototype.setRouteInputToAutomation = function(siteId, enableInputAutomation, callback){
     /*
-     ** setRouteInputToAutomation(callback, siteId, enableInputAutomation)
+     ** setRouteInputToAutomation(siteId, enableInputAutomation, callback)
      **  no description available
      **
      ** Arguments:
@@ -8075,7 +8075,7 @@ PBAuto.prototype.setRouteInputToAutomation = function(siteId, enableInputAutomat
 };
 PBAuto.prototype.setRouteInputToLayer = function(siteId, enableInputRouting, callback){
     /*
-     ** setRouteInputToLayer(callback, siteId, enableInputRouting)
+     ** setRouteInputToLayer(siteId, enableInputRouting, callback)
      **  no description available
      **
      ** Arguments:
@@ -8100,7 +8100,7 @@ PBAuto.prototype.setRouteInputToLayer = function(siteId, enableInputRouting, cal
 };
 PBAuto.prototype.setSequenceCueJumpTargetTime = function(sequenceId, cueId, hours, minutes, seconds, frames, callback){
     /*
-     ** setSequenceCueJumpTargetTime(callback, sequenceId, cueId, hours, minutes, seconds, frames)
+     ** setSequenceCueJumpTargetTime(sequenceId, cueId, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -8135,7 +8135,7 @@ PBAuto.prototype.setSequenceCueJumpTargetTime = function(sequenceId, cueId, hour
 };
 PBAuto.prototype.setSequenceCueWaitTime = function(sequenceId, cueId, hours, minutes, seconds, frames, callback){
     /*
-     ** setSequenceCueWaitTime(callback, sequenceId, cueId, hours, minutes, seconds, frames)
+     ** setSequenceCueWaitTime(sequenceId, cueId, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -8170,7 +8170,7 @@ PBAuto.prototype.setSequenceCueWaitTime = function(sequenceId, cueId, hours, min
 };
 PBAuto.prototype.setSequenceSelection = function(sequenceId, callback){
     /*
-     ** setSequenceSelection(callback, sequenceId)
+     ** setSequenceSelection(sequenceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -8190,7 +8190,7 @@ PBAuto.prototype.setSequenceSelection = function(sequenceId, callback){
 };
 PBAuto.prototype.setSequenceTimeCodeMode = function(sequenceId, timeCodeMode, callback){
     /*
-     ** setSequenceTimeCodeMode(callback, sequenceId, timeCodeMode)
+     ** setSequenceTimeCodeMode(sequenceId, timeCodeMode, callback)
      **  no description available
      **
      ** Arguments:
@@ -8213,7 +8213,7 @@ PBAuto.prototype.setSequenceTimeCodeMode = function(sequenceId, timeCodeMode, ca
 };
 PBAuto.prototype.setSequenceTimeCodeOffset = function(sequenceId, hours, minutes, seconds, frames, callback){
     /*
-     ** setSequenceTimeCodeOffset(callback, sequenceId, hours, minutes, seconds, frames)
+     ** setSequenceTimeCodeOffset(sequenceId, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -8245,7 +8245,7 @@ PBAuto.prototype.setSequenceTimeCodeOffset = function(sequenceId, hours, minutes
 };
 PBAuto.prototype.setSequenceTimeCodeStopAction = function(sequenceId, stopAction, callback){
     /*
-     ** setSequenceTimeCodeStopAction(callback, sequenceId, stopAction)
+     ** setSequenceTimeCodeStopAction(sequenceId, stopAction, callback)
      **  no description available
      **
      ** Arguments:
@@ -8268,7 +8268,7 @@ PBAuto.prototype.setSequenceTimeCodeStopAction = function(sequenceId, stopAction
 };
 PBAuto.prototype.setSequenceTransparency = function(sequenceId, transparency, callback){
     /*
-     ** setSequenceTransparency(callback, sequenceId, transparency)
+     ** setSequenceTransparency(sequenceId, transparency, callback)
      **  no description available
      **
      ** Arguments:
@@ -8291,7 +8291,7 @@ PBAuto.prototype.setSequenceTransparency = function(sequenceId, transparency, ca
 };
 PBAuto.prototype.setSequenceTransportMode = function(sequenceId, transportMode, callback){
     /*
-     ** setSequenceTransportMode(callback, sequenceId, transportMode)
+     ** setSequenceTransportMode(sequenceId, transportMode, callback)
      **  no description available
      **
      ** Arguments:
@@ -8315,7 +8315,7 @@ PBAuto.prototype.setSequenceTransportMode = function(sequenceId, transportMode, 
 };
 PBAuto.prototype.setShowCursorInFullscreen = function(siteId, showCursor, callback){
     /*
-     ** setShowCursorInFullscreen(callback, siteId, showCursor)
+     ** setShowCursorInFullscreen(siteId, showCursor, callback)
      **  no description available
      **
      ** Arguments:
@@ -8340,7 +8340,7 @@ PBAuto.prototype.setShowCursorInFullscreen = function(siteId, showCursor, callba
 };
 PBAuto.prototype.setSiteAcceptDmxById = function(siteId, acceptDmx, callback){
     /*
-     ** setSiteAcceptDmxById(callback, siteId, acceptDmx)
+     ** setSiteAcceptDmxById(siteId, acceptDmx, callback)
      **  no description available
      **
      ** Arguments:
@@ -8365,7 +8365,7 @@ PBAuto.prototype.setSiteAcceptDmxById = function(siteId, acceptDmx, callback){
 };
 PBAuto.prototype.setSiteActive = function(siteId, callback){
     /*
-     ** setSiteActive(callback, siteId)
+     ** setSiteActive(siteId, callback)
      **  no description available
      **
      ** Arguments:
@@ -8387,7 +8387,7 @@ PBAuto.prototype.setSiteActive = function(siteId, callback){
 };
 PBAuto.prototype.setSiteDmxAddressById = function(siteId, index, id1, id2, callback){
     /*
-     ** setSiteDmxAddressById(callback, siteId, index, id1, id2)
+     ** setSiteDmxAddressById(siteId, index, id1, id2, callback)
      **  no description available
      **
      ** Arguments:
@@ -8418,7 +8418,7 @@ PBAuto.prototype.setSiteDmxAddressById = function(siteId, index, id1, id2, callb
 };
 PBAuto.prototype.setSiteIpById = function(siteId, ip, callback){
     /*
-     ** setSiteIpById(callback, siteId, Ip)
+     ** setSiteIpById(siteId, Ip, callback)
      **  no description available
      **
      ** Arguments:
@@ -8443,7 +8443,7 @@ PBAuto.prototype.setSiteIpById = function(siteId, ip, callback){
 };
 PBAuto.prototype.setSpareFromSpread = function(siteId, spareFromSpread, callback){
     /*
-     ** setSpareFromSpread(callback, siteId, spareFromSpread)
+     ** setSpareFromSpread(siteId, spareFromSpread, callback)
      **  no description available
      **
      ** Arguments:
@@ -8468,7 +8468,7 @@ PBAuto.prototype.setSpareFromSpread = function(siteId, spareFromSpread, callback
 };
 PBAuto.prototype.setSublayerParamOfKindDouble = function(siteId, deviceId, sublayerId, parameterKindId, parameterValue, doSilent, doDirect, callback){
     /*
-     ** setSublayerParamOfKindDouble(callback, siteId, deviceId, sublayerId, parameterKindId, parameterValue, doSilent, doDirect)
+     ** setSublayerParamOfKindDouble(siteId, deviceId, sublayerId, parameterKindId, parameterValue, doSilent, doDirect, callback)
      **  no description available
      **
      ** Arguments:
@@ -8511,7 +8511,7 @@ PBAuto.prototype.setSublayerParamOfKindDouble = function(siteId, deviceId, subla
 };
 PBAuto.prototype.setText = function(dmxFolderId, dmxFileId, text, callback){
     /*
-     ** setText(callback, dmxFolderId, dmxFileId, text)
+     ** setText(dmxFolderId, dmxFileId, text, callback)
      **  no description available
      **
      ** Arguments:
@@ -8542,7 +8542,7 @@ PBAuto.prototype.setText = function(dmxFolderId, dmxFileId, text, callback){
 };
 PBAuto.prototype.setTextCenterOnTexture = function(dmxFolderId, dmxFileId, centerOnTexture, callback){
     /*
-     ** setTextCenterOnTexture(callback, dmxFolderId, dmxFileId, centerOnTexture)
+     ** setTextCenterOnTexture(dmxFolderId, dmxFileId, centerOnTexture, callback)
      **  no description available
      **
      ** Arguments:
@@ -8573,7 +8573,7 @@ PBAuto.prototype.setTextCenterOnTexture = function(dmxFolderId, dmxFileId, cente
 };
 PBAuto.prototype.setTextFormatted = function(dmxFolderId, dmxFileId, text, isFormatted, callback){
     /*
-     ** setTextFormatted(callback, dmxFolderId, dmxFileId, text, isFormatted)
+     ** setTextFormatted(dmxFolderId, dmxFileId, text, isFormatted, callback)
      **  no description available
      **
      ** Arguments:
@@ -8608,7 +8608,7 @@ PBAuto.prototype.setTextFormatted = function(dmxFolderId, dmxFileId, text, isFor
 };
 PBAuto.prototype.setTextFormattedWide = function(dmxFolderId, dmxFileId, text, isFormatted, callback){
     /*
-     ** setTextFormattedWide(callback, dmxFolderId, dmxFileId, text, isFormatted)
+     ** setTextFormattedWide(dmxFolderId, dmxFileId, text, isFormatted, callback)
      **  no description available
      **
      ** Arguments:
@@ -8643,7 +8643,7 @@ PBAuto.prototype.setTextFormattedWide = function(dmxFolderId, dmxFileId, text, i
 };
 PBAuto.prototype.setTextProperties = function(dmxFolderId, dmxFileId, fontFamily, size, style, alignment, colorRed, colorGreen, colorBlue, callback){
     /*
-     ** setTextProperties(callback, dmxFolderId, dmxFileId, FontFamily, size, style, alignment, colorRed, colorGreen, colorBlue)
+     ** setTextProperties(dmxFolderId, dmxFileId, FontFamily, size, style, alignment, colorRed, colorGreen, colorBlue, callback)
      **  no description available
      **
      ** Arguments:
@@ -8692,7 +8692,7 @@ PBAuto.prototype.setTextProperties = function(dmxFolderId, dmxFileId, fontFamily
 };
 PBAuto.prototype.setTextTextureSize = function(dmxFolderId, dmxFileId, width, height, callback){
     /*
-     ** setTextTextureSize(callback, dmxFolderId, dmxFileId, width, height)
+     ** setTextTextureSize(dmxFolderId, dmxFileId, width, height, callback)
      **  no description available
      **
      ** Arguments:
@@ -8726,7 +8726,7 @@ PBAuto.prototype.setTextTextureSize = function(dmxFolderId, dmxFileId, width, he
 };
 PBAuto.prototype.setTextWide = function(dmxFolderId, dmxFileId, text, callback){
     /*
-     ** setTextWide(callback, dmxFolderId, dmxFileId, text)
+     ** setTextWide(dmxFolderId, dmxFileId, text, callback)
      **  no description available
      **
      ** Arguments:
@@ -8757,7 +8757,7 @@ PBAuto.prototype.setTextWide = function(dmxFolderId, dmxFileId, text, callback){
 };
 PBAuto.prototype.setWatchedFolderProperty = function(projectPath, watchFolderProperty, enable, callback){
     /*
-     ** setWatchedFolderProperty(callback, projectPath, watchFolderProperty, enable)
+     ** setWatchedFolderProperty(projectPath, watchFolderProperty, enable, callback)
      **  no description available
      **
      ** Arguments:
@@ -8784,7 +8784,7 @@ PBAuto.prototype.setWatchedFolderProperty = function(projectPath, watchFolderPro
 };
 PBAuto.prototype.setWatchedFolderPropertyByItemId = function(treeItemIndex, watchFolderProperty, enable, callback){
     /*
-     ** setWatchedFolderPropertyByItemId(callback, treeItemIndex, watchFolderProperty, enable)
+     ** setWatchedFolderPropertyByItemId(treeItemIndex, watchFolderProperty, enable, callback)
      **  no description available
      **
      ** Arguments:
@@ -8812,7 +8812,7 @@ PBAuto.prototype.setWatchedFolderPropertyByItemId = function(treeItemIndex, watc
 };
 PBAuto.prototype.spreadAll = function(callback){
     /*
-     ** spreadAll(callback)
+     ** spreadAll(callback, callback)
      **  no description available
      **
      ** Arguments:
@@ -8829,7 +8829,7 @@ PBAuto.prototype.spreadAll = function(callback){
 };
 PBAuto.prototype.spreadMediaById = function(dmxFolderId, dmxFileId, callback){
     /*
-     ** spreadMediaById(callback, dmxFolderId, dmxFileId)
+     ** spreadMediaById(dmxFolderId, dmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -8857,7 +8857,7 @@ PBAuto.prototype.spreadMediaById = function(dmxFolderId, dmxFileId, callback){
 };
 PBAuto.prototype.spreadMeshById = function(dmxFolderId, dmxFileId, callback){
     /*
-     ** spreadMeshById(callback, dmxFolderId, dmxFileId)
+     ** spreadMeshById(dmxFolderId, dmxFileId, callback)
      **  no description available
      **
      ** Arguments:
@@ -8885,7 +8885,7 @@ PBAuto.prototype.spreadMeshById = function(dmxFolderId, dmxFileId, callback){
 };
 PBAuto.prototype.spreadResource = function(resourcePath, callback){
     /*
-     ** spreadResource(callback, resourcePath)
+     ** spreadResource(resourcePath, callback)
      **  no description available
      **
      ** Arguments:
@@ -8907,7 +8907,7 @@ PBAuto.prototype.spreadResource = function(resourcePath, callback){
 };
 PBAuto.prototype.spreadToSite = function(resourcePath, siteId, callback){
     /*
-     ** spreadToSite(callback, resourcePath, siteId)
+     ** spreadToSite(resourcePath, siteId, callback)
      **  no description available
      **
      ** Arguments:
@@ -8934,7 +8934,7 @@ PBAuto.prototype.spreadToSite = function(resourcePath, siteId, callback){
 };
 PBAuto.prototype.storeActive = function(sequenceId, callback){
     /*
-     ** storeActive(callback, sequenceId)
+     ** storeActive(sequenceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -8954,7 +8954,7 @@ PBAuto.prototype.storeActive = function(sequenceId, callback){
 };
 PBAuto.prototype.storeActiveDevice = function(sequenceId, siteId, deviceId, callback){
     /*
-     ** storeActiveDevice(callback, sequenceId, siteId, deviceId)
+     ** storeActiveDevice(sequenceId, siteId, deviceId, callback)
      **  no description available
      **
      ** Arguments:
@@ -8983,7 +8983,7 @@ PBAuto.prototype.storeActiveDevice = function(sequenceId, siteId, deviceId, call
 };
 PBAuto.prototype.storeActiveParam = function(sequenceId, siteId, deviceId, parameterName, callback){
     /*
-     ** storeActiveParam(callback, sequenceId, siteId, deviceId, parameterName)
+     ** storeActiveParam(sequenceId, siteId, deviceId, parameterName, callback)
      **  no description available
      **
      ** Arguments:
@@ -9016,7 +9016,7 @@ PBAuto.prototype.storeActiveParam = function(sequenceId, siteId, deviceId, param
 };
 PBAuto.prototype.storeActiveSite = function(sequenceId, siteId, callback){
     /*
-     ** storeActiveSite(callback, sequenceId, siteId)
+     ** storeActiveSite(sequenceId, siteId, callback)
      **  no description available
      **
      ** Arguments:
@@ -9041,7 +9041,7 @@ PBAuto.prototype.storeActiveSite = function(sequenceId, siteId, callback){
 };
 PBAuto.prototype.storeActiveToTime = function(sequenceId, hours, minutes, seconds, frames, callback){
     /*
-     ** storeActiveToTime(callback, sequenceId, hours, minutes, seconds, frames)
+     ** storeActiveToTime(sequenceId, hours, minutes, seconds, frames, callback)
      **  no description available
      **
      ** Arguments:
@@ -9073,7 +9073,7 @@ PBAuto.prototype.storeActiveToTime = function(sequenceId, hours, minutes, second
 };
 PBAuto.prototype.toggleFullscreen = function(siteId, callback){
     /*
-     ** toggleFullscreen(callback, siteId)
+     ** toggleFullscreen(siteId, callback)
      **  no description available
      **
      ** Arguments:
