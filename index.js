@@ -865,7 +865,7 @@ function testPbUtilBytes(){
 
 function PBAuto(options) {
     pbHost =  options.ip; // IP Address of PB Server
-    pbPort = typeof options.port !== 'undefined' ? port : 6214; // PB Web server port. Default 6214
+    pbPort = typeof options.port !== 'undefined' ? options.port : 6214; // PB Web server port. Default 6214
 }
 
 // Alphabetized
