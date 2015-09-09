@@ -1,6 +1,8 @@
 # pandora-node
 node.js module for Coolux Pandora's Box SDK
 
+Also check out [node-pbwidget](https://github.com/justinireland/node-pbwidget) which allows you to run any widget command from node.js.
+
 ## Project Links
 * [github](https://github.com/justinireland/pandora-node)
 * [npm](https://www.npmjs.com/package/pandora-node)
